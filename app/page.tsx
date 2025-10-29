@@ -4,7 +4,6 @@ import InfoArticle from '@/components/InfoArticle';
 import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
 import PageSection from '@/components/PageSection';
 import infoService from '@/lib/InfoService';
-import { HEADER_LINE_1, HEADER_LINE_2 } from 'lib/constants';
 import MainContent from '@/features/MainContent';
 
 import styles from '@/styles/index.module.css';
@@ -20,7 +19,7 @@ async function Home(): Promise<JSX.Element> {
 
   return (
     <HeaderMainLayout>
-      <HeaderImage text1={HEADER_LINE_1} text2={HEADER_LINE_2} imageClass={styles.headerimage} />
+      <HeaderImage imageClass={styles.headerimage} />
       <PageSection headline="Aktuelles" id="aktuelles" subSection className="page-section pb-4 sm:pb-8">
         {infos?.map(info => (
           <InfoArticle key={info._id} headline={info.title || ''}>

@@ -1,6 +1,6 @@
 'use client';
 
-import { PageLink, PageSection } from '@salzpate/react-ui';
+import { PageSection } from '@salzpate/react-ui';
 import { JSX } from 'react';
 
 function Spenden(): JSX.Element {

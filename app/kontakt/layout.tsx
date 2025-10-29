@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
 import { SITE_TITLE } from '@/lib/constants';
 import HeaderImage from '@/components/Header/HeaderImage/HeaderImage';
-import styles from '@/styles/kontakt.module.css';
+import styles from '@/styles/index.module.css';
 
 export const metadata: Metadata = {
   title: `Kontakt - ${SITE_TITLE}`,

@@ -1,6 +1,6 @@
-import { defineQuery, FilteredResponseQueryOptions } from "next-sanity";
-import { client } from "./sanityClient";
-import { INFO_QUERYResult } from "@/types/sanityTypes";
+import { defineQuery, FilteredResponseQueryOptions } from 'next-sanity';
+import { client } from './sanityClient';
+import { INFO_QUERYResult } from '@/types/sanityTypes';
 
 const INFO_QUERY = defineQuery('*[_type == "info"]{ _id, title, message }');
 

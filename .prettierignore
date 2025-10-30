@@ -20,12 +20,14 @@ CHANGELOG.md
 SECURITY.md
 README.md
 LICENSE
+tsconfig.tsbuildinfo
 **/.env
 **/.npmrc
 **/.editorconfig
 **/.gitignore
 **/.prettierignore
 **/.stylelintignore
+**/tsconfig.tsbuildinfo
 **/.next
 **/*.xml
 **/*.txt

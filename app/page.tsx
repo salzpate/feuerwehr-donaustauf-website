@@ -23,7 +23,11 @@ async function Home(): Promise<JSX.Element> {
       <PageSection headline="Aktuelles" id="aktuelles" subSection className="page-section pb-4 sm:pb-8">
         {infos?.map(info => (
           <InfoArticle key={info._id} headline={info.title || ''}>
-            {Array.isArray(info.message) && <div className="index-page-article"><PortableText value={info.message} /></div>}
+            {Array.isArray(info.message) && (
+              <div className="index-page-article">
+                <PortableText value={info.message} />
+              </div>
+            )}
           </InfoArticle>
         ))}
       </PageSection>

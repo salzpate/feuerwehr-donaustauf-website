@@ -20,9 +20,9 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
 
   return (
     <>
-      <header className={cn("fixed z-10 w-full dark:bg-gray-900", styles.background)}>
+      <header className={cn('fixed z-10 w-full dark:bg-gray-900', styles.background)}>
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className={cn("flex h-14 items-center justify-between sm:h-16", styles.margin)}>
+          <div className={cn('flex h-14 items-center justify-between sm:h-16', styles.margin)}>
             <div className="flex items-center">
               <div className="shrink-0 bg-secondary dark:bg-black">
                 <Link href="/" className={styles.logo} tabIndex={-1}>
@@ -31,8 +31,8 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
               </div>
             </div>
             <div className="hidden md:flex">
-              <div className="inline-flex items-center justify-center space-x-6 bg-secondary py-1 px-4 dark:bg-black">
-                {navMenuItems.map((item) => {
+              <div className="inline-flex items-center justify-center space-x-6 bg-secondary px-4 py-1 dark:bg-black">
+                {navMenuItems.map(item => {
                   return (
                     <NavBarLink key={`main-menu-${item.activeMenuName}`} href={item.href} activeMenuName={item.activeMenuName} activeMenu={activeMenu}>
                       {item.children}
@@ -41,8 +41,11 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
                 })}
               </div>
             </div>
-            <div className="-mr-2 flex md:hidden bg-secondary dark:bg-black">
-              <button className="text-white inline-flex items-center justify-center rounded-full p-2 transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:text-white/87 dark:hover:bg-blue-400" onClick={() => setIsOn(true)}>
+            <div className="-mr-2 flex bg-secondary md:hidden dark:bg-black">
+              <button
+                className="inline-flex items-center justify-center rounded-full p-2 text-white transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:text-white/87 dark:hover:bg-blue-400"
+                onClick={() => setIsOn(true)}
+              >
                 <svg className="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -72,7 +75,7 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
             &nbsp;
           </Link>
         </span>
-        {navMenuItems.map((item) => {
+        {navMenuItems.map(item => {
           return (
             <span key={`mobile-menu-${item.activeMenuName}`} className="mb-1 flex px-2">
               <NavLink href={item.href} activeMenuName={item.activeMenuName} activeMenu={activeMenu}>

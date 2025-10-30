@@ -1,20 +1,11 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-import reactPlugin from "eslint-plugin-react";
-import nextVitals from 'eslint-config-next/core-web-vitals'
-import nextTs from 'eslint-config-next/typescript'
+import { defineConfig, globalIgnores } from 'eslint/config';
+import reactPlugin from 'eslint-plugin-react';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
 import prettier from 'eslint-config-prettier';
 
 const eslintConfig = defineConfig([
-  globalIgnores([
-    '.next/**',
-    'out/**',
-    'build/**',
-    'next-env.d.ts',
-    '!node_modules/',
-    '/dist/**',
-    'postcss.config.mjs',
-    '**/setupTests.ts'
-  ]),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', '!node_modules/', '/dist/**', 'postcss.config.mjs', '**/setupTests.ts']),
   ...nextVitals,
   ...nextTs,
   prettier,
@@ -29,6 +20,6 @@ const eslintConfig = defineConfig([
       'react/react-in-jsx-scope': 'off',
     },
   },
-])
+]);
 
-export default eslintConfig
+export default eslintConfig;

@@ -19,7 +19,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
   const frOpsCount = frOps?.filter((ops) => new Date(ops.date ?? '').getFullYear() === year).length ?? 0;
   const ffOpsCount = ffOps?.filter((ops) => new Date(ops.date ?? '').getFullYear() === year).length ?? 0;
 
-  return <PageSection headline="Einsätze" id="einsatz-content" subSection className="page-section main-content-index-image pb-6 sm:pb-8 bg-gray-100">
+  return <PageSection headline="Einsätze" id="einsatz-content" subSection className="page-section main-content-index-image pb-6 sm:pb-8 bg-gray-100 dark:bg-gray-900">
     <div className="flex flex-wrap">
       <div className="w-full md:w-1/2">
         <div className="mr-2">

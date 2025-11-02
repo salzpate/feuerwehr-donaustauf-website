@@ -21,7 +21,7 @@ function Operation(props: Readonly<OperationsProps>): JSX.Element {
   const obDate = `${dateObject.getDate().toString().padStart(2, "0")}.${(dateObject.getMonth() + 1).toString().padStart(2, "0")}.${dateObject.getFullYear()} ${dateObject.getHours().toString().padStart(2, "0")}:${dateObject.getMinutes().toString().padStart(2, "0")}`
 
   return (
-    <div className={cn('mb-2 p-2', { 'bg-gray-100': !alternate, 'bg-white': alternate })}>
+    <div className={cn('mb-2 p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate })}>
       <div className='text-base font-bold'>{title}</div>
       <div className='flex text-sm mt-2 items-center'>
         <div className='pr-2'>

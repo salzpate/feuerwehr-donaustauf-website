@@ -13,6 +13,48 @@
  */
 
 // Source: schema.json
+export type Einsatz = {
+  _id: string;
+  _type: 'einsatz';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  locality?: string;
+  data?: string;
+  category?: 'Br\xE4nde' | 'First Responder THL' | 'THL' | '\xDCbungen / Lehrg\xE4nge / Veranstaltungen' | 'Wasserdienst' | 'Besondere Eins\xE4tze' | 'Sicherheitswache';
+  ffNr?: number;
+  frNr?: number;
+  alias?: Slug;
+};
+
+export type Info = {
+  _id: string;
+  _type: 'info';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  message?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: 'span';
+      _key: string;
+    }>;
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+    listItem?: 'bullet' | 'number';
+    markDefs?: Array<{
+      href?: string;
+      _type: 'link';
+      _key: string;
+    }>;
+    level?: number;
+    _type: 'block';
+    _key: string;
+  }>;
+};
+
 export type SanityImagePaletteSwatch = {
   _type: 'sanity.imagePaletteSwatch';
   background?: string;
@@ -131,34 +173,9 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type Info = {
-  _id: string;
-  _type: 'info';
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  message?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: 'span';
-      _key: string;
-    }>;
-    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
-    listItem?: 'bullet' | 'number';
-    markDefs?: Array<{
-      href?: string;
-      _type: 'link';
-      _key: string;
-    }>;
-    level?: number;
-    _type: 'block';
-    _key: string;
-  }>;
-};
-
 export type AllSanitySchemaTypes =
+  | Einsatz
+  | Info
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
@@ -169,8 +186,7 @@ export type AllSanitySchemaTypes =
   | SanityImageMetadata
   | Geopoint
   | Slug
-  | SanityAssetSourceData
-  | Info;
+  | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./lib/InfoService.ts
 // Variable: INFO_QUERY

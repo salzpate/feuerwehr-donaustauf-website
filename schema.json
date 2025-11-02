@@ -48,7 +48,7 @@
         },
         "optional": true
       },
-      "data": {
+      "date": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -110,7 +110,7 @@
         },
         "optional": true
       },
-      "alias": {
+      "slug": {
         "type": "objectAttribute",
         "value": {
           "type": "inline",

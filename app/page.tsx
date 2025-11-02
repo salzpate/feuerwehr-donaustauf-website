@@ -6,22 +6,27 @@ import PageSection from '@/components/PageSection';
 import infoService from '@/lib/InfoService';
 import MainContent from '@/features/MainContent';
 
-import styles from '@/styles/index.module.css';
 import { PortableText } from 'next-sanity';
-import { INFO_QUERYResult } from '@/types/sanityTypes';
+import { INFO_QUERYResult, OPERATION_QUERYResult } from '@/types/sanityTypes';
+import operationService from '@/lib/OperationService';
 
-async function getData(): Promise<INFO_QUERYResult> {
-  return infoService.getInfos();
+import styles from '@/styles/index.module.css';
+
+async function getData(): Promise<{ infos?: INFO_QUERYResult, operations?: OPERATION_QUERYResult }> {
+  const infos = await infoService.getInfos();
+  const operations = await operationService.getOperations();
+
+  return ({ infos, operations });
 }
 
 async function Home(): Promise<JSX.Element> {
-  const infos = await getData();
+  const data = await getData();
 
   return (
     <HeaderMainLayout>
       <HeaderImage imageClass={styles.headerimage} />
       <PageSection headline="Aktuelles" id="aktuelles" subSection className="page-section pb-4 sm:pb-8">
-        {infos?.map(info => (
+        {data?.infos?.map(info => (
           <InfoArticle key={info._id} headline={info.title || ''}>
             {Array.isArray(info.message) && (
               <div className="index-page-article">
@@ -31,7 +36,7 @@ async function Home(): Promise<JSX.Element> {
           </InfoArticle>
         ))}
       </PageSection>
-      <MainContent />
+      <MainContent operations={data?.operations} />
     </HeaderMainLayout>
   );
 }

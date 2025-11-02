@@ -21,11 +21,11 @@ export type Einsatz = {
   _rev: string;
   title?: string;
   locality?: string;
-  data?: string;
+  date?: string;
   category?: 'Besondere Eins\xE4tze' | 'Br\xE4nde' | 'First Responder THL' | 'Sicherheitswache' | 'THL' | '\xDCbungen / Lehrg\xE4nge / Veranstaltungen' | 'Verkehrsabsicherung' | 'Wasserdienst';
   ffNr?: number;
   frNr?: number;
-  alias?: Slug;
+  slug?: Slug;
 };
 
 export type Info = {
@@ -214,10 +214,25 @@ export type INFO_QUERYResult = Array<{
   }> | null;
 }>;
 
+// Source: ./lib/OperationService.ts
+// Variable: OPERATION_QUERY
+// Query: *[_type == "einsatz"]{ _id, title, locality, date, category, ffNr, frNr, slug }
+export type OPERATION_QUERYResult = Array<{
+  _id: string;
+  title: string | null;
+  locality: string | null;
+  date: string | null;
+  category: 'Besondere Eins\xE4tze' | 'Br\xE4nde' | 'First Responder THL' | 'Sicherheitswache' | 'THL' | '\xDCbungen / Lehrg\xE4nge / Veranstaltungen' | 'Verkehrsabsicherung' | 'Wasserdienst' | null;
+  ffNr: number | null;
+  frNr: number | null;
+  slug: Slug | null;
+}>;
+
 // Query TypeMap
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == "info"]{ _id, title, message }': INFO_QUERYResult;
+    '*[_type == "einsatz"]{ _id, title, locality, date, category, ffNr, frNr, slug }': OPERATION_QUERYResult;
   }
 }

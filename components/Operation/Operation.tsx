@@ -1,6 +1,7 @@
 import { Slug } from '@/types/sanityTypes';
 import { JSX } from 'react';
 import cn from 'classnames';
+import { getCategoryColor } from '../Operations';
 
 interface OperationsProps {
   _id: string;
@@ -15,13 +16,13 @@ interface OperationsProps {
 }
 
 function Operation(props: Readonly<OperationsProps>): JSX.Element {
-  const { title, locality, date, alternate } = props;
+  const { title, locality, date, category, alternate } = props;
 
   const dateObject = new Date(date ?? '');
   const obDate = `${dateObject.getDate().toString().padStart(2, "0")}.${(dateObject.getMonth() + 1).toString().padStart(2, "0")}.${dateObject.getFullYear()} ${dateObject.getHours().toString().padStart(2, "0")}:${dateObject.getMinutes().toString().padStart(2, "0")}`
 
   return (
-    <div className={cn('mb-2 p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate })}>
+    <div className={cn('mb-2 p-2 border-l-4', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate })} style={{ borderColor: getCategoryColor(category ?? '') }}>
       <div className='text-base font-bold'>{title}</div>
       <div className='flex text-sm mt-2 items-center'>
         <div className='pr-2'>
@@ -43,4 +44,4 @@ function Operation(props: Readonly<OperationsProps>): JSX.Element {
   )
 }
 
-export { Operation };
+export default Operation;

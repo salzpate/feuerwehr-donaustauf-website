@@ -11,4 +11,4 @@ function OperationCounter(props: Readonly<OperationCounterProps>): JSX.Element {
   return <div className='text-sm mb-4'>{year}: {count} Einsätze</div>;
 }
 
-export { OperationCounter };
+export default OperationCounter;

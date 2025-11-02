@@ -1,6 +1,6 @@
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 import { JSX } from 'react';
-import { Operation } from '../Operation/Operation';
+import Operation from '../Operation/Operation';
 
 interface OperationsProps {
   operations?: OPERATION_QUERYResult;
@@ -16,4 +16,4 @@ function Operations(props: Readonly<OperationsProps>): JSX.Element {
     ))}</>)
 }
 
-export { Operations };
+export default Operations;

@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 
 import { PieCustomLayerProps } from "@nivo/pie";
-import { OperationChartDataType } from '../../types/operationPieChartTypes';
+import { OperationChartDataType } from '../../types/operationPiaChartTypes';
 
 interface CenteredMetricProps extends PieCustomLayerProps<OperationChartDataType> {
   totalOperations: number;

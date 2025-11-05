@@ -5,7 +5,7 @@ import { ResponsivePie, PieCustomLayerProps } from '@nivo/pie';
 import { JSX, useEffect, useState } from 'react';
 import { getCategoryColor } from '../Operations';
 import CenteredMetric from './components/CenteredMetric/CenteredMetric';
-import { OperationChartDataType } from './types/operationPiaChartTypes';
+import { OperationChartDataType } from './types/operationPieChartTypes';
 
 interface OperationPieChartProps {
   operations?: OPERATION_QUERYResult;
@@ -55,6 +55,13 @@ function OperationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element
   );
 
   return <ResponsivePie
+    theme={{
+      labels: {
+        text: {
+          fontSize: '0.75rem',
+        }
+      }
+    }}
     data={ffChartData}
     margin={{ top: 16, right: 16, bottom: 16, left: 16 }}
     innerRadius={0.5}
@@ -62,7 +69,7 @@ function OperationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element
     cornerRadius={2}
     activeOuterRadiusOffset={8}
     arcLabel={(data) => `${data.label} (${data.value})`}
-    arcLabelsTextColor={{ from: 'color', modifiers: [['darker', 2]] }}
+    arcLabelsTextColor={{ from: 'color', modifiers: [['darker', 4]] }}
     enableArcLinkLabels={false}
     arcLabelsSkipAngle={10}
     colors={(data) => data.data.color}

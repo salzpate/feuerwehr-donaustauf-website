@@ -3,16 +3,15 @@
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 import { ResponsivePie, PieCustomLayerProps } from '@nivo/pie';
 import { JSX, useEffect, useState } from 'react';
-import { getCategoryColor } from '../Operations';
-import CenteredMetric from './components/CenteredMetric/CenteredMetric';
 import { OperationChartDataType } from './types/operationPieChartTypes';
+import CenteredMetric from '../OperationPieChart/components/CenteredMetric/CenteredMetric';
 
 interface OperationPieChartProps {
   operations?: OPERATION_QUERYResult;
   year?: number;
 }
 
-function OperationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element {
+function OperationLocationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element {
   const { operations, year } = props;
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -31,31 +30,26 @@ function OperationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element
   }, []);
 
   const ffChartData = operations?.reduce<Array<OperationChartDataType>>((acc, op) => {
-    const category = op.category ?? 'Unbekannt';
-    const existing = acc.find((item) => item.id === category);
+    const locality = op.locality ?? 'Unbekannt';
+    const existing = acc.find((item) => item.id === locality);
 
     if (existing) {
       existing.value += 1;
     } else {
       acc.push({
-        id: category,
-        label: category,
+        id: locality,
+        label: locality,
         value: 1,
-        color: getCategoryColor(category),
+        color: '',
       });
     }
 
     return acc;
   }, []) ?? [];
 
-  const totalOperations = operations?.length ?? 0;
-
-  const CenteredMetricWrapper = (props: PieCustomLayerProps<OperationChartDataType>): JSX.Element => {
-    const text = year ? `${year}: ${totalOperations} Einsätze` : `${totalOperations} Einsätze`;
-    return (
-      <CenteredMetric {...props} text={text} isDarkMode={isDarkMode} />
-    )
-  };
+  const CenteredMetricWrapper = (props: PieCustomLayerProps<OperationChartDataType>): JSX.Element => (
+    <CenteredMetric {...props} text="Ort" isDarkMode={isDarkMode} />
+  );
 
   return <ResponsivePie
     theme={{
@@ -75,9 +69,9 @@ function OperationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element
     arcLabelsTextColor={{ from: 'color', modifiers: [['darker', 4]] }}
     enableArcLinkLabels={false}
     arcLabelsSkipAngle={10}
-    colors={(data) => data.data.color}
+    colors={{ scheme: 'pastel1' }}
     layers={['arcs', 'arcLabels', 'arcLinkLabels', CenteredMetricWrapper]}
   />;
 }
 
-export default OperationPieChart;
+export default OperationLocationPieChart;

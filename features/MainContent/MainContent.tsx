@@ -7,6 +7,7 @@ import { JSX } from 'react';
 import cn from 'classnames';
 import SpendenContent from '../SpendenContent';
 import OperationPieChart from '@/components/OperationPieChart/OperationPieChart';
+import { getCurrentYear, getFfOperations, getFrOperations, getOperationsOfYear, sortOperations } from '@/lib/operationUtils';
 
 interface MainContentProps {
   operations?: OPERATION_QUERYResult;
@@ -15,12 +16,12 @@ interface MainContentProps {
 function MainContent(props: Readonly<MainContentProps>): JSX.Element {
   const { operations } = props;
 
-  const frOps = operations?.filter((ops) => ops.category === 'First Responder THL').toSorted((o1, o2) => o2.date?.localeCompare(o1.date ?? '') ?? 0);
-  const ffOps = operations?.filter((ops) => ops.category !== 'First Responder THL').toSorted((o1, o2) => o2.date?.localeCompare(o1.date ?? '') ?? 0);
-  const year = new Date().getFullYear() - 1;
+  const frOps = sortOperations(getFrOperations(operations));
+  const ffOps = sortOperations(getFfOperations(operations));
+  const year = getCurrentYear();
 
-  const ffOpsThisYear = ffOps?.filter((ops) => new Date(ops.date ?? '').getFullYear() === year) ?? [];
-  const frOpsThisYear = frOps?.filter((ops) => new Date(ops.date ?? '').getFullYear() === year) ?? [];
+  const ffOpsThisYear = getOperationsOfYear(ffOps, year) ?? [];
+  const frOpsThisYear = getOperationsOfYear(frOps, year) ?? [];
 
   const hideFfChart = ffOpsThisYear.length === 0;
   const hideFrChart = frOpsThisYear.length === 0;

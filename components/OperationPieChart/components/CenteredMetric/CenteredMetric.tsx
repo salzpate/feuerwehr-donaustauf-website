@@ -4,13 +4,12 @@ import { PieCustomLayerProps } from "@nivo/pie";
 import { OperationChartDataType } from '../../types/operationPieChartTypes';
 
 interface CenteredMetricProps extends PieCustomLayerProps<OperationChartDataType> {
-  totalOperations: number;
+  text: string;
   isDarkMode: boolean;
-  year?: number;
 }
 
 function CenteredMetric(props: Readonly<CenteredMetricProps>): JSX.Element {
-  const { centerX, centerY, totalOperations, isDarkMode, year } = props;
+  const { centerX, centerY, text, isDarkMode } = props;
 
   return <text
     x={centerX}
@@ -23,7 +22,7 @@ function CenteredMetric(props: Readonly<CenteredMetricProps>): JSX.Element {
       fill: isDarkMode ? '#d1d5dc' : '#101828',
     }}
   >
-    {year && `${year}:`} {totalOperations} Einsätze
+    {text}
   </text>
 }
 

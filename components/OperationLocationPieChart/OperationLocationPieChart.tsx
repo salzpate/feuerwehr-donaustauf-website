@@ -12,7 +12,7 @@ interface OperationPieChartProps {
 }
 
 function OperationLocationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element {
-  const { operations, year } = props;
+  const { operations } = props;
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {

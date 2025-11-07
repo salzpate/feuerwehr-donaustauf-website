@@ -40,7 +40,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           {operations.length > 0 && (
             <>
               <OperationsWithMonth operations={operations} kind={kind} />
-              <h3 className="text-lg tracking-tight text-secondary mt-6 upp sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">DIAGRAMME</h3>
+              <h3 className="text-lg tracking-tight text-secondary mt-6 uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Diagramme</h3>
               <div className="flex flex-wrap">
                 <div className={cn('w-full md:w-1/2 h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
                   <OperationPieChart operations={operations} />
@@ -53,7 +53,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           )}
           {statistics && (
             <>
-              <h3 className="text-lg tracking-tight text-secondary mt-6 upp sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">JAHRESSTATISTIK</h3>
+              <h3 className="text-lg tracking-tight text-secondary mt-6 uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Jahresstatistik</h3>
               <div className={cn('w-full h-[400px] my-4 bg-white dark:bg-black text-gray-900')}>
                 <OperationStatsBarChart data={statistics} />
               </div>

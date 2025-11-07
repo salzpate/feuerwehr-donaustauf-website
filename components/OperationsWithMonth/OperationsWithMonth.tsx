@@ -75,7 +75,7 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
       {groupedOperations.map((group) => (
         <div key={group.monthKey}>
           <a id={group.monthName}></a>
-          <h3 className="text-lg tracking-tight text-secondary my-4 upp sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">
+          <h3 className="text-lg tracking-tight text-secondary my-4 uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">
             {group.headline}
           </h3>
           {

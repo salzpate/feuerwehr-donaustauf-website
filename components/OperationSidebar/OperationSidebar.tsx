@@ -24,36 +24,36 @@ function OperationSidebar(props: Readonly<OperationSidebarProps>): JSX.Element {
   return (
     <div className="h-full overflow-hidden bg-gray-100 dark:bg-gray-900">
       <div className="p-4">
-        <h3 className="mb-2 text-lg font-medium text-secondary uppercase sm:text-xl lg:text-2xl dark:text-secondary-dark">FILTER</h3>
         {showCategory && (
           <>
-            <OperationCatLink href={path.join(`/${operationPath}`, year.toString()) + '/'} active={activeCategory === 'ALL'}>
+            <h3 className="mb-2 text-lg font-medium text-secondary uppercase sm:text-lg lg:text-xl dark:text-secondary-dark">KATEGORIE</h3>
+            <OperationCatLink href={path.join(`/${operationPath}`, year.toString()) + '/'} active={!activeCategory}>
               Alle
             </OperationCatLink>
-
-            <div className="pt-2">
-              <h4 className="mb-2 text-lg font-medium text-secondary uppercase sm:text-lg lg:text-xl dark:text-secondary-dark">KATEGORIE</h4>
-              {categories.map(category => (
-                <OperationCatLink
-                  key={parseCategory(category)}
-                  href={path.join(`/${operationPath}`, year.toString(), encodeURIComponent(parseCategory(category))) + '/'}
-                  active={activeCategory === parseCategory(category)}
-                >
-                  {category}
-                </OperationCatLink>
-              ))}
-            </div>
+            <hr className="text-gray-300 dark:text-gray-700" />
+            {categories.map(category => (
+              <OperationCatLink
+                key={parseCategory(category)}
+                href={path.join(`/${operationPath}`, year.toString(), encodeURIComponent(parseCategory(category))) + '/'}
+                active={activeCategory === parseCategory(category)}
+              >
+                {category}
+              </OperationCatLink>
+            ))}
           </>
         )}
         {showYear && (
-          <div className="pt-2">
-            <h4 className="mb-2 text-lg font-medium text-secondary uppercase sm:text-lg lg:text-xl dark:text-secondary-dark">JAHR</h4>
-            {years.map(opsYear => (
-              <OperationCatLink key={opsYear} href={path.join(`/${operationPath}`, opsYear.toString()) + '/'} active={activeCategory === opsYear.toString()}>
-                {opsYear}
-              </OperationCatLink>
-            ))}
-          </div>
+          <>
+            {showCategory && (<div className="pt-2" />)}
+            <>
+              <h3 className="mb-2 text-lg font-medium text-secondary uppercase sm:text-lg lg:text-xl dark:text-secondary-dark">JAHR</h3>
+              {years.map(opsYear => (
+                <OperationCatLink key={opsYear} href={path.join(`/${operationPath}`, opsYear.toString()) + '/'} active={year === opsYear}>
+                  {opsYear}
+                </OperationCatLink>
+              ))}
+            </>
+          </>
         )}
       </div>
     </div >

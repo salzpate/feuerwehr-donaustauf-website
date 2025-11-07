@@ -14,22 +14,23 @@ interface OperationContentProps {
   operations: OPERATION_QUERYResult;
   year?: number;
   years?: number[];
+  category?: string;
   categories?: string[];
   operationPath?: string;
   activeCategory?: string;
 }
 
 function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
-  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory } = props;
+  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory, category } = props;
   const showSidebar = (years.length > 0 || categories.length > 0) && operationPath;
 
   return (
-    <PageSection headline="Einsätze" id="feuerwehr-einsaetze">
+    <PageSection headline={category ? `Einsätze ${year} - ${category}` : `Einsätze ${year}`} id="feuerwehr-einsaetze">
       <div className="my-6 grid grid-cols-1 gap-4 sm:my-8 sm:grid-cols-12">
         <div className={cn('grid-cols-1 sm:col-span-8', { 'lg:col-span-9': showSidebar, 'lg:col-span-12': !showSidebar })}>
           {operations.length === 0 && (
             <div className="mb-8">
-              <Banner type="info">Für das {year} wurden keine Einsätze hinterlegt!</Banner>
+              <Banner type="info">Für das Jahr {year} wurden keine Einsätze hinterlegt!</Banner>
             </div>
           )}
           {operations.length > 0 && (

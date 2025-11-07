@@ -14,8 +14,8 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
     if (!operations) return [];
 
     const monthNames = [
-      'JANUAR', 'FEBRUAR', 'MÄRZ', 'APRIL', 'MAI', 'JUNI',
-      'JULI', 'AUGUST', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DEZEMBER'
+      'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+      'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
     ];
 
     const sorted = operations
@@ -27,7 +27,7 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
       });
 
     // Group by month and year
-    const groups: Array<{ monthKey: string; monthName: string; operations: typeof sorted }> = [];
+    const groups: Array<{ monthKey: string; monthName: string; headline: string, operations: typeof sorted }> = [];
     let currentMonthKey: string | null = null;
     let currentGroup: typeof sorted = [];
 
@@ -37,7 +37,8 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
       const firstDate = new Date(firstOp.date!);
       groups.push({
         monthKey,
-        monthName: `${monthNames[firstDate.getMonth()]} ${firstDate.getFullYear()}`,
+        monthName: monthNames[firstDate.getMonth()],
+        headline: `${monthNames[firstDate.getMonth()]} ${firstDate.getFullYear()}`,
         operations: [...group]
       });
     };
@@ -72,8 +73,9 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
     <div style={{ marginTop: '-1rem' }}>
       {groupedOperations.map((group) => (
         <div key={group.monthKey}>
-          <h3 className="text-lg tracking-tight text-secondary my-4 sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">
-            {group.monthName}
+          <a id={group.monthName}></a>
+          <h3 className="text-lg tracking-tight text-secondary my-4 upp sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">
+            {group.headline}
           </h3>
           {
             group.operations.map((operation) => (

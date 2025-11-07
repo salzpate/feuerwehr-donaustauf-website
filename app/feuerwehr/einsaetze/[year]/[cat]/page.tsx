@@ -4,7 +4,7 @@ import operationService from '@/lib/OperationService';
 import OperationContent from '@/features/OperationContent';
 import { Metadata } from 'next';
 import { SITE_TITLE } from '@/lib/constants';
-import { getFfOperations, getOperationCategories, getOperationsOfCategory, getOperationsOfYear, getOperationYears, parseToNumber, sortOperations } from '@/lib/operationUtils';
+import { getFfOperations, getOperationCategories, getOperationsOfCategory, getOperationsOfYear, getOperationYears, parseCategory, parseToNumber, sortOperations } from '@/lib/operationUtils';
 
 interface StaticYearCategoryParams {
   year: string;
@@ -47,10 +47,11 @@ async function FeuerwehrEinsaetzeCategory({ params }: Readonly<PageProps<'/feuer
   const ffOperationsOfYear = getOperationsOfYear(ffOperations, operationYear);
   const categories = getOperationCategories(ffOperationsOfYear);
   const ffOperationsOfCat = getOperationsOfCategory(ffOperationsOfYear, cat);
+  const category = categories.find((c) => parseCategory(c) === cat);
 
   const ffOps = sortOperations(ffOperationsOfCat) ?? [];
 
-  return <OperationContent operations={ffOps} year={operationYear} years={years} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} />;
+  return <OperationContent operations={ffOps} year={operationYear} years={years} category={category} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} />;
 }
 
 export default FeuerwehrEinsaetzeCategory;

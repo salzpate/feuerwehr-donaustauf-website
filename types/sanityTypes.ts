@@ -13,6 +13,17 @@
  */
 
 // Source: schema.json
+export type EinsatzStats = {
+  _id: string;
+  _type: 'einsatzStats';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  year?: number;
+  ff?: number;
+  fr?: number;
+};
+
 export type Einsatz = {
   _id: string;
   _type: 'einsatz';
@@ -174,6 +185,7 @@ export type SanityAssetSourceData = {
 };
 
 export type AllSanitySchemaTypes =
+  | EinsatzStats
   | Einsatz
   | Info
   | SanityImagePaletteSwatch

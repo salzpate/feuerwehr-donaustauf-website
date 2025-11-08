@@ -22,7 +22,7 @@ export async function generateStaticParams(): Promise<StaticYearCategoryParams[]
       yearCat.push({ year: year.toString(), cat: category });
     }
   }
-  console.log(yearCat);
+
   return yearCat;
 }
 

@@ -8,7 +8,7 @@ function Verein(): JSX.Element {
   return (
     <PageSection headline="Verein" id="verein">
       <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <PageMenuLink href="/verein/vorstandschaft/" name="Vorstandschaft" image="/assets/images/menu/verein-vorstandschaft.jpg">
+        <PageMenuLink href="/verein/vorstandschaft/" name="Vorstandschaft" image="/assets/images/menu/verein-vorstandschaft.png">
           Hier stellen wir das Vorstandsteam unseres Feuerwehrvereins vor.
         </PageMenuLink>
         <PageMenuLink href="/verein/beitritt/" name="Mitglied werden" image="/assets/images/menu/verein-beitritt.jpg">

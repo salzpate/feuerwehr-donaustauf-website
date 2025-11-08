@@ -10,7 +10,6 @@ function normalizeSrc(src: string): string {
 function CloudinaryImage(props: Readonly<CldImageProps>): JSX.Element {
   const { width, height, src, alt, className, quality, crop, gravity, zoom, fill } = props;
   const imageSrc = normalizeSrc(src);
-  console.log(imageSrc);
 
   let version: string | undefined = undefined;
   let cldSrc = imageSrc;

@@ -63,7 +63,7 @@ function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Elem
         <div>
           <ContactCard
             name="Stefanie Jobst"
-            position="Jugendwärtin"
+            position="Jugendwartin"
             imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
             email="jugend@feuerwehr-donaustauf.de"
             emailHref="mailto:jugend@feuerwehr-donaustauf.de"

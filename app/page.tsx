@@ -22,7 +22,7 @@ async function Home(): Promise<JSX.Element> {
 
   return (
     <HeaderMainLayout>
-      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762602175/main_hrwr0m.jpg)]" />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762605631/main_yydisz.jpg)]" />
       <PageSection headline="Aktuelles" id="aktuelles" subSection className="page-section pb-4 sm:pb-8">
         {data?.infos?.map(info => (
           <InfoArticle key={info._id} headline={info.title || ''}>

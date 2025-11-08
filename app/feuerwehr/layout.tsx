@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 function FeuerwehrLayout({ children }: LayoutProps<'/feuerwehr'>): JSX.Element {
   return (
     <HeaderMainLayout activeMenu="feuerwehr">
-      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762602182/ff_x8fhra.jpg)]" />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762605631/ff_hrwr0m.jpg)]" />
       {children}
     </HeaderMainLayout>
   );

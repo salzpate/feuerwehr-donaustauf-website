@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 function FirstResponderLayout({ children }: LayoutProps<'/first-responder'>): JSX.Element {
   return (
     <HeaderMainLayout activeMenu="first-responder">
-      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762602183/fr_t693sq.jpg)]" />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762606183/fr_o3mmtg.jpg)]" />
       {children}
     </HeaderMainLayout>
   );

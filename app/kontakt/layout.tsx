@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 function KontaktLayout({ children }: LayoutProps<'/kontakt'>): JSX.Element {
   return (
     <HeaderMainLayout activeMenu="kontakt">
-      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762602175/main_hrwr0m.jpg)]" />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762606515/kontakt_fwthu2.jpg)]" />
       {children}
     </HeaderMainLayout>
   );

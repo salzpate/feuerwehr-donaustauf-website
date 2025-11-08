@@ -33,7 +33,7 @@ function FeuerwehrFahrzeuge401(): JSX.Element {
           </div>
         </div>
         <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-          <CloudinaryImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762626904/hlf-20_n9s3v2.jpg" width={405} height={227} alt="Florian Donaustauf 40/1" />
+          <CloudinaryImage src="hlf-20_n9s3v2" width={405} height={227} alt="Florian Donaustauf 40/1" />
         </div>
       </div>
       <h3 className="mt-4 mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Fahrzeugdaten</h3>

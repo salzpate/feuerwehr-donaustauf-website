@@ -21,7 +21,7 @@ function Chronik(): JSX.Element {
           </div>
           <div className="mb-4">Der Krieg gegen Preußen (1866) war beendet, in München regierte nunmehr Ludwig II., das 2. Reich war noch nicht gegründet.</div>
           <div className="mb-4 text-center">
-            <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599974/donaustauf-zur-gruendungszeit_j7lzo3.jpg" alt="Donaustauf zur Gründungszeit" width={600} height={304}>
+            <CloudinaryPageImage src="donaustauf-zur-gruendungszeit_j7lzo3" alt="Donaustauf zur Gründungszeit" width={600} height={304}>
               Donaustauf zur Gründungszeit
             </CloudinaryPageImage>
           </div>
@@ -48,7 +48,7 @@ function Chronik(): JSX.Element {
             Urkundlich belegt ist aber noch die Errichtung eines Steigerhauses im Jahre 1869.
           </div>
           <div className="mb-4 text-center">
-            <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599975/druckspritze_um_1880_t4jyqf.jpg" alt="Druckspritze um 1880" width={600} height={304}>
+            <CloudinaryPageImage src="druckspritze_um_1880_t4jyqf" alt="Druckspritze um 1880" width={600} height={304}>
               Druckspritze um 1880
             </CloudinaryPageImage>
           </div>
@@ -66,7 +66,7 @@ function Chronik(): JSX.Element {
           wussten, wie gefährlich ein Brand gerade bei diesem Wetter werden konnte. Man muss bedenken, dass die Häuser damals mit Schindeln gedeckt waren!
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599974/donaustauf-nach-dem-grossen-brand_d9wsdf.jpg" alt="Donaustauf nach dem großen Brand 1880" width={600} height={304} alternate>
+          <CloudinaryPageImage src="donaustauf-nach-dem-grossen-brand_d9wsdf" alt="Donaustauf nach dem großen Brand 1880" width={600} height={304} alternate>
             Donaustauf nach dem großen Brand 1880
           </CloudinaryPageImage>
         </div>
@@ -76,13 +76,7 @@ function Chronik(): JSX.Element {
           vergebens! Alles - auch das Schloß - brannte ab. Selbst die schon auf Wagen gerettete Habe fing Feuer und viele konnten nichts als das nackte Leben retten.
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage
-            src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599978/gruppenfoto-der-feuerwehr-donaustauf-nach-1880_l7omfu.jpg"
-            alt="Gruppenfoto der Feuerwehr Donaustauf nach 1880"
-            width={600}
-            height={304}
-            alternate
-          >
+          <CloudinaryPageImage src="gruppenfoto-der-feuerwehr-donaustauf-nach-1880_l7omfu" alt="Gruppenfoto der Feuerwehr Donaustauf nach 1880" width={600} height={304} alternate>
             Gruppenfoto der Feuerwehr Donaustauf nach 1880
           </CloudinaryPageImage>
         </div>
@@ -142,7 +136,7 @@ function Chronik(): JSX.Element {
           erwies sich als unbedingt erforderlich. Man entschied sich für den Kauf einer Motorspritze &quot;Magirus&quot; zum Preis von 6.600 RM.
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599977/gruppenaufnahme-aus-dem-jahre-1927_chahyp.jpg" alt="Gruppenaufnahme aus dem Jahre 1927" width={600} height={304}>
+          <CloudinaryPageImage src="gruppenaufnahme-aus-dem-jahre-1927_chahyp" alt="Gruppenaufnahme aus dem Jahre 1927" width={600} height={304}>
             Gruppenaufnahme aus dem Jahre 1927
           </CloudinaryPageImage>
         </div>
@@ -151,7 +145,7 @@ function Chronik(): JSX.Element {
           Sommer 1934. Damals sind 5 große Bauernanwesen und neun Scheunen mit der eingebrachten Ernte, Stallungen und Nebengebäude dem Feuer zum Opfer gefallen
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599979/lafettenspritze-der-ff-aus-dem-jahre-1928_ujooet.jpg" alt="Lafettenspritze der FF aus dem Jahre 1928" width={600} height={304}>
+          <CloudinaryPageImage src="lafettenspritze-der-ff-aus-dem-jahre-1928_ujooet" alt="Lafettenspritze der FF aus dem Jahre 1928" width={600} height={304}>
             Lafettenspritze der FF aus dem Jahre 1928
           </CloudinaryPageImage>
         </div>
@@ -187,7 +181,7 @@ function Chronik(): JSX.Element {
           Bedürfnissen.
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599973/1951-80jaehriges-gruendungsfest_ktlsxf.jpg" alt="1951: 80jähriges Gründungsfest" width={600} height={304}>
+          <CloudinaryPageImage src="1951-80jaehriges-gruendungsfest_ktlsxf" alt="1951: 80jähriges Gründungsfest" width={600} height={304}>
             1951: 80jähriges Gründungsfest
           </CloudinaryPageImage>
         </div>
@@ -198,7 +192,7 @@ function Chronik(): JSX.Element {
           8&quot; das modernste Fahrzeug der Oberpfalz ist.
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599980/lf-8-von-1952_bfphnn.jpg" alt="LF 8 von 1952" width={600} height={304}>
+          <CloudinaryPageImage src="lf-8-von-1952_bfphnn" alt="LF 8 von 1952" width={600} height={304}>
             LF 8 von 1952
           </CloudinaryPageImage>
         </div>
@@ -207,7 +201,7 @@ function Chronik(): JSX.Element {
           Feuerwehr beim Katastrophen-Hochwasser zu erwähnen.
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599973/1960-90jaehriges-gruendungsfest_fl5m8a.jpg" alt="1960: 90jähriges Gründungsfest mit Fahnenweih" width={600} height={304}>
+          <CloudinaryPageImage src="1960-90jaehriges-gruendungsfest_fl5m8a" alt="1960: 90jähriges Gründungsfest mit Fahnenweih" width={600} height={304}>
             1960: 90jähriges Gründungsfest mit Fahnenweih
           </CloudinaryPageImage>
         </div>
@@ -233,13 +227,7 @@ function Chronik(): JSX.Element {
           den gleichen Grundsätzen einzuführen.
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage
-            src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599976/gruppe-der-ff-donaustauf_oaqsxy.jpg"
-            alt="Gruppe der FF Donaustauf bei der Abnahme des ersten Leistungsabzeichen im Landkreis Regensburg im Jahre 1954"
-            width={600}
-            height={304}
-            className="max-w-[600px]"
-          >
+          <CloudinaryPageImage src="gruppe-der-ff-donaustauf_oaqsxy" alt="Gruppe der FF Donaustauf bei der Abnahme des ersten Leistungsabzeichen im Landkreis Regensburg im Jahre 1954" width={600} height={304} className="max-w-[600px]">
             Gruppe der FF Donaustauf bei der Abnahme des ersten Leistungsabzeichen im Landkreis Regensburg im Jahre 1954
           </CloudinaryPageImage>
         </div>
@@ -249,7 +237,7 @@ function Chronik(): JSX.Element {
           einheitlichen Grundlagen für ganz Bayern eingeführt.
         </div>
         <div className="mb-4 text-center">
-          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599973/abgebildet-in-der-brandwacht_rzobdy.jpg" alt="Abgebildet in der Brandwacht, die Gruppe der FF Donaustauf" width={600} height={304}>
+          <CloudinaryPageImage src="abgebildet-in-der-brandwacht_rzobdy" alt="Abgebildet in der Brandwacht, die Gruppe der FF Donaustauf" width={600} height={304}>
             Abgebildet in der &quot;Brandwacht&quot;, die Gruppe der FF Donaustauf
           </CloudinaryPageImage>
         </div>

@@ -26,7 +26,7 @@ function AudiContent(): JSX.Element {
           </div>
         </div>
         <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-          <CloudinaryImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762622482/einsatzfahrzeug_gjowy5.jpg" width={405} height={227} alt="Florian Donaustauf 79/1" />
+          <CloudinaryImage src="einsatzfahrzeug_gjowy5" width={405} height={227} alt="Florian Donaustauf 79/1" />
         </div>
       </div>
       <h3 className="mt-4 mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Fahrzeugdaten</h3>

@@ -52,6 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${SITE_URL}/first-responder/fahrzeug/`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
       url: `${SITE_URL}/first-responder/spenden/`,
       lastModified: new Date(),
       changeFrequency: 'yearly',

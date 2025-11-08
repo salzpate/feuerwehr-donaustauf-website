@@ -3,7 +3,7 @@ import { JSX } from 'react';
 import SpendenContent from '@/features/SpendenContent';
 import { FfPageSection } from '@/components/FfPageSection';
 
-function FirstResponderSpenden(): JSX.Element {
+function FirstResponderInformationen(): JSX.Element {
   return (
     <>
       <FfPageSection headline="First Responder" id="responder" className="pb-6 sm:pb-8">
@@ -41,4 +41,4 @@ function FirstResponderSpenden(): JSX.Element {
   );
 }
 
-export default FirstResponderSpenden;
+export default FirstResponderInformationen;

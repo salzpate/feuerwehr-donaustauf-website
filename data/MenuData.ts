@@ -47,6 +47,11 @@ export const MenuData: AppMenu = {
           href: '/first-responder/einsaetze/',
         },
         {
+          id: 'first-responder-fahrzeug',
+          children: 'Fahrzeug',
+          href: '/first-responder/fahrzeug/',
+        },
+        {
           id: 'first-responder-spenden',
           children: 'Spenden',
           href: '/first-responder/spenden/',
@@ -59,6 +64,11 @@ export const MenuData: AppMenu = {
       href: '/verein/',
       activeMenuName: 'verein',
       subMenue: [
+        {
+          id: 'verein-vorstandschaft',
+          children: 'Vorstandschaft',
+          href: '/verein/vorstandschaft/',
+        },
         {
           id: 'verein-satzung',
           children: 'Satzung',

@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
 import { SITE_TITLE } from '@/lib/constants';
 import HeaderImage from '@/components/Header/HeaderImage/HeaderImage';
-import styles from '@/styles/index.module.css';
 
 export const metadata: Metadata = {
   title: `Kontakt - ${SITE_TITLE}`,
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 function KontaktLayout({ children }: LayoutProps<'/kontakt'>): JSX.Element {
   return (
     <HeaderMainLayout activeMenu="kontakt">
-      <HeaderImage imageClass={styles.headerimage} />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762602175/main_hrwr0m.jpg)]" />
       {children}
     </HeaderMainLayout>
   );

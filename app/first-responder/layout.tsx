@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
 import { SITE_TITLE } from '@/lib/constants';
 import HeaderImage from '@/components/Header/HeaderImage/HeaderImage';
-import styles from '@/styles/fr.module.css';
 
 export const metadata: Metadata = {
   title: `First Responder - ${SITE_TITLE}`,
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 function FirstResponderLayout({ children }: LayoutProps<'/first-responder'>): JSX.Element {
   return (
     <HeaderMainLayout activeMenu="first-responder">
-      <HeaderImage imageClass={styles.headerimage} />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762602183/fr_t693sq.jpg)]" />
       {children}
     </HeaderMainLayout>
   );

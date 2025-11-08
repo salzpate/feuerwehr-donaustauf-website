@@ -3,6 +3,7 @@
 import { JSX } from 'react';
 import { PageSection } from '@salzpate/react-ui';
 import PageImage from '@/components/PageImage';
+import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 
 function Chronik(): JSX.Element {
   return (
@@ -21,9 +22,9 @@ function Chronik(): JSX.Element {
           </div>
           <div className="mb-4">Der Krieg gegen Preußen (1866) war beendet, in München regierte nunmehr Ludwig II., das 2. Reich war noch nicht gegründet.</div>
           <div className="mb-4 text-center">
-            <PageImage src="/assets/images/page/chronik-donaustauf-zur-gruendungszeit.jpg" alt="Donaustauf zur Gründungszeit" width={600} height={304}>
+            <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599974/donaustauf-zur-gruendungszeit_j7lzo3.jpg" alt="Donaustauf zur Gründungszeit" width={600} height={304}>
               Donaustauf zur Gründungszeit
-            </PageImage>
+            </CloudinaryPageImage>
           </div>
           <div className="mb-4">
             Der Markt Donaustauf war damals von der Landwirtschaft geprägt. An den Südwesthängen wurde noch Wein und Hopfen angebaut. Der Viehaustrieb war ein alltägliches Bild. Durch die Bedeutung des Ortes waren damals auch viele
@@ -48,9 +49,9 @@ function Chronik(): JSX.Element {
             Urkundlich belegt ist aber noch die Errichtung eines Steigerhauses im Jahre 1869.
           </div>
           <div className="mb-4 text-center">
-            <PageImage src="/assets/images/page/chronik-druckspritze_um_1880.jpg" alt="Druckspritze um 1880" width={600} height={304}>
+            <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599975/druckspritze_um_1880_t4jyqf.jpg" alt="Druckspritze um 1880" width={600} height={304}>
               Druckspritze um 1880
-            </PageImage>
+            </CloudinaryPageImage>
           </div>
         </div>
       </PageSection>
@@ -66,9 +67,9 @@ function Chronik(): JSX.Element {
           wussten, wie gefährlich ein Brand gerade bei diesem Wetter werden konnte. Man muss bedenken, dass die Häuser damals mit Schindeln gedeckt waren!
         </div>
         <div className="mb-4 text-center">
-          <PageImage src="/assets/images/page/chronik-donaustauf-nach-dem-grossen-brand.jpg" alt="Donaustauf nach dem großen Brand 1880" width={600} height={304} alternate>
+          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599974/donaustauf-nach-dem-grossen-brand_d9wsdf.jpg" alt="Donaustauf nach dem großen Brand 1880" width={600} height={304} alternate>
             Donaustauf nach dem großen Brand 1880
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">
           In der Schöpperl-Brauerei (frühere Bahnhofs-Gaststätte) waren Funken in die im Hof liegenden Strohhaufen geflogen und hatten den Brand entfacht. Der Sturm trug das Feuer in die angrenzenden Häuser der Hauptstraße, in den Oberen
@@ -76,9 +77,15 @@ function Chronik(): JSX.Element {
           vergebens! Alles - auch das Schloß - brannte ab. Selbst die schon auf Wagen gerettete Habe fing Feuer und viele konnten nichts als das nackte Leben retten.
         </div>
         <div className="mb-4 text-center">
-          <PageImage src="/assets/images/page/chronik-gruppenfoto-der-feuerwehr-donaustauf-nach-1880.jpg" alt="Gruppenfoto der Feuerwehr Donaustauf nach 1880" width={600} height={304} alternate>
+          <CloudinaryPageImage
+            src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599978/gruppenfoto-der-feuerwehr-donaustauf-nach-1880_l7omfu.jpg"
+            alt="Gruppenfoto der Feuerwehr Donaustauf nach 1880"
+            width={600}
+            height={304}
+            alternate
+          >
             Gruppenfoto der Feuerwehr Donaustauf nach 1880
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">
           Über 700 Feuerwehrmänner kämpften mit 34 Löschmaschinen - Handpumpen einen ohnmächtigen Kampf mit dem Feuer.Von den in der Windrichtung gelegenen Gebäuden konnten nur sehr wenige gerettet werden: Pfarrkirche mit Klösterl, Pfarrhof
@@ -136,18 +143,18 @@ function Chronik(): JSX.Element {
           erwies sich als unbedingt erforderlich. Man entschied sich für den Kauf einer Motorspritze &quot;Magirus&quot; zum Preis von 6.600 RM.
         </div>
         <div className="mb-4 text-center">
-          <PageImage src="/assets/images/page/chronik-gruppenaufnahme-aus-dem-jahre-1927.jpg" alt="Gruppenaufnahme aus dem Jahre 1927" width={600} height={304}>
+          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599977/gruppenaufnahme-aus-dem-jahre-1927_chahyp.jpg" alt="Gruppenaufnahme aus dem Jahre 1927" width={600} height={304}>
             Gruppenaufnahme aus dem Jahre 1927
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">
           Wegen der damals schwierigen Situation wurde zur Finanzierung des Kaufs eine Spendensammlung durchgeführt und ein Burgfest veranstaltet. Der erste Einsatz der angeschafften Motorspritze war bei den Großbränden in Friesheim im
           Sommer 1934. Damals sind 5 große Bauernanwesen und neun Scheunen mit der eingebrachten Ernte, Stallungen und Nebengebäude dem Feuer zum Opfer gefallen
         </div>
         <div className="mb-4 text-center">
-          <PageImage src="/assets/images/page/chronik-lafettenspritze-der-ff-aus-dem-jahre-1928.jpg" alt="Lafettenspritze der FF aus dem Jahre 1928" width={600} height={304}>
+          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599979/lafettenspritze-der-ff-aus-dem-jahre-1928_ujooet.jpg" alt="Lafettenspritze der FF aus dem Jahre 1928" width={600} height={304}>
             Lafettenspritze der FF aus dem Jahre 1928
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">
           Damals hatte das &quot;Kommando&quot; der Freiwilligen Feuerwehr Donaustauf an das Bayerische Ministerium des Innern, Abteilung für Feuerlöschwesen ein Schreiben mit der &quot;Bitte um Gewährung eines Zuschusses zwecks Anschaffung
@@ -181,9 +188,9 @@ function Chronik(): JSX.Element {
           Bedürfnissen.
         </div>
         <div className="mb-4 text-center">
-          <PageImage src="/assets/images/page/chronik-1951-80jaehriges-gruendungsfest.jpg" alt="1951: 80jähriges Gründungsfest" width={600} height={304}>
+          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599973/1951-80jaehriges-gruendungsfest_ktlsxf.jpg" alt="1951: 80jähriges Gründungsfest" width={600} height={304}>
             1951: 80jähriges Gründungsfest
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">
           Daher wurde vom Gemeinderat und von der FF Donaustauf der Ankauf eines Löschfahrzeuges &quot;LF 8&quot; beschlossen. Von den eingeholten Angeboten wurde das von der Fa. Metz, Karlsruhe, zum Preis von 22.000 DM ausgewählt. Die alte
@@ -192,18 +199,18 @@ function Chronik(): JSX.Element {
           8&quot; das modernste Fahrzeug der Oberpfalz ist.
         </div>
         <div className="mb-4 text-center">
-          <PageImage src="/assets/images/page/chronik-lf-8-von-1952.jpg" alt="LF 8 von 1952" width={600} height={304}>
+          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599980/lf-8-von-1952_bfphnn.jpg" alt="LF 8 von 1952" width={600} height={304}>
             LF 8 von 1952
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">
           Nach dem Tod von Vorstand Peter Sauerer wurde im Jahre 1953 Metzgermeister August Landendinger zum neuen Vorstand gewählt.1954 erfolgte die Errichtung eines Schlauchtrockenturmes. Aus diesem Jahre ist besonders der Einsatz der
           Feuerwehr beim Katastrophen-Hochwasser zu erwähnen.
         </div>
         <div className="mb-4 text-center">
-          <PageImage src="/assets/images/page/chronik-1960-90jaehriges-gruendungsfest.jpg" alt="1960: 90jähriges Gründungsfest mit Fahnenweih" width={600} height={304}>
+          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599973/1960-90jaehriges-gruendungsfest_fl5m8a.jpg" alt="1960: 90jähriges Gründungsfest mit Fahnenweih" width={600} height={304}>
             1960: 90jähriges Gründungsfest mit Fahnenweih
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">
           Am 31. Juli 1960 wurde das glanzvolle 90jährige Gründungsfest - nachträglich - gefeiert und zu einem Ereignis für den Markt. 66 Gastvereine kamen aus der näheren und weiteren Umgebung nach Donaustauf. Als Schirmherr fungierte
@@ -227,15 +234,15 @@ function Chronik(): JSX.Element {
           den gleichen Grundsätzen einzuführen.
         </div>
         <div className="mb-4 text-center">
-          <PageImage
-            src="/assets/images/page/chronik-gruppe-der-ff-donaustauf.jpg"
+          <CloudinaryPageImage
+            src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599976/gruppe-der-ff-donaustauf_oaqsxy.jpg"
             alt="Gruppe der FF Donaustauf bei der Abnahme des ersten Leistungsabzeichen im Landkreis Regensburg im Jahre 1954"
             width={600}
             height={304}
             className="max-w-[600px]"
           >
             Gruppe der FF Donaustauf bei der Abnahme des ersten Leistungsabzeichen im Landkreis Regensburg im Jahre 1954
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">
           Um auf diese neue Leistungsprüfung genügend aufmerksam zu machen, wurden im Rahmen des 90jährigen Gründungsfestes der FF Regenstauf 1954 erstmals für den Landkreis Regensburg 19 Gruppen abgenommen, wobei sich die Gruppe der FF
@@ -243,9 +250,9 @@ function Chronik(): JSX.Element {
           einheitlichen Grundlagen für ganz Bayern eingeführt.
         </div>
         <div className="mb-4 text-center">
-          <PageImage src="/assets/images/page/chronik-abgebildet-in-der-brandwacht.jpg" alt="Abgebildet in der Brandwacht, die Gruppe der FF Donaustauf" width={600} height={304}>
+          <CloudinaryPageImage src="https://res.cloudinary.com/dzirm6srd/image/upload/v1762599973/abgebildet-in-der-brandwacht_rzobdy.jpg" alt="Abgebildet in der Brandwacht, die Gruppe der FF Donaustauf" width={600} height={304}>
             Abgebildet in der &quot;Brandwacht&quot;, die Gruppe der FF Donaustauf
-          </PageImage>
+          </CloudinaryPageImage>
         </div>
         <div className="mb-4">Es ist heute selbstverständlich, dass die Leistungsprüfung als wichtiger Baustein in die Grundausbildung einbezogen wird.</div>
         <div className="mb-4">

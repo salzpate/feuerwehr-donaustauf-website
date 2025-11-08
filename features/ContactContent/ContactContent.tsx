@@ -16,7 +16,7 @@ function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Elem
           <ContactCard
             name="Christopher Möck"
             position="Federführender Kommandant"
-            imageSrc="/assets/images/contact/moeck3.jpg"
+            imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602470/moeck_rkchhz.jpg"
             email="kommandant@feuerwehr-donaustauf.de"
             emailHref="mailto:kommandant@feuerwehr-donaustauf.de"
             phone="+49 151 19146666"
@@ -28,7 +28,7 @@ function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Elem
           <ContactCard
             name="Patrick Schrödel"
             position="Stellvertretender Kommandant"
-            imageSrc="/assets/images/contact/schrdel.jpg"
+            imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602471/schroedel_te1lze.jpg"
             email="stellv.kommandant@feuerwehr-donaustauf.de"
             emailHref="mailto:stellv.kommandant@feuerwehr-donaustauf.de"
             phone="+49 175 1657839"
@@ -40,7 +40,7 @@ function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Elem
           <ContactCard
             name="Tobias Müller"
             position="Vorsitzender"
-            imageSrc="/assets/images/contact/foto_folgt_demnaechst.png"
+            imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
             email="vorsitzender@feuerwehr-donaustauf.de"
             emailHref="mailto:vorsitzender@feuerwehr-donaustauf.de"
             phone="+49 176 64211895"
@@ -52,7 +52,7 @@ function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Elem
           <ContactCard
             name="Wolfgang Jaumann"
             position="Stellvertretender Vorsitzender"
-            imageSrc="/assets/images/contact/foto_folgt_demnaechst.png"
+            imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
             email="vorsitzender@feuerwehr-donaustauf.de"
             emailHref="mailto:vorsitzender@feuerwehr-donaustauf.de"
             phone="+49 176 64211895"
@@ -64,7 +64,7 @@ function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Elem
           <ContactCard
             name="Stefanie Jobst"
             position="Jugendwärtin"
-            imageSrc="/assets/images/contact/foto_folgt_demnaechst.png"
+            imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
             email="jugend@feuerwehr-donaustauf.de"
             emailHref="mailto:jugend@feuerwehr-donaustauf.de"
             street="Gregor-Mendel-Str. 5"
@@ -74,7 +74,7 @@ function ContactContent({ subSection }: Readonly<ContactContentProps>): JSX.Elem
         <div>
           <ContactCard
             name="Feuerwehrgerätehaus"
-            imageSrc="/assets/images/contact/feuerwehrgertehaus.jpg"
+            imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/v1762602468/feuerwehrgertehaus_h0irmq.jpg"
             email="feuerwehr@feuerwehr-donaustauf.de"
             emailHref="mailto:feuerwehr@feuerwehr-donaustauf.de"
             phone="+49 9403 8205"

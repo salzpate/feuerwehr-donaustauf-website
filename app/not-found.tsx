@@ -4,7 +4,6 @@ import HeaderMainLayout from '@/components/HeaderMainLayout/HeaderMainLayout';
 import { Metadata } from 'next';
 import PageSection from '@/components/PageSection/PageSection';
 import Link from 'next/link';
-import styles from '@/styles/index.module.css';
 
 export const metadata: Metadata = {
   title: '404',
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 function FileNotFound(): JSX.Element {
   return (
     <HeaderMainLayout>
-      <HeaderImage imageClass={styles.headerimage} />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762602175/main_hrwr0m.jpg)]" />
       <PageSection headline="Seite nicht gefunden" id="notfound">
         <div>Die gewünschte Seite wurde nicht gefunden.</div>
         <div className="my-16 rounded-sm bg-yellow-400 p-8">

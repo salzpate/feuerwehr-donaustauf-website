@@ -10,8 +10,6 @@ import { PortableText } from 'next-sanity';
 import { INFO_QUERYResult, OPERATION_QUERYResult } from '@/types/sanityTypes';
 import operationService from '@/lib/OperationService';
 
-import styles from '@/styles/index.module.css';
-
 async function getData(): Promise<{ infos?: INFO_QUERYResult; operations?: OPERATION_QUERYResult }> {
   const infos = await infoService.getInfos();
   const operations = await operationService.getOperations();
@@ -24,7 +22,7 @@ async function Home(): Promise<JSX.Element> {
 
   return (
     <HeaderMainLayout>
-      <HeaderImage imageClass={styles.headerimage} />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762602175/main_hrwr0m.jpg)]" />
       <PageSection headline="Aktuelles" id="aktuelles" subSection className="page-section pb-4 sm:pb-8">
         {data?.infos?.map(info => (
           <InfoArticle key={info._id} headline={info.title || ''}>

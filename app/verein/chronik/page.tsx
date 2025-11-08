@@ -2,7 +2,6 @@
 
 import { JSX } from 'react';
 import { PageSection } from '@salzpate/react-ui';
-import PageImage from '@/components/PageImage';
 import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 
 function Chronik(): JSX.Element {

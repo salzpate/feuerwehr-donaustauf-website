@@ -2,7 +2,7 @@
 
 import Operations from '@/components/Operations/Operations';
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { ContactCard, MoreLink, PageSection } from '@salzpate/react-ui';
+import { MoreLink, PageSection } from '@salzpate/react-ui';
 import { JSX } from 'react';
 import cn from 'classnames';
 import SpendenContent from '../SpendenContent';

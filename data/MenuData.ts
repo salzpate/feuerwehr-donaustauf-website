@@ -61,6 +61,18 @@ export const MenuData: AppMenu = {
           ],
         },
         {
+          id: 'feuerwehr-besondere-einsaetze',
+          children: 'Besondere Einsätze',
+          href: '/feuerwehr/besondere-einsaetze/',
+          subMenue: [
+            {
+              id: 'feuerwehr-besondere-einsaetze-grossbrand-06102025',
+              children: 'Großbrand am 06.10.2025',
+              href: '/feuerwehr/besondere-einsaetze/grossbrand-06102025/',
+            },
+          ],
+        },
+        {
           id: 'feuerwehr-beitritt',
           children: 'Mitglied werden',
           href: '/feuerwehr/beitritt/',

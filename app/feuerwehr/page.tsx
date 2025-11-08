@@ -21,6 +21,9 @@ function Feuerwehr(): JSX.Element {
           <PageMenuLink href="/feuerwehr/fahrzeuge/" name="Fahrzeuge" image="/assets/images/menu/feuerwehr-fahrzeuge.jpg">
             Ein Überblick über unsere Einsatzfahrzeuge – von modernen Löschfahrzeugen bis zu unserem First Responder.
           </PageMenuLink>
+          <PageMenuLink href="/feuerwehr/besondere-einsaetze/" name="Besondere Einsätze" image="/assets/images/menu/feuerwehr-besondere-einsatz.jpg">
+            Berichte über besondere Einsätze der Feuerwehr Donaustauf.
+          </PageMenuLink>
           <PageMenuLink href="/feuerwehr/beitritt/" name="Mitglied werden" image="/assets/images/menu/verein-beitritt.jpg">
             Sie interessieren sich für eine Mitgliedschaft in unserer Feuerwehr?
           </PageMenuLink>

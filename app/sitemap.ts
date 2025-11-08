@@ -76,6 +76,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: `${SITE_URL}'/feuerwehr/besondere-einsaetze/'`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/feuerwehr/besondere-einsaetze/grossbrand-06102025/`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
       url: `${SITE_URL}/feuerwehr/beitritt/`,
       lastModified: new Date(),
       changeFrequency: 'yearly',

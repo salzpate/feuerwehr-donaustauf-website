@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-import path from 'path';
+import path from 'node:path';
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -7,6 +7,14 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   sassOptions: {
     includePaths: [path.resolve(__dirname, 'node_modules')],
+  },
+  images: {
+    localPatterns: [
+      {
+        pathname: '/assets/images/**',
+        search: '',
+      },
+    ],
   },
 };
 

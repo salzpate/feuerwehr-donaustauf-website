@@ -2,7 +2,72 @@
 
 import { FfPageSection } from '@/components/FfPageSection';
 import CloudinaryImage from '@/components/Image/CloudinaryImage';
+import { ImageData } from '@/components/ImageOverlay/types/imageOverlayTypes';
 import { JSX } from 'react';
+
+// Alle Bilder des Großbrands als Serie
+const grossbrandImages: ImageData[] = [
+  {
+    src: 'grossbrand_am_06102025_1_vo2wyo',
+    alt: 'Großbrand am 06.10.2025 1',
+    width: 600,
+    height: 800,
+  },
+  {
+    src: 'grossbrand_am_06102025_2_uieftf',
+    alt: 'Großbrand am 06.10.2025 2',
+    width: 600,
+    height: 800,
+  },
+  {
+    src: 'grossbrand_am_06102025_3_pcrkur',
+    alt: 'Großbrand am 06.10.2025 3',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: 'grossbrand_am_06102025_4_jjp4ds',
+    alt: 'Großbrand am 06.10.2025 4',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: 'grossbrand_am_06102025_5_uiytql',
+    alt: 'Großbrand am 06.10.2025 5',
+    width: 600,
+    height: 800,
+  },
+  {
+    src: 'grossbrand_am_06102025_6_xjthrk',
+    alt: 'Großbrand am 06.10.2025 6',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: 'grossbrand_am_06102025_7_be4zhm',
+    alt: 'Großbrand am 06.10.2025 7',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: 'grossbrand_am_06102025_8_qme0xa',
+    alt: 'Großbrand am 06.10.2025 8',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: 'grossbrand_am_06102025_9_tbkbub',
+    alt: 'Großbrand am 06.10.2025 9',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: 'grossbrand_am_06102025_10_k0ozy3',
+    alt: 'Großbrand am 06.10.2025 10',
+    width: 800,
+    height: 600,
+  },
+];
 
 function Grossbrand06102025(): JSX.Element {
   return (
@@ -199,16 +264,16 @@ function Grossbrand06102025(): JSX.Element {
           </ul>
         </div>
         <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-          <CloudinaryImage src="grossbrand_am_06102025_1_vo2wyo" width={405} height={227} alt="Großbrand am 06.10.2025 1" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_2_uieftf" width={405} height={227} alt="Großbrand am 06.10.2025 2" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_3_pcrkur" width={405} height={227} alt="Großbrand am 06.10.2025 3" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_4_jjp4ds" width={405} height={227} alt="Großbrand am 06.10.2025 4" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_5_uiytql" width={405} height={227} alt="Großbrand am 06.10.2025 5" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_6_xjthrk" width={405} height={227} alt="Großbrand am 06.10.2025 6" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_7_be4zhm" width={405} height={227} alt="Großbrand am 06.10.2025 7" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_8_qme0xa" width={405} height={227} alt="Großbrand am 06.10.2025 8" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_9_tbkbub" width={405} height={227} alt="Großbrand am 06.10.2025 9" className="mb-4" />
-          <CloudinaryImage src="grossbrand_am_06102025_10_k0ozy3" width={405} height={227} alt="Großbrand am 06.10.2025 10" className="mb-4" />
+          <CloudinaryImage src="grossbrand_am_06102025_1_vo2wyo" width={405} height={227} alt="Großbrand am 06.10.2025 1" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={0} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_2_uieftf" width={405} height={227} alt="Großbrand am 06.10.2025 2" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={1} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_3_pcrkur" width={405} height={227} alt="Großbrand am 06.10.2025 3" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={2} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_4_jjp4ds" width={405} height={227} alt="Großbrand am 06.10.2025 4" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={3} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_5_uiytql" width={405} height={227} alt="Großbrand am 06.10.2025 5" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={4} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_6_xjthrk" width={405} height={227} alt="Großbrand am 06.10.2025 6" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={5} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_7_be4zhm" width={405} height={227} alt="Großbrand am 06.10.2025 7" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={6} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_8_qme0xa" width={405} height={227} alt="Großbrand am 06.10.2025 8" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={7} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_9_tbkbub" width={405} height={227} alt="Großbrand am 06.10.2025 9" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={8} caption="Großbrand am 06.10.2025" />
+          <CloudinaryImage src="grossbrand_am_06102025_10_k0ozy3" width={405} height={227} alt="Großbrand am 06.10.2025 10" className="mb-4" enableOverlay imageSeries={grossbrandImages} imageIndex={9} caption="Großbrand am 06.10.2025" />
         </div>
       </div>
     </FfPageSection>

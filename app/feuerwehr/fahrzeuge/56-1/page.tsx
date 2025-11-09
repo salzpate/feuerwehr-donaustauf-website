@@ -20,7 +20,7 @@ function FeuerwehrFahrzeuge561(): JSX.Element {
           </div>
         </div>
         <div className="w-full md:w-1/3 md:shrink-0 md:justify-center">
-          <CloudinaryImage src="geraetewagen_logistik_fkvt0v" width={405} height={227} alt="Florian Donaustauf 56/1" />
+          <CloudinaryImage src="geraetewagen_logistik_fkvt0v" width={405} height={227} alt="Florian Donaustauf 56/1" caption="Florian Donaustauf 56/1" enableOverlay overlayWidth={800} overlayHeight={531} />
         </div>
       </div>
       <h3 className="mt-4 mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Fahrzeugdaten</h3>

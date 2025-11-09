@@ -2,6 +2,7 @@ import { JSX, PropsWithChildren } from 'react';
 import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import SnackBarProvider from '@/components/SnackBar';
+import ImageOverlayProvider from '@/components/ImageOverlay';
 import { MenuData } from '@/data/MenuData';
 import { SITE_DESC, SITE_KEYWORDS, SITE_TITLE } from '@/lib/constants';
 
@@ -30,8 +31,10 @@ function RootLayout({ children }: PropsWithChildren<object>): JSX.Element {
       <head />
       <body>
         <SnackBarProvider>
-          {children}
-          <Footer text={footerText} menuItems={footerMenuItems} mainMenuItems={footerMainMenuItems} />
+          <ImageOverlayProvider>
+            {children}
+            <Footer text={footerText} menuItems={footerMenuItems} mainMenuItems={footerMainMenuItems} />
+          </ImageOverlayProvider>
         </SnackBarProvider>
       </body>
     </html>

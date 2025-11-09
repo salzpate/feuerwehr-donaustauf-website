@@ -42,6 +42,19 @@ body {
   margin-bottom: 1rem;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 200ms ease-out;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: black;

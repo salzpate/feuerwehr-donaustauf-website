@@ -1,13 +1,13 @@
 import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 import Link from 'next/link';
 import cn from 'classnames';
-import { JSX, useState, useMemo, useRef, useEffect, MouseEvent } from 'react';
+import { JSX, useState, useMemo, useRef, useEffect, MouseEvent, ReactNode } from 'react';
 import NavLink from '../NavLink';
 
 import styles from '../Header/Header.module.css';
 import { NavMenuItem } from '@/components/types/Menu/Menu';
 import ChevronLeftSvgIcon from '@/components/SvgIcons/ChevronLeftSvgIcon';
-import { getHeaderNavLinkItemKey } from '../utils/headerUtils';
+import { buildHeaderNavHeadline, getHeaderNavLinkItemKey } from '../utils/headerUtils';
 import NavButton from '../NavButton';
 import NavHeaderLink from '../NavHeaderLink';
 import FacebookSvgIcon from '@/components/SvgIcons/FacebookSvgIcon';
@@ -45,20 +45,20 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
     return parentItem?.subMenue || [];
   }, [menuStack, navMenuItems]);
 
-  const handleMenuClick = (item: NavMenuItem, event: MouseEvent) => {
+  function handleMenuClick(item: NavMenuItem, event: MouseEvent) {
     const hasChildren = (item.subMenue?.length ?? 0) > 0;
 
     if (hasChildren) {
       event.preventDefault();
       setMenuStack([...menuStack, item]);
     }
-  };
+  }
 
-  const handleBackClick = () => {
+  function handleBackClick() {
     if (stacked) {
       setMenuStack(menuStack.slice(0, -1));
     }
-  };
+  }
 
   return (
     <aside
@@ -90,7 +90,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
         </div>
         {stacked && (
           <div className={cn('border-b px-2', { 'border-gray-200 dark:border-gray-800': stacked, 'border-gray-100 dark:border-gray-900': !stacked })}>
-            <NavHeaderLink href={menuStack.at(-1)?.href ?? ''}>{menuStack.at(-1)?.children}</NavHeaderLink>
+            <NavHeaderLink href={menuStack.at(-1)?.href ?? ''}>{buildHeaderNavHeadline(menuStack, -1)}</NavHeaderLink>
           </div>
         )}
         <div className="relative mt-2 grow overflow-x-hidden overflow-y-scroll">

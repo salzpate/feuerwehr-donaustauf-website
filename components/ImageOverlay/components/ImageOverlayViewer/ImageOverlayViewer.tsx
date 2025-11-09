@@ -1,4 +1,4 @@
-import { JSX, useState, useEffect, MouseEvent } from 'react';
+import { JSX, useState, useEffect, MouseEvent, useRef } from 'react';
 import { ImageData } from '../../types/imageOverlayTypes';
 import CloudinaryImage from '@/components/Image/CloudinaryImage';
 import { useSwipeable } from 'react-swipeable';
@@ -10,14 +10,16 @@ interface ImageOverlayViewerProps {
   onClose: () => void;
   onNext: () => void;
   onPrevious: () => void;
+  onSelectImage?: (index: number) => void;
 }
 
 function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Element {
-  const { image, imageSeries, currentIndex, onClose, onNext, onPrevious } = props;
+  const { image, imageSeries, currentIndex, onClose, onNext, onPrevious, onSelectImage } = props;
 
   const [hasError, setHasError] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   console.log(isZoomed);
 
@@ -48,6 +50,16 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     setIsTransitioning(true);
     setTimeout(() => {
       onPrevious();
+      setIsTransitioning(false);
+    }, 200);
+  };
+
+  const handleThumbnailClick = (index: number) => {
+    if (index === currentIndex) return;
+    setHasError(false);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      onSelectImage?.(index);
       setIsTransitioning(false);
     }, 200);
   };
@@ -113,6 +125,18 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     }
   }, [currentIndex, imageSeries]);
 
+  // Auto-scroll thumbnail to center
+  useEffect(() => {
+    const currentThumbnail = thumbnailRefs.current[currentIndex];
+    if (currentThumbnail) {
+      currentThumbnail.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  }, [currentIndex]);
+
   return (
     <div
       className="animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90"
@@ -164,11 +188,30 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
         </button>
       )}
       {imageSeries.length > 1 && (
-        <div className="absolute right-4 bottom-4 rounded-full bg-black/50 px-4 py-2 text-sm text-white">
-          {currentIndex + 1} / {imageSeries.length}
-        </div>
+        <>
+          <div className="absolute right-4 bottom-4 rounded-full bg-black/50 px-4 py-2 text-sm text-white">
+            {currentIndex + 1} / {imageSeries.length}
+          </div>
+          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-4">
+            <div className="flex max-w-[90vw] gap-2 overflow-x-auto rounded-lg bg-black/70 p-2 backdrop-blur-sm">
+              {imageSeries.map((img, index) => (
+                <button
+                  key={img.src}
+                  ref={el => {
+                    thumbnailRefs.current[index] = el;
+                  }}
+                  onClick={() => handleThumbnailClick(index)}
+                  className={`shrink-0 cursor-pointer overflow-hidden rounded transition-all ${index === currentIndex ? 'opacity-100 ring-2 ring-gray-400' : 'opacity-50 hover:opacity-85'}`}
+                  aria-label={`Go to image ${index + 1}`}
+                >
+                  <CloudinaryImage src={img.src} alt={img.alt || `Thumbnail ${index + 1}`} width={80} height={60} className="h-16 w-20 object-cover" />
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
       )}
-      {image.caption && <div className="absolute bottom-4 left-1/2 max-w-[90vw] -translate-x-1/2 rounded-lg bg-black/70 px-4 py-2 text-center text-sm text-white sm:max-w-[80vw]">{image.caption}</div>}
+      {image.caption && <div className="absolute bottom-24 left-1/2 max-w-[90vw] -translate-x-1/2 rounded-lg bg-black/70 px-4 py-2 text-center text-sm text-white sm:max-w-[80vw]">{image.caption}</div>}
     </div>
   );
 }

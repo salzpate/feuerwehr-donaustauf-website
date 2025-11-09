@@ -74,6 +74,19 @@ function ImageOverlayProvider(props: Readonly<ImageOverlayProviderProps>) {
     });
   }, []);
 
+  const selectImage = useCallback((index: number) => {
+    setState(prev => {
+      if (index >= 0 && index < prev.imageSeries.length) {
+        return {
+          ...prev,
+          currentIndex: index,
+          selectedImage: prev.imageSeries[index],
+        };
+      }
+      return prev;
+    });
+  }, []);
+
   // Keyboard event handling
   useEffect(() => {
     if (!state.isOpen) return;
@@ -123,7 +136,9 @@ function ImageOverlayProvider(props: Readonly<ImageOverlayProviderProps>) {
   return (
     <ImageOverlayContext.Provider value={contextValue}>
       {children}
-      {state.isOpen && state.selectedImage && <ImageOverlayViewer image={state.selectedImage} imageSeries={state.imageSeries} currentIndex={state.currentIndex} onClose={hideOverlay} onNext={nextImage} onPrevious={previousImage} />}
+      {state.isOpen && state.selectedImage && (
+        <ImageOverlayViewer image={state.selectedImage} imageSeries={state.imageSeries} currentIndex={state.currentIndex} onClose={hideOverlay} onNext={nextImage} onPrevious={previousImage} onSelectImage={selectImage} />
+      )}
     </ImageOverlayContext.Provider>
   );
 }

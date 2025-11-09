@@ -10,6 +10,8 @@ import ChevronLeftSvgIcon from '@/components/SvgIcons/ChevronLeftSvgIcon';
 import { getHeaderNavLinkItemKey } from '../utils/headerUtils';
 import NavButton from '../NavButton';
 import NavHeaderLink from '../NavHeaderLink';
+import FacebookSvgIcon from '@/components/SvgIcons/FacebookSvgIcon';
+import InstagramSvgIcon from '@/components/SvgIcons/InstagramSvgIcon';
 
 interface HeaderSideMenuProps {
   navMenuItems: NavMenuItem[];
@@ -65,7 +67,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
   return (
     <aside
       className={cn(
-        'fixed top-0 left-0 z-30 h-full w-70 transform overflow-auto bg-gray-100 shadow-xl transition-all duration-300 ease-in-out dark:bg-gray-900',
+        'fixed top-0 left-0 z-30 h-full w-70 transform bg-gray-100 shadow-xl transition-all duration-300 ease-in-out dark:bg-gray-900',
         {
           'translate-x-0': open,
         },
@@ -74,45 +76,66 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
         },
       )}
     >
-      <div className={cn('flex h-16 w-full items-center border-b p-4', { 'border-gray-200 dark:border-gray-800': stacked, 'border-gray-100 dark:border-gray-900': !stacked })}>
+      <div className="flex h-full w-full flex-col">
+        <div className={cn('flex h-16 w-full items-center border-b p-4', { 'border-gray-200 dark:border-gray-800': stacked, 'border-gray-100 dark:border-gray-900': !stacked })}>
+          {stacked && (
+            <div>
+              <button
+                className="mr-8 inline-flex items-center justify-center rounded-full bg-gray-300 p-2 transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:bg-gray-700 dark:text-white/87 dark:hover:bg-blue-400"
+                onClick={handleBackClick}
+              >
+                <ChevronLeftSvgIcon />
+              </button>
+            </div>
+          )}
+          <Link href="/" className="text-gray-900 dark:text-gray-200" tabIndex={-1}>
+            <FfLogoSvgIcon className={styles.logo} />
+          </Link>
+        </div>
         {stacked && (
-          <div>
-            <button
-              className="mr-8 inline-flex items-center justify-center rounded-full bg-gray-300 p-2 transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:bg-gray-700 dark:text-white/87 dark:hover:bg-blue-400"
-              onClick={handleBackClick}
-            >
-              <ChevronLeftSvgIcon />
-            </button>
+          <div className={cn('mb-2 border-b px-2', { 'border-gray-200 dark:border-gray-800': stacked, 'border-gray-100 dark:border-gray-900': !stacked })}>
+            <NavHeaderLink href={menuStack.at(-1)?.href ?? ''}>{menuStack.at(-1)?.children}</NavHeaderLink>
           </div>
         )}
-        <Link href="/" className="text-gray-900 dark:text-gray-200" tabIndex={-1}>
-          <FfLogoSvgIcon className={styles.logo} />
-        </Link>
-      </div>
-      {stacked && (
-        <div className={cn('mb-2 border-b px-2', { 'border-gray-200 dark:border-gray-800': stacked, 'border-gray-100 dark:border-gray-900': !stacked })}>
-          <NavHeaderLink href={menuStack.at(-1)?.href ?? ''}>{menuStack.at(-1)?.children}</NavHeaderLink>
+        <div className="relative grow overflow-x-hidden overflow-y-scroll">
+          {currentMenu.map((item, index) => {
+            const hasChildren = (item.subMenue?.length ?? 0) > 0;
+
+            return (
+              <span key={getHeaderNavLinkItemKey(item, index)} className="mb-1 flex px-2">
+                {hasChildren && (
+                  <NavButton activeMenuName={item.activeMenuName} activeMenu={activeMenu} hasChildren={hasChildren} onClick={e => handleMenuClick(item, e)}>
+                    {item.children}
+                  </NavButton>
+                )}
+                {!hasChildren && (
+                  <NavLink href={item.href} activeMenuName={item.activeMenuName} activeMenu={activeMenu} onClick={e => handleMenuClick(item, e)}>
+                    {item.children}
+                  </NavLink>
+                )}
+              </span>
+            );
+          })}
         </div>
-      )}
-
-      {currentMenu.map((item, index) => {
-        const hasChildren = (item.subMenue?.length ?? 0) > 0;
-
-        return (
-          <span key={getHeaderNavLinkItemKey(item, index)} className="mb-1 flex px-2">
-            {hasChildren && (
-              <NavButton activeMenuName={item.activeMenuName} activeMenu={activeMenu} hasChildren={hasChildren} onClick={e => handleMenuClick(item, e)}>
-                {item.children}
-              </NavButton>
-            )}
-            {!hasChildren && (
-              <NavLink href={item.href} activeMenuName={item.activeMenuName} activeMenu={activeMenu} onClick={e => handleMenuClick(item, e)}>
-                {item.children}
-              </NavLink>
-            )}
-          </span>
-        );
-      })}
+        <div className={cn('border-t border-gray-200 p-2 dark:border-gray-800')}>
+          <a
+            href="https://www.facebook.com/feuerwehrdonaustauf/"
+            target="_blank"
+            rel="nofollow noreferrer"
+            className="my-2 inline-flex items-center justify-center rounded-md px-2 py-2 text-sm tracking-widest text-gray-400 shadow-xs transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-600 focus:outline-hidden sm:my-0 dark:hover:bg-gray-800 dark:focus:bg-gray-700"
+          >
+            <FacebookSvgIcon className="block h-5 w-5" />
+          </a>
+          <a
+            href="https://www.instagram.com/feuerwehrmarktdonaustauf/"
+            target="_blank"
+            rel="nofollow noreferrer"
+            className="my-2 inline-flex items-center justify-center rounded-md px-2 py-2 text-sm tracking-widest text-gray-400 shadow-xs transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-600 focus:outline-hidden sm:my-0 dark:hover:bg-gray-800 dark:focus:bg-gray-700"
+          >
+            <InstagramSvgIcon className="block h-5 w-5" />
+          </a>
+        </div>
+      </div>
     </aside>
   );
 }

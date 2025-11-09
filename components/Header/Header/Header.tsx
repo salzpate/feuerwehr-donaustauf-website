@@ -10,6 +10,7 @@ import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 
 import styles from './Header.module.css';
 import HeaderSideMenu from '../HeaderSideMenu';
+import HeaderBar from '../HeaderBar/HeaderBar';
 
 interface HeaderProps extends ActiveMenuItem {
   navMenuItems: NavMenuItem[];
@@ -32,15 +33,7 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
               </div>
             </div>
             <div className="hidden md:flex">
-              <div className="inline-flex items-center justify-center space-x-6 bg-secondary px-4 py-1 dark:bg-black">
-                {navMenuItems.map(item => {
-                  return (
-                    <NavBarLink key={`main-menu-${item.activeMenuName}`} href={item.href} activeMenuName={item.activeMenuName} activeMenu={activeMenu}>
-                      {item.children}
-                    </NavBarLink>
-                  );
-                })}
-              </div>
+              <HeaderBar navMenuItems={navMenuItems} activeMenu={activeMenu} />
             </div>
             <div className="-mr-4 flex bg-secondary sm:mr-1 md:hidden dark:bg-black">
               <button

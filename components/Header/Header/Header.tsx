@@ -10,6 +10,7 @@ import NavLink from '@/components/Header/NavLink';
 import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 
 import styles from './Header.module.css';
+import HeaderSideMenu from '../HeaderSideMenu';
 
 interface HeaderProps extends ActiveMenuItem {
   navMenuItems: NavMenuItem[];
@@ -70,22 +71,7 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
       >
         <div className="absolute inset-0 bg-black opacity-25"></div>
       </div>
-      <aside className={cn('fixed top-0 left-0 z-30 h-full w-64 transform overflow-auto bg-gray-100 shadow-xl transition-all duration-300 ease-in-out dark:bg-gray-900', { 'translate-x-0': isOn }, { '-translate-x-full': !isOn })}>
-        <span className="flex w-full items-center p-4">
-          <Link href="/" className="text-gray-900 dark:text-gray-200" tabIndex={-1}>
-            <FfLogoSvgIcon className={styles.logo} />
-          </Link>
-        </span>
-        {navMenuItems.map(item => {
-          return (
-            <span key={`mobile-menu-${item.activeMenuName}`} className="mb-1 flex px-2">
-              <NavLink href={item.href} activeMenuName={item.activeMenuName} activeMenu={activeMenu}>
-                {item.children}
-              </NavLink>
-            </span>
-          );
-        })}
-      </aside>
+      <HeaderSideMenu navMenuItems={navMenuItems} activeMenu={activeMenu} open={isOn} />
     </>
   );
 }

@@ -23,7 +23,7 @@ function Jugend(): JSX.Element {
           machen unsere Gruppe stark.
         </div>
       </FfPageSection>
-      <FfPageSection headline="Gemeinschaft und Aktivitäten" id="aktivitaeten" subSection className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
+      <FfPageSection headline="Gemeinschaft und Aktivitäten" id="aktivitaeten" level="h2" className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
         <div>Neben der feuerwehrtechnischen Ausbildung kommen Spaß und Teamgeist natürlich nicht zu kurz. In ihrem eigenen Jugendzimmer können unsere Jugendlichen gemeinsam Kicker spielen oder das Video- und Fernsehgerät nutzen.</div>
         <div className="mt-2">
           Regelmäßig stehen auch gemeinsame Unternehmungen auf dem Programm – etwa Kinobesuche, spannende Ausflüge wie Canyoning oder andere Freizeitaktionen. Ein besonderes Highlight soll bald wieder aufleben: das beliebte Zeltlager, das
@@ -37,7 +37,7 @@ function Jugend(): JSX.Element {
           selbst mit dabei!
         </div>
       </FfPageSection>
-      <FfPageSection headline="Jugendwarte" id="jugendwarte" subSection className="pb-6 sm:pb-8">
+      <FfPageSection headline="Jugendwarte" id="jugendwarte" level="h2" className="pb-6 sm:pb-8">
         <div>Die Jugendarbeit und Ausbildung unserer Jugendgruppe liegt in den Händen der Jugendwarte. Weitere Ausbilder aus der aktiven Mannschaft unterstützen bei Bedarf.</div>
         <div className="my-6 grid auto-rows-fr grid-cols-1 gap-6 sm:my-8 sm:grid-cols-2 lg:grid-cols-3">
           <ContactCard

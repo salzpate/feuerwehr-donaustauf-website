@@ -19,9 +19,8 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   const [hasError, setHasError] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  console.log(isZoomed);
 
   const hasPrevious = imageSeries.length > 0 && currentIndex > 0;
   const hasNext = imageSeries.length > 0 && currentIndex < imageSeries.length - 1;
@@ -171,7 +170,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      {hasPrevious && (
+      {hasPrevious && loaded && (
         <button onClick={handlePrevious} aria-label="Previous image" className="absolute inset-y-0 left-0 flex w-16 cursor-pointer items-center justify-center text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none">
           <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M15 19l-7-7 7-7" stroke="black" />
@@ -179,7 +178,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           </svg>
         </button>
       )}
-      {hasNext && (
+      {hasNext && loaded && (
         <button onClick={handleNext} aria-label="Next image" className="absolute inset-y-0 right-0 flex w-16 cursor-pointer items-center justify-center text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none">
           <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" stroke="black" />
@@ -204,7 +203,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
                   className={`shrink-0 cursor-pointer overflow-hidden rounded transition-all ${index === currentIndex ? 'opacity-100 ring-2 ring-gray-400' : 'opacity-50 hover:opacity-85'}`}
                   aria-label={`Go to image ${index + 1}`}
                 >
-                  <CloudinaryImage src={img.src} alt={img.alt || `Thumbnail ${index + 1}`} width={80} height={60} className="h-16 w-20 object-cover" />
+                  <CloudinaryImage src={img.src} alt={img.alt || `Thumbnail ${index + 1}`} width={80} height={60} className="h-16 w-20 object-cover" onLoad={() => setLoaded(true)} />
                 </button>
               ))}
             </div>

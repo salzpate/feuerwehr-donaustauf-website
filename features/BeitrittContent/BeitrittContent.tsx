@@ -6,13 +6,13 @@ import { ButtonLink, MoreLink } from '@salzpate/react-ui';
 import { JSX } from 'react';
 
 interface BeitrittContentProps {
-  subSection?: boolean;
+  level?: 'h1' | 'h2' | 'h3';
   showContact?: boolean;
 }
 
-function BeitrittContent({ subSection, showContact = true }: Readonly<BeitrittContentProps>): JSX.Element {
+function BeitrittContent({ level, showContact = true }: Readonly<BeitrittContentProps>): JSX.Element {
   return (
-    <FfPageSection headline="Mitglied werden – Mach mit bei unserer Feuerwehr!" subSection={subSection} id="beitritt">
+    <FfPageSection headline="Mitglied werden – Mach mit bei unserer Feuerwehr!" level={level} id="beitritt">
       <div className="page-section pb-8">
         <div>Sie interessieren sich für eine Mitgliedschaft in unserer Feuerwehr?</div>
         <div>Ganz gleich, ob Sie aktiv mit anpacken oder uns auf andere Weise unterstützen möchten – bei uns finden Sie die passende Möglichkeit, die sich gut mit Ihren persönlichen und beruflichen Umständen vereinbaren lässt.</div>

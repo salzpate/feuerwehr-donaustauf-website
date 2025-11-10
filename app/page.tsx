@@ -47,18 +47,25 @@ async function Home(): Promise<JSX.Element> {
   return (
     <HeaderMainLayout>
       <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762605631/main_yydisz.jpg)]" />
-      <FfPageSection headline="Aktuelles" id="aktuelles" subSection className="page-section pb-4 sm:pb-8">
-        {data?.infos
-          ?.toSorted((i1, i2) => (i1.index ?? 0) - (i2.index ?? 0))
-          .map(info => (
-            <InfoArticle key={info._id} headline={info.title || ''}>
-              {Array.isArray(info.message) && (
-                <div className="index-page-article">
-                  <PortableText value={info.message} components={portableTextComponents} />
-                </div>
-              )}
-            </InfoArticle>
-          ))}
+      <FfPageSection headline="Feuerwehr Markt Donaustauf" id="ffdstf" className="page-section pb-4 sm:pb-8">
+        {data?.infos && (
+          <>
+            <h2 className="text-xl font-medium tracking-tight text-heading uppercase sm:text-2xl lg:text-3xl dark:text-heading-dark">Aktuelles</h2>
+            <div className="pt-4 text-sm font-light sm:pt-6 lg:pt-8 lg:text-base lg:font-normal">
+              {data?.infos
+                ?.toSorted((i1, i2) => (i1.index ?? 0) - (i2.index ?? 0))
+                .map(info => (
+                  <InfoArticle key={info._id} headline={info.title || ''}>
+                    {Array.isArray(info.message) && (
+                      <div className="index-page-article">
+                        <PortableText value={info.message} components={portableTextComponents} />
+                      </div>
+                    )}
+                  </InfoArticle>
+                ))}
+            </div>
+          </>
+        )}
       </FfPageSection>
       <MainContent operations={data?.operations} />
     </HeaderMainLayout>

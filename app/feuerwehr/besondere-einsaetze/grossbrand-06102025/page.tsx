@@ -177,7 +177,7 @@ function Grossbrand06102025(): JSX.Element {
           </div>
         </div>
       </FfPageSection>
-      <FfPageSection id="stats" headline="Einsatzstatistik" subSection className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
+      <FfPageSection id="stats" headline="Einsatzstatistik" level="h2" className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
         <h3 className="mt-2 text-lg font-bold">Zeiten</h3>
         <ul className="mt-2 list-disc pl-8">
           <li>
@@ -272,7 +272,7 @@ function Grossbrand06102025(): JSX.Element {
           <li>BRK Regenstauf</li>
         </ul>
       </FfPageSection>
-      <FfPageSection id="bilder" headline="Eindrücke" subSection className="pb-6 sm:pb-8">
+      <FfPageSection id="bilder" headline="Eindrücke" level="h2" className="pb-6 sm:pb-8">
         <CloudinaryImageGalleryImage imageSeries={grossbrandImages} />
       </FfPageSection>
     </>

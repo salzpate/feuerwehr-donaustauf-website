@@ -20,7 +20,7 @@ function normalizeSrc(src: string): string {
 }
 
 function CloudinaryImage(props: Readonly<CloudinaryImageProps>): JSX.Element {
-  const { width, height, style, src, alt, className, quality, crop, gravity, zoom, fill, enableOverlay, imageSeries, imageIndex, fullHd, caption, overlayHeight, overlayWidth } = props;
+  const { width, height, src, alt, fill, enableOverlay, imageSeries, imageIndex, fullHd, caption, overlayHeight, overlayWidth, ...rest } = props;
   const { showOverlay } = useImageOverlay();
   const imageSrc = normalizeSrc(src);
 
@@ -43,12 +43,12 @@ function CloudinaryImage(props: Readonly<CloudinaryImageProps>): JSX.Element {
   if (enableOverlay) {
     return (
       <button onClick={handleClick} className="block w-full cursor-zoom-in transition-opacity hover:opacity-80 focus:ring-2 focus:ring-primary focus:outline-none" aria-label={`Bild vergrößern: ${alt}`}>
-        <CldImage width={fill ? undefined : width} height={fill ? undefined : height} style={style} src={imageSrc} alt={alt} className={className} quality={quality} crop={crop} gravity={gravity} zoom={zoom} fill={fill} />
+        <CldImage width={fill ? undefined : width} height={fill ? undefined : height} src={imageSrc} {...rest} alt={alt} fill={fill} />
       </button>
     );
   }
 
-  return <CldImage width={fill ? undefined : width} height={fill ? undefined : height} style={style} src={imageSrc} alt={alt} className={className} quality={quality} crop={crop} gravity={gravity} zoom={zoom} fill={fill} />;
+  return <CldImage width={fill ? undefined : width} height={fill ? undefined : height} src={imageSrc} {...rest} alt={alt} />;
 }
 
 export default CloudinaryImage;

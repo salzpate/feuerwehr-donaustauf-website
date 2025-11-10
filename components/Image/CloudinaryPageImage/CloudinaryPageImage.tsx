@@ -8,11 +8,11 @@ interface CloudinaryPageImageProps extends Omit<CloudinaryImageProps, 'caption'>
 }
 
 function CloudinaryPageImage(props: Readonly<PropsWithChildren<CloudinaryPageImageProps>>): JSX.Element {
-  const { alternate, children, className } = props;
+  const { alternate, children, className, ...rest } = props;
 
   return (
     <div className={cn('inline-block p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate }, className)}>
-      <CloudinaryImage {...props} caption={typeof children === 'string' ? children : undefined} />
+      <CloudinaryImage {...rest} caption={typeof children === 'string' ? children : undefined} loading="lazy" />
       <div className="mt-2 text-xs">{children}</div>
     </div>
   );

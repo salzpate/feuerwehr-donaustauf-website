@@ -11,6 +11,8 @@ import { getCurrentYear, getFfOperations, getFrOperations, getOperationsOfYear, 
 import BeitrittContent from '../BeitrittContent';
 import ContactContent from '../ContactContent';
 import { FfPageSection } from '@/components/FfPageSection';
+import ImageCarousel from '@/components/ImageCarousel';
+import { mainImages } from '@/data/MainImages';
 
 interface MainContentProps {
   operations?: OPERATION_QUERYResult;
@@ -32,7 +34,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
 
   return (
     <>
-      <FfPageSection headline="Einsätze" id="einsatz-content" subSection className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8 dark:bg-gray-900">
+      <FfPageSection headline="Einsätze" id="einsatz-content" level="h2" className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8 dark:bg-gray-900">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2">
             <div className="mr-0 md:mr-2">
@@ -56,11 +58,17 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
           </div>
         </div>
       </FfPageSection>
-      <SpendenContent subSection />
+      <FfPageSection id="bilder" level="h2" headline="Unsere Feuerwehr in Bildern" className="pb-6 sm:pb-8">
+        <ImageCarousel images={mainImages} autoPlay enableOverlay style={{ aspectRatio: '16 / 9' }} />
+      </FfPageSection>
       <div className="bg-gray-100 dark:bg-gray-900">
-        <BeitrittContent subSection showContact={false} />
+        <div className="mx-auto max-w-7xl px-4 pt-4 text-base tracking-wide text-paragraph sm:px-6 sm:pt-6 lg:px-8 lg:pt-8 dark:text-paragraph-dark">
+          <h2 className="text-xl font-medium tracking-tight text-heading uppercase sm:text-2xl lg:text-3xl dark:text-heading-dark">Unterstützen Sie uns</h2>
+        </div>
+        <SpendenContent level="h3" />
+        <BeitrittContent level="h3" showContact={false} />
       </div>
-      <ContactContent subSection />
+      <ContactContent level="h2" />
     </>
   );
 }

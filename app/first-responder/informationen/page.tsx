@@ -24,7 +24,7 @@ function FirstResponderInformationen(): JSX.Element {
         </div>
         <div className="mt-2">Alle Mitglieder unserer First Responder Einheit verfügen mindestens über den Sanitätslehrgang San A+B sowie weitere Zusatzausbildungen und Einweisungen im Umgang mit speziellen Medizinprodukten.</div>
       </FfPageSection>
-      <FfPageSection headline="Ablauf eines First Responder Einsatzes" id="einsatz" subSection className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
+      <FfPageSection headline="Ablauf eines First Responder Einsatzes" id="einsatz" level="h2" className="bg-gray-200 pb-6 sm:pb-8 dark:bg-gray-900">
         <div>
           <ul className="pl-8">
             <li className="list-disc">Notruf bei der Leitstelle Regensburg über die 112</li>
@@ -36,7 +36,7 @@ function FirstResponderInformationen(): JSX.Element {
           </ul>
         </div>
       </FfPageSection>
-      <SpendenContent subSection />
+      <SpendenContent level="h2" />
     </>
   );
 }

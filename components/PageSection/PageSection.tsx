@@ -8,7 +8,7 @@ function PageSection(props: PropsWithChildren<PageSectionProps>): JSX.Element {
   const { id, headline, className, subSection = false, children } = props;
 
   return (
-    <FfPageSection id={id} headline={headline} className={className} subSection={subSection}>
+    <FfPageSection id={id} headline={headline} className={className} level={subSection ? 'h2' : 'h1'}>
       {children}
     </FfPageSection>
   );

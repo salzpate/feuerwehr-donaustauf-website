@@ -95,7 +95,15 @@ body {
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+/* Prevent scroll restoration on iOS Safari */
+/* stylelint-disable-next-line no-duplicate-selectors */
+html,
+body {
+  overscroll-behavior: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

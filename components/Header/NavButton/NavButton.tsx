@@ -3,10 +3,10 @@ import { NavMenu } from '@/components/types/Menu/Menu';
 import ChevronRightSvgIcon from '@/components/SvgIcons/ChevronRightSvgIcon';
 
 const navLinkClassName =
-  'w-full flex items-center px-2 py-3 text-sm uppercase rounded-md justify-between text-gray-700 hover:bg-gray-300 hover:text-gray-900 focus:outline-hidden focus:bg-gray-400 focus:border-gray-500 focus:shadow-outline-gray dark:text-gray-300 dark:hover:text-gray-200 dark:hover:text-gray-200 dark:hover:bg-black dark:focus:bg-gray-800';
+  'w-full flex items-center px-4 py-3 min-h-[44px] text-sm uppercase rounded-md justify-between text-gray-700 hover:bg-gray-300 hover:text-gray-900 focus:outline-hidden focus:bg-gray-400 focus:border-gray-500 focus:shadow-outline-gray active:bg-gray-400 transition-colors duration-150 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-black dark:focus:bg-gray-800 dark:active:bg-gray-800';
 
 const navLinkActiveClassName =
-  'w-full flex items-center px-2 py-3 text-sm bg-gray-300 uppercase justify-between rounded-md text-gray-900 transition ease-in-out duration-150 hover:bg-gray-300 focus:outline-hidden focus:bg-gray-400 focus:shadow-outline-gray dark:text-gray-200 dark:bg-black dark:hover:bg-black dark:focus:bg-gray-800';
+  'w-full flex items-center px-4 py-3 min-h-[44px] text-sm bg-gray-300 uppercase justify-between rounded-md text-gray-900 transition ease-in-out duration-150 hover:bg-gray-300 focus:outline-hidden focus:bg-gray-400 focus:shadow-outline-gray active:bg-gray-400 dark:text-gray-200 dark:bg-black dark:hover:bg-black dark:focus:bg-gray-800 dark:active:bg-gray-800';
 
 interface NavButtonProps extends Pick<NavMenu, 'activeMenu' | 'activeMenuName'> {
   hasChildren?: boolean;

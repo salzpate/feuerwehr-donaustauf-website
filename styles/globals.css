@@ -14,13 +14,20 @@
   --color-heading-dark: #f70000;
   --color-paragraph: #101828;
   --color-paragraph-dark: #d1d5dc;
+  /* Responsive Header-Höhen */
+  --header-height-mobile: 3.5rem; /* 56px / 14 * 4 */
+  --header-height-desktop: 4rem; /* 64px / 16 * 4 */
 }
 
+/* Verbessertes Scroll-Offset für Anker-Links - responsive */
 :target {
-  display: block;
-  position: relative;
-  top: -92px;
-  visibility: hidden;
+  scroll-margin-top: var(--header-height-mobile);
+}
+
+@media (min-width: 640px) {
+  :target {
+    scroll-margin-top: var(--header-height-desktop);
+  }
 }
 
 html,
@@ -55,6 +62,71 @@ body {
   animation: fadeIn 200ms ease-out;
 }
 
+/* Verbesserte Fokus-Sichtbarkeit für Accessibility */
+*:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #f70000;
+  outline-offset: 2px;
+}
+
+/* Skip-Link Utility-Klassen */
+.sr-only {
+  border-width: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.focus\:not-sr-only:focus {
+  clip-path: none;
+  height: auto;
+  margin: inherit;
+  overflow: visible;
+  padding: inherit;
+  position: static;
+  white-space: normal;
+  width: auto;
+}
+
+/* Mobile Touch-Optimierungen */
+@media (hover: none) and (pointer: coarse) {
+  /* Größere Touch-Targets für mobile Geräte (min 44x44px) */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Verhindert ungewolltes Zoomen bei Fokus auf Inputs */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Smooth Scrolling für bessere UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduzierte Bewegung für Nutzer mit Präferenz */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -62,5 +134,9 @@ body {
 
   .images-dark {
     filter: grayscale(60%);
+  }
+
+  *:focus-visible {
+    outline-color: #ff4444;
   }
 }

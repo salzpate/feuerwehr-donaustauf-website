@@ -26,18 +26,19 @@ function QuickSearch({ menuItems }: Readonly<QuickSearchProps>): JSX.Element {
     const pages: SearchResult[] = [];
 
     const traverse = (items: NavMenuItem[], breadcrumb: string[] = []) => {
-      items.forEach(item => {
+      for (const item of items) {
         const currentBreadcrumb = [...breadcrumb, item.children as string];
+        const href = typeof item.href === 'string' ? item.href : '/';
         pages.push({
           title: item.children as string,
-          href: item.href,
+          href,
           breadcrumb: currentBreadcrumb.join(' > '),
         });
 
         if (item.subMenue && item.subMenue.length > 0) {
           traverse(item.subMenue, currentBreadcrumb);
         }
-      });
+      }
     };
 
     traverse(menuItems);
@@ -70,19 +71,16 @@ function QuickSearch({ menuItems }: Readonly<QuickSearchProps>): JSX.Element {
       </div>
 
       {results.length > 0 && (
-        <div className="mt-4 space-y-2" role="list" aria-label="Suchergebnisse">
+        <ul className="mt-4 space-y-2" aria-label="Suchergebnisse">
           {results.map(result => (
-            <Link
-              key={result.href}
-              href={result.href}
-              className="block rounded-md border border-gray-200 p-3 transition-colors hover:border-secondary hover:bg-white dark:border-gray-700 dark:hover:border-secondary dark:hover:bg-gray-800"
-              role="listitem"
-            >
-              <div className="font-medium text-heading dark:text-heading-dark">{result.title}</div>
-              <div className="mt-1 text-sm text-gray-600 dark:text-gray-400">{result.breadcrumb}</div>
-            </Link>
+            <li key={result.href}>
+              <Link href={result.href} className="block rounded-md border border-gray-200 p-3 transition-colors hover:border-secondary hover:bg-white dark:border-gray-700 dark:hover:border-secondary dark:hover:bg-gray-800">
+                <div className="font-medium text-heading dark:text-heading-dark">{result.title}</div>
+                <div className="mt-1 text-sm text-gray-600 dark:text-gray-400">{result.breadcrumb}</div>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
 
       {query.trim() && results.length === 0 && <div className="mt-4 text-center text-gray-600 dark:text-gray-400">Keine Ergebnisse gefunden</div>}

@@ -29,9 +29,10 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
   },
-  // Experimental Features für bessere Performance
+  // Experimental Features
   experimental: {
     optimizePackageImports: ['@salzpate/react-ui'],
+    scrollRestoration: false,
   },
 };
 

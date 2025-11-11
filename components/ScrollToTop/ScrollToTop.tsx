@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 export default function ScrollToTop() {
   const pathname = usePathname();
+  const prevPathname = useRef(pathname);
 
   useEffect(() => {
     // Disable browser's scroll restoration
@@ -14,19 +15,23 @@ export default function ScrollToTop() {
   }, []);
 
   useEffect(() => {
-    // Force scroll to top immediately
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    // Only scroll if pathname actually changed
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname;
 
-    // Additional scroll to top after a short delay for iOS Safari
-    const timeoutId = setTimeout(() => {
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }, 0);
+      // Immediate scroll
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
-    return () => clearTimeout(timeoutId);
+      // Multiple attempts for iOS Safari
+      const timeouts = [
+        setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' }), 0),
+        setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' }), 10),
+        setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' }), 50),
+        setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' }), 100),
+      ];
+
+      return () => timeouts.forEach(clearTimeout);
+    }
   }, [pathname]);
 
   return null;

@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // Performance-Optimierungen
-  compress: true,
+  compress: process.env.NODE_ENV === 'production',
   productionBrowserSourceMaps: false,
   // Compiler-Optimierungen
   compiler: {

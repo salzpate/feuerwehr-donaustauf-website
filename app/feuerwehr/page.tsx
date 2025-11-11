@@ -6,7 +6,7 @@ import { FfPageSection } from '@/components/FfPageSection';
 
 function Feuerwehr(): JSX.Element {
   return (
-    <FfPageSection headline="Feuerwehr" id="feuerwehr">
+    <FfPageSection headline="Feuerwehr2" id="feuerwehr">
       <div className="mb-4 grid-cols-1 sm:col-span-8 lg:col-span-12">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <PageMenuLink href="/feuerwehr/mannschaft/" name="Mannschaft" image="/assets/images/menu/feuerwehr-mannschaft.png">

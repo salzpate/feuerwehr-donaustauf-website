@@ -96,6 +96,11 @@ body {
 
 html {
   overflow-x: hidden;
+  scroll-behavior: auto;
+}
+
+/* Smooth scroll only for anchor links within the same page */
+a[href^="#"]:target {
   scroll-behavior: smooth;
 }
 

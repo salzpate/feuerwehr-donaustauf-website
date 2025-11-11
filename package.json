@@ -19,7 +19,6 @@
     "@sanity/image-url": "^1.2.0",
     "axios": "^1.13.2",
     "classnames": "^2.5.1",
-    "lucide-react": "^0.553.0",
     "next": "^16.0.1",
     "next-cloudinary": "^6.17.4",
     "next-sanity": "^11.6.5",

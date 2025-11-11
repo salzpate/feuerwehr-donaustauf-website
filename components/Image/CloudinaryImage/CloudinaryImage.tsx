@@ -4,6 +4,7 @@ import { JSX } from 'react';
 import { CldImage, CldImageProps } from 'next-cloudinary';
 import { useImageOverlay } from '@/components/ImageOverlay/hooks/useImageOverlay';
 import { ImageData } from '@/components/ImageOverlay/types/imageOverlayTypes';
+import { normalizeSrc, shimmer, toBase64 } from '../imageUtils/imageUtils';
 
 interface CloudinaryImageProps extends CldImageProps {
   enableOverlay?: boolean;
@@ -13,10 +14,6 @@ interface CloudinaryImageProps extends CldImageProps {
   fullHd?: boolean;
   overlayHeight?: number;
   overlayWidth?: number;
-}
-
-function normalizeSrc(src: string): string {
-  return src.startsWith('/') ? src.slice(1) : src;
 }
 
 function CloudinaryImage(props: Readonly<CloudinaryImageProps>): JSX.Element {
@@ -43,7 +40,7 @@ function CloudinaryImage(props: Readonly<CloudinaryImageProps>): JSX.Element {
   if (enableOverlay) {
     return (
       <button onClick={handleClick} className="block w-full cursor-zoom-in transition-opacity hover:opacity-80 focus:ring-2 focus:ring-primary focus:outline-none" aria-label={`Bild vergrößern: ${alt}`}>
-        <CldImage width={fill ? undefined : width} height={fill ? undefined : height} src={imageSrc} {...rest} alt={alt} fill={fill} />
+        <CldImage width={fill ? undefined : width} height={fill ? undefined : height} src={imageSrc} {...rest} alt={alt} fill={fill} placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(width ?? 100, height ?? 100))}`} />
       </button>
     );
   }

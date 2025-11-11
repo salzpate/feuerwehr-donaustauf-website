@@ -73,7 +73,7 @@ function FileNotFound(): JSX.Element {
           <QuickSearch menuItems={MenuData.main} />
         </div>
         <div className="pb-6 sm:pb-8">
-          <SiteMap menuItems={MenuData.main} title="Alle Seiten" />
+          <SiteMap menuItems={MenuData.main} title="Alle Seiten" compact />
         </div>
       </PageSection>
     </HeaderMainLayout>

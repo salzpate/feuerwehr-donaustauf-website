@@ -78,7 +78,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
   }
 
   return (
-    <aside
+    <nav
       ref={menuRef}
       id={id}
       className={cn(
@@ -90,7 +90,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
           '-translate-x-full': !open,
         },
       )}
-      aria-label="Hauptnavigation"
+      aria-label="Mobile Navigation"
       aria-hidden={!open}
     >
       <div className="flex h-full w-full flex-col">
@@ -108,7 +108,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
             </div>
           )}
 
-          <Link href="/" className={cn('text-gray-900 dark:text-gray-200', { 'pl-4': !stacked })} tabIndex={-1} aria-label="Zur Startseite">
+          <Link href="/" className={cn('text-gray-900 dark:text-gray-200', { 'pl-4': !stacked })} aria-label="Zur Startseite">
             <FfLogoSvgIcon className={styles.logo} aria-hidden="true" />
           </Link>
           {!stacked && (
@@ -129,12 +129,12 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
             <NavHeaderLink href={menuStack.at(-1)?.href ?? ''}>{buildHeaderNavHeadline(menuStack, -1)}</NavHeaderLink>
           </div>
         )}
-        <div className="relative mt-2 grow overflow-x-hidden overflow-y-scroll">
+        <ul className="relative mt-2 grow overflow-x-hidden overflow-y-scroll">
           {currentMenu.map((item, index) => {
             const hasChildren = (item.subMenue?.length ?? 0) > 0;
 
             return (
-              <span key={getHeaderNavLinkItemKey(item, index)} className="mb-1 flex px-2">
+              <li key={getHeaderNavLinkItemKey(item, index)} className="mb-1 flex px-2">
                 {hasChildren && (
                   <NavButton activeMenuName={item.activeMenuName} activeMenu={activeMenu} hasChildren={hasChildren} onClick={e => handleMenuClick(item, e)}>
                     {item.children}
@@ -145,10 +145,10 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
                     {item.children}
                   </NavLink>
                 )}
-              </span>
+              </li>
             );
           })}
-        </div>
+        </ul>
         <div className={cn('border-t border-gray-200 p-2 dark:border-gray-800')}>
           <a
             href="https://www.facebook.com/feuerwehrdonaustauf/"
@@ -170,7 +170,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
           </a>
         </div>
       </div>
-    </aside>
+    </nav>
   );
 }
 

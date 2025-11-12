@@ -35,11 +35,11 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
   return (
     <>
       <header className={cn('fixed z-10 w-full dark:bg-gray-900', styles.background)} role="banner">
-        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Hauptnavigation">
+        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Hauptnavigation">
           <div className={cn('flex h-14 items-center justify-between sm:h-16', styles.margin)}>
             <div className="flex items-center">
               <div className="shrink-0 bg-secondary px-4 dark:bg-black">
-                <Link href="/" className="text-white dark:text-gray-200" tabIndex={-1} aria-label="Zur Startseite">
+                <Link href="/" className="text-white dark:text-gray-200" aria-label="Zur Startseite">
                   <FfLogoSvgIcon className={styles.logo} aria-hidden="true" />
                 </Link>
               </div>
@@ -71,7 +71,7 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
           </div>
         </nav>
       </header>
-      <div aria-hidden="true" className={cn('fixed inset-0 z-10 transition-opacity', { 'inset-0 hidden': !isOn })} onClick={handleMenuClose}>
+      <div role="presentation" aria-hidden="true" className={cn('fixed inset-0 z-10 transition-opacity', { 'inset-0 hidden': !isOn })} onClick={handleMenuClose}>
         <div className="absolute inset-0 bg-black opacity-25"></div>
       </div>
       <HeaderSideMenu navMenuItems={navMenuItems} activeMenu={activeMenu} open={isOn} onClose={handleMenuClose} id="mobile-menu" />

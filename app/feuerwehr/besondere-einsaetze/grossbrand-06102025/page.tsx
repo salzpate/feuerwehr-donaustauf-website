@@ -1,7 +1,6 @@
 'use client';
 
 import { FfPageSection } from '@/components/FfPageSection';
-import CloudinaryImage from '@/components/Image/CloudinaryImage';
 import CloudinaryImageGalleryImage from '@/components/Image/CloudinaryImageGallery';
 import CloudinaryPageImage from '@/components/Image/CloudinaryPageImage';
 import { ImageData } from '@/components/ImageOverlay/types/imageOverlayTypes';

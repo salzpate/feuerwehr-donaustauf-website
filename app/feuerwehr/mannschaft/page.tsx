@@ -10,50 +10,62 @@ function Mannschaft(): JSX.Element {
       <FunctionCard role="Kommandant" name="Christopher Möck" leadership className="mb-4" />
       <FunctionCard role="Stellvertretender Kommandant" name="Patrick Schrödel" leadership className="mb-4" />
       <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="flex flex-col gap-4">
+        <section className="flex flex-col gap-4" aria-labelledby="first-responder-heading">
           <FunctionCard role="First Responder" leadership />
           <FunctionCard role="Leiter First Responder" name="Christopher Möck" />
           <FunctionCard role="Stellver. Leiter First Responder" name="Patrick Schrödel" />
           <FunctionCard role="MP Beauftragter" name="Patrick Schrödel" />
-        </div>
-        <div className="flex flex-col gap-4">
+        </section>
+        <section className="flex flex-col gap-4" aria-labelledby="loeschzug-heading">
           <FunctionCard role="Löschzug" leadership />
           <FunctionCard role="Zugführer" name="Wolfgang Weigert" />
           <FunctionCard role="Gruppenführer">
-            <div>Andreas Piwonka</div>
-            <div>Bernhard Weiherer</div>
-            <div>Florian Geisler</div>
-            <div>Thomas Weigert</div>
-            <div>Tobias Müller</div>
+            <ul>
+              <li>Andreas Piwonka</li>
+              <li>Bernhard Weiherer</li>
+              <li>Florian Geisler</li>
+              <li>Thomas Weigert</li>
+              <li>Tobias Müller</li>
+            </ul>
           </FunctionCard>
           <FunctionCard role="Jugendwartin" name="Stefanie Jobst" />
-        </div>
-        <div className="flex flex-col gap-4">
+        </section>
+        <section className="flex flex-col gap-4" aria-labelledby="fachbereiche-heading">
           <FunctionCard role="Fachbereiche" leadership />
           <FunctionCard role="PSA">
-            <div>Sieglinde Eigenstetter</div>
-            <div>Stefanie Schirm</div>
+            <ul>
+              <li>Sieglinde Eigenstetter</li>
+              <li>Stefanie Schirm</li>
+            </ul>
           </FunctionCard>
           <FunctionCard role="ELO">
-            <div>Daniel Möck</div>
-            <div>Florian Geisler</div>
+            <ul>
+              <li>Daniel Möck</li>
+              <li>Florian Geisler</li>
+            </ul>
           </FunctionCard>
           <FunctionCard role="Wasserdienst">
-            <div>Bernhard Weiherer</div>
-            <div>Wolfgang Weigert</div>
-            <div>Thomas Weigert</div>
+            <ul>
+              <li>Bernhard Weiherer</li>
+              <li>Wolfgang Weigert</li>
+              <li>Thomas Weigert</li>
+            </ul>
           </FunctionCard>
           <FunctionCard role="Geräte">
-            <div>Andreas Piwonka</div>
-            <div>Maximilian Semmelmann</div>
+            <ul>
+              <li>Andreas Piwonka</li>
+              <li>Maximilian Semmelmann</li>
+            </ul>
           </FunctionCard>
           <FunctionCard role="Atemschutz" name="Florian Kauscher" />
           <FunctionCard role="Wasserdienst">
-            <div>Markus Walter</div>
-            <div>Klöckers Jonas</div>
-            <div>Michael Wagner</div>
+            <ul>
+              <li>Markus Walter</li>
+              <li>Klöckers Jonas</li>
+              <li>Michael Wagner</li>
+            </ul>
           </FunctionCard>
-        </div>
+        </section>
       </div>
     </FfPageSection>
   );

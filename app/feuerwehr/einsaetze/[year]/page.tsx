@@ -47,7 +47,7 @@ async function FeuerwehrEinsaetze({ params }: Readonly<PageProps<'/feuerwehr/ein
 
   const ffOps = sortOperations(ffOperationsOfYear) ?? [];
 
-  return <OperationContent operations={ffOps} year={operationYear} years={years} categories={categories} operationPath="/feuerwehr/einsaetze/" kind="FF" statistics={stats} />;
+  return <OperationContent operations={ffOps} year={operationYear} years={years} categories={categories} operationPath="/feuerwehr/einsaetze/" statistics={stats} />;
 }
 
 export default FeuerwehrEinsaetze;

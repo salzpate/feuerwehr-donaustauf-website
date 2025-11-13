@@ -3,7 +3,7 @@ import { client } from './sanityClient';
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 import { getOperationYear } from './operationUtils';
 
-const OPERATION_QUERY = defineQuery('*[_type == "einsatz"]{ _id, title, locality, date, category, ffNr, frNr, slug }');
+const OPERATION_QUERY = defineQuery('*[_type == "einsatz"]{ _id, title, locality, date, category, incident, slug }');
 
 const options: FilteredResponseQueryOptions = { next: { revalidate: 60 } };
 

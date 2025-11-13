@@ -46,7 +46,7 @@ async function FirstResponderYearEinsaetze({ params }: Readonly<PageProps<'/firs
 
   const frOps = sortOperations(frOperationsOfYear) ?? [];
 
-  return <OperationContent operations={frOps} year={operationYear} years={years} operationPath="/first-responder/einsaetze/" kind="FR" statistics={stats} />;
+  return <OperationContent operations={frOps} year={operationYear} years={years} operationPath="/first-responder/einsaetze/" statistics={stats} />;
 }
 
 export default FirstResponderYearEinsaetze;

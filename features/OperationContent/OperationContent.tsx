@@ -21,16 +21,15 @@ interface OperationContentProps {
   categories?: string[];
   operationPath?: string;
   activeCategory?: string;
-  kind?: 'FF' | 'FR';
   statistics?: OperationStatsBarChartDataType[];
 }
 
 function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
-  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory, category, kind, statistics } = props;
+  const { operations, year = getCurrentYear(), years = [], categories = [], operationPath, activeCategory, category, statistics } = props;
   const showSidebar = (years.length > 0 || categories.length > 0) && operationPath;
 
   return (
-    <FfPageSection headline={category ? `Einsätze ${year} - ${category}` : `Einsätze ${year}`} id={kind === 'FF' ? 'feuerwehr-einsaetze' : 'first-responder-einsaetze'}>
+    <FfPageSection headline={category ? `Einsätze ${year} - ${category}` : `Einsätze ${year}`} id="einsaetze">
       <div className="my-6 grid grid-cols-1 gap-4 sm:my-8 sm:grid-cols-12">
         <div className={cn('grid-cols-1 sm:col-span-8', { 'lg:col-span-9': showSidebar, 'lg:col-span-12': !showSidebar })}>
           {operations.length === 0 && (
@@ -40,7 +39,7 @@ function OperationContent(props: Readonly<OperationContentProps>): JSX.Element {
           )}
           {operations.length > 0 && (
             <>
-              <OperationsWithMonth operations={operations} kind={kind} />
+              <OperationsWithMonth operations={operations} />
               <h3 className="mt-6 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">Diagramme</h3>
               <div className="flex flex-wrap">
                 <div className={cn('my-4 h-[400px] w-full bg-white text-gray-900 md:w-1/2 dark:bg-black')}>

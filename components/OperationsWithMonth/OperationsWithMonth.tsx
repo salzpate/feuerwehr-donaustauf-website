@@ -5,11 +5,10 @@ import Operation from '../Operation/Operation';
 interface OperationsWithMonthProps {
   operations?: OPERATION_QUERYResult;
   alternate?: boolean;
-  kind?: 'FF' | 'FR';
 }
 
 function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Element {
-  const { operations, kind, alternate } = props;
+  const { operations, alternate } = props;
 
   const groupedOperations = useMemo(() => {
     if (!operations) return [];
@@ -75,7 +74,7 @@ function OperationsWithMonth(props: Readonly<OperationsWithMonthProps>): JSX.Ele
           <h3 className="my-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-2xl lg:font-medium dark:text-secondary-dark">{group.headline}</h3>
           {group.operations.map(operation => (
             <div key={operation._id}>
-              <Operation {...operation} alternate={alternate} kind={kind} />
+              <Operation {...operation} alternate={alternate} />
             </div>
           ))}
         </div>

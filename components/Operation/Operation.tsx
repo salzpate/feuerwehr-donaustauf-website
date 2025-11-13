@@ -12,26 +12,23 @@ interface OperationsProps {
   locality: string | null;
   date: string | null;
   category: string | null;
-  ffNr: number | null;
-  frNr: number | null;
+  incident: number | null;
   slug: Slug | null;
   alternate?: boolean;
-  kind?: 'FF' | 'FR';
 }
 
 function Operation(props: Readonly<OperationsProps>): JSX.Element {
-  const { title, locality, date, category, frNr, ffNr, alternate, kind = 'FF' } = props;
+  const { title, locality, date, category, incident, alternate } = props;
 
   const dateObject = new Date(date ?? '');
   const opDate = `${dateObject.getDate().toString().padStart(2, '0')}.${(dateObject.getMonth() + 1).toString().padStart(2, '0')}.${dateObject.getFullYear()} ${dateObject.getHours().toString().padStart(2, '0')}:${dateObject.getMinutes().toString().padStart(2, '0')}`;
-  const opNr = kind === 'FF' && ffNr ? ffNr : frNr;
   const opTitle = parseOperationTitle(title);
   const alert = parseOperationAlert(title);
 
   return (
     <article className={cn('mb-2 border-l-4 p-2', { 'bg-gray-100 dark:bg-gray-900': !alternate, 'bg-white dark:bg-black': alternate })} style={{ borderColor: getCategoryColor(category ?? '') }}>
       <div className="mb-2 text-base font-bold">
-        <span className="border border-gray-300 p-0.5 text-sm">{opNr}</span> {opTitle}
+        <span className="border border-gray-300 p-0.5 text-sm">{incident}</span> {opTitle}
       </div>
       {alert && (
         <div className="flex items-center text-sm">

@@ -43,7 +43,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
                 <OperationPieChart year={year} operations={ffOpsThisYear} />
               </div>
               <MoreLink href="/feuerwehr/einsaetze/" linkText="Weitere Einsätze">
-                <Operations operations={ffOps?.slice(0, 5)} kind="FF" alternate />
+                <Operations operations={ffOps?.slice(0, 5)} alternate />
               </MoreLink>
             </div>
           </div>
@@ -53,7 +53,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
               <OperationPieChart year={year} operations={frOpsThisYear} />
             </div>
             <MoreLink href="/first-responder/einsaetze/" linkText="Weitere Einsätze">
-              <Operations operations={frOps?.slice(0, 5)} kind="FR" alternate />
+              <Operations operations={frOps?.slice(0, 5)} alternate />
             </MoreLink>
           </div>
         </div>

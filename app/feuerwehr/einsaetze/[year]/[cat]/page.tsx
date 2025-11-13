@@ -51,7 +51,7 @@ async function FeuerwehrEinsaetzeCategory({ params }: Readonly<PageProps<'/feuer
 
   const ffOps = sortOperations(ffOperationsOfCat) ?? [];
 
-  return <OperationContent operations={ffOps} year={operationYear} years={years} category={category} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} kind="FF" />;
+  return <OperationContent operations={ffOps} year={operationYear} years={years} category={category} categories={categories} operationPath="/feuerwehr/einsaetze/" activeCategory={cat} />;
 }
 
 export default FeuerwehrEinsaetzeCategory;

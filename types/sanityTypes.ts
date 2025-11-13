@@ -34,9 +34,14 @@ export type Einsatz = {
   locality?: string;
   date?: string;
   category?: 'Besondere Eins\xE4tze' | 'Br\xE4nde' | 'First Responder THL' | 'Sicherheitswache' | 'THL' | '\xDCbungen / Lehrg\xE4nge / Veranstaltungen' | 'Verkehrsabsicherung' | 'Wasserdienst';
-  ffNr?: number;
-  frNr?: number;
+  incident?: number;
   slug?: Slug;
+};
+
+export type Slug = {
+  _type: 'slug';
+  current?: string;
+  source?: string;
 };
 
 export type Info = {
@@ -93,6 +98,17 @@ export type SanityImageDimensions = {
   aspectRatio?: number;
 };
 
+export type SanityImageMetadata = {
+  _type: 'sanity.imageMetadata';
+  location?: Geopoint;
+  dimensions?: SanityImageDimensions;
+  palette?: SanityImagePalette;
+  lqip?: string;
+  blurHash?: string;
+  hasAlpha?: boolean;
+  isOpaque?: boolean;
+};
+
 export type SanityImageHotspot = {
   _type: 'sanity.imageHotspot';
   x?: number;
@@ -131,6 +147,13 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
+export type SanityAssetSourceData = {
+  _type: 'sanity.assetSourceData';
+  name?: string;
+  id?: string;
+  url?: string;
+};
+
 export type SanityImageAsset = {
   _id: string;
   _type: 'sanity.imageAsset';
@@ -154,17 +177,6 @@ export type SanityImageAsset = {
   source?: SanityAssetSourceData;
 };
 
-export type SanityImageMetadata = {
-  _type: 'sanity.imageMetadata';
-  location?: Geopoint;
-  dimensions?: SanityImageDimensions;
-  palette?: SanityImagePalette;
-  lqip?: string;
-  blurHash?: string;
-  hasAlpha?: boolean;
-  isOpaque?: boolean;
-};
-
 export type Geopoint = {
   _type: 'geopoint';
   lat?: number;
@@ -172,34 +184,21 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Slug = {
-  _type: 'slug';
-  current?: string;
-  source?: string;
-};
-
-export type SanityAssetSourceData = {
-  _type: 'sanity.assetSourceData';
-  name?: string;
-  id?: string;
-  url?: string;
-};
-
 export type AllSanitySchemaTypes =
   | EinsatzStats
   | Einsatz
+  | Slug
   | Info
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
+  | SanityImageMetadata
   | SanityImageHotspot
   | SanityImageCrop
   | SanityFileAsset
+  | SanityAssetSourceData
   | SanityImageAsset
-  | SanityImageMetadata
-  | Geopoint
-  | Slug
-  | SanityAssetSourceData;
+  | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./lib/InfoService.ts
 // Variable: INFO_QUERY
@@ -230,15 +229,14 @@ export type INFO_QUERYResult = Array<{
 
 // Source: ./lib/OperationService.ts
 // Variable: OPERATION_QUERY
-// Query: *[_type == "einsatz"]{ _id, title, locality, date, category, ffNr, frNr, slug }
+// Query: *[_type == "einsatz"]{ _id, title, locality, date, category, incident, slug }
 export type OPERATION_QUERYResult = Array<{
   _id: string;
   title: string | null;
   locality: string | null;
   date: string | null;
   category: 'Besondere Eins\xE4tze' | 'Br\xE4nde' | 'First Responder THL' | 'Sicherheitswache' | 'THL' | '\xDCbungen / Lehrg\xE4nge / Veranstaltungen' | 'Verkehrsabsicherung' | 'Wasserdienst' | null;
-  ffNr: number | null;
-  frNr: number | null;
+  incident: number | null;
   slug: Slug | null;
 }>;
 
@@ -257,7 +255,7 @@ import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == "info"]{ _id, title, message, index }': INFO_QUERYResult;
-    '*[_type == "einsatz"]{ _id, title, locality, date, category, ffNr, frNr, slug }': OPERATION_QUERYResult;
+    '*[_type == "einsatz"]{ _id, title, locality, date, category, incident, slug }': OPERATION_QUERYResult;
     '*[_type == "einsatzStats"]{ _id, year, ff, fr }': OPERATION_STATS_QUERYResult;
   }
 }

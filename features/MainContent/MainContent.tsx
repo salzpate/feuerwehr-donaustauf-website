@@ -7,7 +7,7 @@ import { JSX } from 'react';
 import cn from 'classnames';
 import SpendenContent from '../SpendenContent';
 import OperationPieChart from '@/components/OperationPieChart/OperationPieChart';
-import { getCurrentYear, getFfOperations, getFrOperations, getOperationsOfYear, sortOperations } from '@/lib/operationUtils';
+import { getCurrentYear, getFfOperations, getFrOperations } from '@/lib/operationUtils';
 import BeitrittContent from '../BeitrittContent';
 import ContactContent from '../ContactContent';
 import { FfPageSection } from '@/components/FfPageSection';
@@ -22,13 +22,10 @@ interface MainContentProps {
 
 function MainContent(props: Readonly<MainContentProps>): JSX.Element {
   const { operations, latestFfOperations, latestFrOperations } = props;
-
-  const frOps = sortOperations(getFrOperations(operations));
-  const ffOps = sortOperations(getFfOperations(operations));
   const year = getCurrentYear();
 
-  const ffOpsThisYear = getOperationsOfYear(ffOps, year) ?? [];
-  const frOpsThisYear = getOperationsOfYear(frOps, year) ?? [];
+  const ffOpsThisYear = getFfOperations(operations) ?? [];
+  const frOpsThisYear = getFrOperations(operations) ?? [];
 
   const hideFfChart = ffOpsThisYear.length === 0;
   const hideFrChart = frOpsThisYear.length === 0;
@@ -37,6 +34,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
   return (
     <>
       <FfPageSection headline="Einsätze" id="einsatz-content" level="h2" className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8 dark:bg-gray-900">
+        Test
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2">
             <div className="mr-0 md:mr-2">

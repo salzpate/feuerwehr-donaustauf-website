@@ -27,3 +27,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## License
 
 Feuerwehr Markt Donaustauf Homepage is Open Source software released under the https://www.apache.org/licenses/LICENSE-2.0.html[Apache 2.0 license].
+

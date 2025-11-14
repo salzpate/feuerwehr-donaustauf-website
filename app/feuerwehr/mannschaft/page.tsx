@@ -58,7 +58,7 @@ function Mannschaft(): JSX.Element {
             </ul>
           </FunctionCard>
           <FunctionCard role="Atemschutz" name="Florian Kauscher" />
-          <FunctionCard role="Wasserdienst">
+          <FunctionCard role="IT, EDV und Verwaltung">
             <ul>
               <li>Markus Walter</li>
               <li>Klöckers Jonas</li>

@@ -21,10 +21,11 @@ class OperationService {
   };
 
   getOperationsOfYear = async (year: number): Promise<OPERATION_QUERYResult | undefined> => {
-    const dateFrom = `${year - 1}-12-30T23:00:00Z`;
-    const dateUntil = `${year + 1}-01-02T23:00:00Z`;
-    const operations = await client.fetch<OPERATION_QUERYResult>(OPERATION_BY_YEAR_QUERY, { dateFrom, dateUntil }, options);
-    return getOperationsOfYear(operations, year);
+    // Europe/Berlin ist UTC+1 (Winter) oder UTC+2 (Sommer)
+    // Um sicherzugehen, dass alle Einsätze des Jahres erfasst werden:
+    const dateFrom = `${year - 1}-12-31T23:00:00Z`; // 31.12. 23:00 UTC = 01.01. 00:00 CET
+    const dateUntil = `${year}-12-31T22:59:59Z`; // 31.12. 22:59:59 UTC = 31.12. 23:59:59 CET
+    return client.fetch<OPERATION_QUERYResult>(OPERATION_BY_YEAR_QUERY, { dateFrom, dateUntil }, options);
   };
 
   getLatestFrOperations = async (): Promise<OPERATION_QUERYResult> => {

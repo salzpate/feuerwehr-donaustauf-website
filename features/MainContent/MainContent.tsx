@@ -12,19 +12,18 @@ import BeitrittContent from '../BeitrittContent';
 import ContactContent from '../ContactContent';
 import { FfPageSection } from '@/components/FfPageSection';
 import ImageCarousel from '@/components/ImageCarousel';
-import { mainImages } from '@/data/MainImages';
-import Image from 'next/image';
-import ArrowDownTraySvgIcon from '@/components/SvgIcons/ArrowDownTraySvgIcon';
 import ArrowTopRightOnSquare from '@/components/SvgIcons/ArrowTopRightOnSquare';
+import { ImageData } from '@/components/ImageOverlay';
 
 interface MainContentProps {
   operations?: OPERATION_QUERYResult;
   latestFfOperations?: OPERATION_QUERYResult;
   latestFrOperations?: OPERATION_QUERYResult;
+  bannerImages?: ImageData[];
 }
 
 function MainContent(props: Readonly<MainContentProps>): JSX.Element {
-  const { operations, latestFfOperations, latestFrOperations } = props;
+  const { operations, latestFfOperations, latestFrOperations, bannerImages } = props;
   const year = getCurrentYear();
 
   const ffOpsThisYear = getFfOperations(operations) ?? [];
@@ -66,7 +65,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
         </div>
       </FfPageSection>
       <FfPageSection id="bilder" level="h2" headline="Unsere Feuerwehr in Bildern" className="pb-6 sm:pb-8">
-        <ImageCarousel images={mainImages} autoPlay enableOverlay style={{ aspectRatio: '16 / 9' }} />
+        {bannerImages && <ImageCarousel images={bannerImages} autoPlay enableOverlay style={{ aspectRatio: '16 / 9' }} />}
       </FfPageSection>
       <div className="bg-gray-100 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 pt-4 text-base tracking-wide text-paragraph sm:px-6 sm:pt-6 lg:px-8 lg:pt-8 dark:text-paragraph-dark">

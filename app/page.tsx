@@ -11,6 +11,8 @@ import operationService from '@/lib/OperationService';
 import { FfPageSection } from '@/components/FfPageSection';
 import Link from 'next/link';
 import { getCurrentYear } from '@/lib/operationUtils';
+import cloudinaryService from '@/lib/CloudinaryService';
+import { buildImageData } from '@/lib/cloudinayUtils';
 
 const portableTextComponents: PortableTextComponents = {
   marks: {
@@ -51,12 +53,17 @@ async function getOperations(): Promise<OPERATION_QUERYResult | undefined> {
   return operationService.getOperationsOfYear(getCurrentYear());
 }
 
+async function getBannerImages() {
+  return cloudinaryService.getImagesByTag('banner');
+}
+
 async function Home(): Promise<JSX.Element> {
   const infos = await getInfos();
   const operations = await getOperations();
   const latestFf = await getLatestFf();
   const latestFr = await getLatestFr();
-
+  const images = buildImageData(await getBannerImages());
+  console.log(await getBannerImages());
   return (
     <HeaderMainLayout>
       <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762605631/main_yydisz.jpg)]" />
@@ -80,7 +87,7 @@ async function Home(): Promise<JSX.Element> {
           </>
         )}
       </FfPageSection>
-      <MainContent operations={operations} latestFrOperations={latestFr} latestFfOperations={latestFf} />
+      <MainContent operations={operations} latestFrOperations={latestFr} latestFfOperations={latestFf} bannerImages={images} />
     </HeaderMainLayout>
   );
 }

@@ -2,7 +2,7 @@
 
 import Operations from '@/components/Operations/Operations';
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
-import { MoreLink } from '@salzpate/react-ui';
+import { ButtonLink, MoreLink } from '@salzpate/react-ui';
 import { JSX } from 'react';
 import cn from 'classnames';
 import SpendenContent from '../SpendenContent';
@@ -13,6 +13,9 @@ import ContactContent from '../ContactContent';
 import { FfPageSection } from '@/components/FfPageSection';
 import ImageCarousel from '@/components/ImageCarousel';
 import { mainImages } from '@/data/MainImages';
+import Image from 'next/image';
+import ArrowDownTraySvgIcon from '@/components/SvgIcons/ArrowDownTraySvgIcon';
+import ArrowTopRightOnSquare from '@/components/SvgIcons/ArrowTopRightOnSquare';
 
 interface MainContentProps {
   operations?: OPERATION_QUERYResult;
@@ -73,6 +76,26 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
         <BeitrittContent level="h3" showContact={false} />
       </div>
       <ContactContent level="h2" />
+      <FfPageSection headline="Aktuelle Informationen des Landesfeuerwehrverband Bayern e.V." id="lfvb-content" level="h2" className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8">
+        <div id="external-link">
+          <a href="https://team112.bayern/" target="_blank" rel="noreferrer">
+            <img alt="Wir brauchen euch" src="https://feuerwehren.bayern/media/filer_public/07/d9/07d919da-d11f-49b7-a328-cc497fbd3671/bandentransparent_web.jpg" target="_blank" rel="nofollow noreferrer" />
+          </a>
+        </div>
+        <h3 className="my-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-xl lg:font-medium dark:text-secondary-dark">#team112 - Viele Gesichter. Eine Heimat.</h3>
+        <div>
+          In den rund 7.500 Freiwiligen Feuerwehren in Bayern mit ihren vielfältigen Aufgaben engagieren sich die unterschiedlichsten Menschen. Als Feuerwehrdienstleistende schützen wir unsere Heimat - und alle können bei der Freiwilligen
+          Feuerwehr mitmachen, sich engagieren und eine Heimat in der Feuerwehrfamilie finden.
+        </div>
+        <div className="mt-4">
+          <ButtonLink href="/assets/Beitritt.pdf" target="_blank" className="flex w-75 items-center">
+            <span className="mr-2">
+              <ArrowTopRightOnSquare />
+            </span>
+            <span>Mehr zum Thema #team112</span>
+          </ButtonLink>
+        </div>
+      </FfPageSection>
     </>
   );
 }

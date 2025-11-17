@@ -22,8 +22,8 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
   const [loaded, setLoaded] = useState(false);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const hasPrevious = true;
-  const hasNext = true;
+  const isAtFirstImage = currentIndex === 0;
+  const isAtLastImage = currentIndex === imageSeries.length - 1;
 
   const handleBackdropClick = (e: MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -39,7 +39,12 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     setHasError(false);
     setIsTransitioning(true);
     setTimeout(() => {
-      onNext();
+      if (isAtLastImage) {
+        // Loop to first image
+        onSelectImage?.(0);
+      } else {
+        onNext();
+      }
       setIsTransitioning(false);
     }, 200);
   };
@@ -48,7 +53,12 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     setHasError(false);
     setIsTransitioning(true);
     setTimeout(() => {
-      onPrevious();
+      if (isAtFirstImage) {
+        // Loop to last image
+        onSelectImage?.(imageSeries.length - 1);
+      } else {
+        onPrevious();
+      }
       setIsTransitioning(false);
     }, 200);
   };
@@ -65,11 +75,11 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (isZoomed || !hasNext) return;
+      if (isZoomed || isTransitioning) return;
       handleNext();
     },
     onSwipedRight: () => {
-      if (isZoomed || !hasPrevious) return;
+      if (isZoomed || isTransitioning) return;
       handlePrevious();
     },
     onTouchStartOrOnMouseDown: eventData => {
@@ -79,6 +89,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     },
     trackMouse: true,
     preventScrollOnSwipe: true,
+    delta: 50,
   });
 
   useEffect(() => {
@@ -136,19 +147,18 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
     }
   }, [currentIndex]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    globalThis.addEventListener('keydown', handleKeyDown);
+    return () => globalThis.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   return (
-    <div
-      className="animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90"
-      onClick={handleBackdropClick}
-      onKeyDown={e => {
-        if (e.key === 'Escape') {
-          onClose();
-        }
-      }}
-      role="dialog"
-      aria-modal="true"
-      tabIndex={-1}
-    >
+    <div {...handlers} className="animate-fadeIn fixed inset-0 z-9999 flex items-center justify-center bg-black/90" onClick={handleBackdropClick}>
       <div className="relative max-h-[85vh] max-w-[95vw] sm:max-h-[90vh] sm:max-w-[90vw]">
         {hasError ? (
           <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white/10 p-8 text-white">
@@ -159,7 +169,7 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
             <p className="text-center text-sm text-white/70">Das Bild kann nicht angezeigt werden</p>
           </div>
         ) : (
-          <div {...handlers} className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+          <div className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
             <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className="max-h-[85vh] max-w-[95vw] object-contain sm:max-h-[90vh] sm:max-w-[90vw]" onError={handleImageError} />
           </div>
         )}
@@ -170,21 +180,29 @@ function ImageOverlayViewer(props: Readonly<ImageOverlayViewerProps>): JSX.Eleme
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      {hasPrevious && loaded && (
-        <button onClick={handlePrevious} aria-label="Previous image" className="absolute inset-y-0 left-0 flex w-16 cursor-pointer items-center justify-center text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none">
-          <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M15 19l-7-7 7-7" stroke="black" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-      )}
-      {hasNext && loaded && (
-        <button onClick={handleNext} aria-label="Next image" className="absolute inset-y-0 right-0 flex w-16 cursor-pointer items-center justify-center text-white hover:bg-white/10 focus:bg-white/10 focus:outline-none">
-          <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" stroke="black" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+      {loaded && imageSeries.length > 1 && (
+        <>
+          <button
+            onClick={handlePrevious}
+            aria-label="Previous image"
+            className={`absolute inset-y-0 left-0 flex w-16 cursor-pointer items-center justify-center hover:bg-white/10 focus:bg-white/10 focus:outline-none ${isAtFirstImage ? 'text-gray-400' : 'text-white'}`}
+          >
+            <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M15 19l-7-7 7-7" stroke="black" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={handleNext}
+            aria-label="Next image"
+            className={`absolute inset-y-0 right-0 flex w-16 cursor-pointer items-center justify-center hover:bg-white/10 focus:bg-white/10 focus:outline-none ${isAtLastImage ? 'text-gray-400' : 'text-white'}`}
+          >
+            <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" stroke="black" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </>
       )}
       {imageSeries.length > 1 && (
         <>

@@ -18,6 +18,20 @@ export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESC,
   keywords: SITE_KEYWORDS,
+  metadataBase: new URL('https://www.feuerwehr-donaustauf.de'),
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESC,
+    url: 'https://www.feuerwehr-donaustauf.de',
+    siteName: SITE_TITLE,
+    locale: 'de_DE',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESC,
+  },
   icons: [
     { rel: 'apple-touch-icon', url: '/apple-touch-icon.png' },
     { rel: 'icon', url: '/favicon.png' },
@@ -31,7 +45,10 @@ function RootLayout({ children }: PropsWithChildren<object>): JSX.Element {
 
   return (
     <html lang="de">
-      <head />
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#dc2626" />
+      </head>
       <body>
         <SkipLink />
         <ScrollToTop />

@@ -58,11 +58,14 @@ async function getBannerImages() {
 }
 
 async function Home(): Promise<JSX.Element> {
-  const infos = await getInfos();
-  const operations = await getOperations();
-  const latestFf = await getLatestFf();
-  const latestFr = await getLatestFr();
-  const images = buildImageData(await getBannerImages());
+  const [infos, operations, latestFf, latestFr, bannerImages] = await Promise.all([
+    getInfos(),
+    getOperations(),
+    getLatestFf(),
+    getLatestFr(),
+    getBannerImages(),
+  ]);
+  const images = buildImageData(bannerImages);
 
   return (
     <HeaderMainLayout>

@@ -30,9 +30,15 @@
   }
 }
 
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
+  overscroll-behavior: none;
 }
 
 body {
@@ -94,31 +100,16 @@ body {
   }
 }
 
-html {
-  overflow-x: hidden;
-  scroll-behavior: auto;
-}
 
-/* Smooth scroll only for anchor links within the same page */
-a[href^="#"]:target {
-  scroll-behavior: smooth;
-}
-
-/* Prevent scroll restoration on iOS Safari */
-/* stylelint-disable-next-line no-duplicate-selectors */
-html,
-body {
-  overscroll-behavior: none;
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
   }
 }
 
@@ -148,6 +139,7 @@ body {
   }
 
   .images-dark {
-    filter: grayscale(60%);
+    filter: grayscale(0.6);
+    will-change: filter;
   }
 }

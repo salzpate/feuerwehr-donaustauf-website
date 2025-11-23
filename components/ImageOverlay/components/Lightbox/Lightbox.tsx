@@ -24,6 +24,7 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
   const [thumbnailsVisible, setThumbnailsVisible] = useState(true);
   const [direction, setDirection] = useState<'left' | 'right' | null>(null);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const isAtFirstImage = currentIndex === 0;
   const isAtLastImage = currentIndex === imageSeries.length - 1;
@@ -132,6 +133,39 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
     delta: 30,
   });
 
+  // Fullscreen mode for mobile devices
+  useEffect(() => {
+    const enterFullscreen = async () => {
+      if (!containerRef.current) return;
+
+      // Check if device is mobile (screen width < 768px)
+      const isMobile = window.innerWidth < 768;
+      if (!isMobile) return;
+
+      try {
+        if (containerRef.current.requestFullscreen) {
+          await containerRef.current.requestFullscreen();
+        } else if ('webkitRequestFullscreen' in containerRef.current) {
+          await (containerRef.current as HTMLElement & { webkitRequestFullscreen: () => Promise<void> }).webkitRequestFullscreen();
+        }
+      } catch (error) {
+        // Fullscreen request failed or was denied - continue without fullscreen
+        console.warn('Fullscreen mode not available:', error);
+      }
+    };
+
+    enterFullscreen();
+
+    // Exit fullscreen on unmount
+    return () => {
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {
+          // Ignore errors on exit
+        });
+      }
+    };
+  }, []);
+
   // Zoom detection
   useEffect(() => {
     const updateZoomState = () => {
@@ -188,103 +222,105 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
   }, [currentIndex]);
 
   return (
-    <animated.div {...handlers} style={backdropSpring} className="fixed inset-0 z-9999 flex items-center justify-center bg-black/90" onClick={handleBackdropClick}>
-      <div className="relative">
-        {hasError ? (
-          <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white/10 p-8 text-white">
-            <svg className="size-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            <p className="text-center text-lg font-medium">Fehler beim Laden des Bildes</p>
-            <p className="text-center text-sm text-white/70">Das Bild kann nicht angezeigt werden</p>
-          </div>
-        ) : (
-          <animated.div style={imageSpring} key={image.src}>
-            <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className={`max-h-[95vh] max-w-[95vw] rounded-lg object-contain`} onError={handleImageError} />
-          </animated.div>
-        )}
-      </div>
-
-      {/* Close Button */}
-      <animated.button onClick={onClose} aria-label="Close overlay" style={closeButtonSpring} className="absolute top-2 right-2 z-50 cursor-pointer rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus:outline-none">
-        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M6 18L18 6M6 6l12 12" stroke="black" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </animated.button>
-
-      {/* Navigation Buttons */}
-      {imageSeries.length > 1 && (
-        <>
-          <animated.button
-            onClick={handlePrevious}
-            aria-label="Previous image"
-            style={navButtonSpring}
-            className={`absolute inset-y-0 left-0 z-10 flex w-16 cursor-pointer items-center justify-center hover:bg-white/10 focus:bg-white/10 focus:outline-none ${isAtFirstImage ? 'text-gray-400' : 'text-white'}`}
-          >
-            <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M15 19l-7-7 7-7" stroke="black" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </animated.button>
-          <animated.button
-            onClick={handleNext}
-            aria-label="Next image"
-            style={navButtonSpring}
-            className={`absolute inset-y-0 right-0 z-10 flex w-16 cursor-pointer items-center justify-center hover:bg-white/10 focus:bg-white/10 focus:outline-none ${isAtLastImage ? 'text-gray-400' : 'text-white'}`}
-          >
-            <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" stroke="black" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </animated.button>
-        </>
-      )}
-
-      {/* Thumbnails */}
-      {imageSeries.length > 1 && (
-        <>
-          <div {...thumbnailHandlers} className={`absolute inset-x-0 bottom-0 flex justify-center overflow-hidden pb-4 ${thumbnailsVisible ? 'translate-y-0' : 'translate-y-full'}`}>
-            <div className="flex gap-2 rounded-lg p-2 backdrop-blur-sm" style={{ transform: `translateX(calc(50% - ${currentIndex * 88 + 44}px))`, transition: 'transform 0.3s ease-out' }}>
-              {imageSeries.map((img, index) => (
-                <button
-                  key={img.src}
-                  ref={el => {
-                    thumbnailRefs.current[index] = el;
-                  }}
-                  onClick={() => handleThumbnailClick(index)}
-                  className={`shrink-0 cursor-pointer overflow-hidden rounded transition-all ${index === currentIndex ? 'scale-110 opacity-100 ring-2 ring-gray-400' : 'opacity-50 hover:opacity-85'}`}
-                  aria-label={`Go to image ${index + 1}`}
-                >
-                  <CloudinaryImage src={img.src} alt={img.alt || `Thumbnail ${index + 1}`} width={80} height={60} className="h-16 w-20 object-cover" />
-                </button>
-              ))}
-            </div>
-          </div>
-          {!thumbnailsVisible && (
-            <button
-              onClick={() => setThumbnailsVisible(true)}
-              aria-label="Show thumbnails"
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 cursor-pointer rounded-full bg-black/70 p-2 text-white backdrop-blur-sm transition-all hover:bg-black/90"
-            >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+    <div ref={containerRef} className="fixed inset-0 z-9999">
+      <animated.div {...handlers} style={backdropSpring} className="absolute inset-0 flex items-center justify-center bg-black/90" onClick={handleBackdropClick}>
+        <div className="relative">
+          {hasError ? (
+            <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white/10 p-8 text-white">
+              <svg className="size-16 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
-            </button>
+              <p className="text-center text-lg font-medium">Fehler beim Laden des Bildes</p>
+              <p className="text-center text-sm text-white/70">Das Bild kann nicht angezeigt werden</p>
+            </div>
+          ) : (
+            <animated.div style={imageSpring} key={image.src}>
+              <CloudinaryImage src={image.src} alt={image.alt} width={image.width} height={image.height} className={`max-h-[95vh] max-w-[95vw] rounded-lg object-contain`} onError={handleImageError} />
+            </animated.div>
           )}
-        </>
-      )}
-
-      {/* Image Counter */}
-      {imageSeries.length > 1 && (
-        <div className={`absolute right-4 rounded-lg bg-white/10 px-4 py-2 text-sm text-white transition-all duration-300 ${thumbnailsVisible ? 'bottom-24' : 'bottom-4'}`}>
-          {currentIndex + 1} / {imageSeries.length}
         </div>
-      )}
 
-      {/* Caption */}
-      {image.caption && <div className="absolute top-2 left-2 max-w-[90vw] rounded-lg bg-white/10 px-4 py-2 text-left text-sm text-white sm:max-w-[80vw]">{image.caption}</div>}
-    </animated.div>
+        {/* Close Button */}
+        <animated.button onClick={onClose} aria-label="Close overlay" style={closeButtonSpring} className="absolute top-2 right-2 z-50 cursor-pointer rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus:outline-none">
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M6 18L18 6M6 6l12 12" stroke="black" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </animated.button>
+
+        {/* Navigation Buttons */}
+        {imageSeries.length > 1 && (
+          <>
+            <animated.button
+              onClick={handlePrevious}
+              aria-label="Previous image"
+              style={navButtonSpring}
+              className={`absolute inset-y-0 left-0 z-10 flex w-16 cursor-pointer items-center justify-center hover:bg-white/10 focus:bg-white/10 focus:outline-none ${isAtFirstImage ? 'text-gray-400' : 'text-white'}`}
+            >
+              <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M15 19l-7-7 7-7" stroke="black" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </animated.button>
+            <animated.button
+              onClick={handleNext}
+              aria-label="Next image"
+              style={navButtonSpring}
+              className={`absolute inset-y-0 right-0 z-10 flex w-16 cursor-pointer items-center justify-center hover:bg-white/10 focus:bg-white/10 focus:outline-none ${isAtLastImage ? 'text-gray-400' : 'text-white'}`}
+            >
+              <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M9 5l7 7-7 7" stroke="black" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </animated.button>
+          </>
+        )}
+
+        {/* Thumbnails */}
+        {imageSeries.length > 1 && (
+          <>
+            <div {...thumbnailHandlers} className={`absolute inset-x-0 bottom-0 flex justify-center overflow-hidden pb-4 ${thumbnailsVisible ? 'translate-y-0' : 'translate-y-full'}`}>
+              <div className="flex gap-2 rounded-lg p-2 backdrop-blur-sm" style={{ transform: `translateX(calc(50% - ${currentIndex * 88 + 44}px))`, transition: 'transform 0.3s ease-out' }}>
+                {imageSeries.map((img, index) => (
+                  <button
+                    key={img.src}
+                    ref={el => {
+                      thumbnailRefs.current[index] = el;
+                    }}
+                    onClick={() => handleThumbnailClick(index)}
+                    className={`shrink-0 cursor-pointer overflow-hidden rounded transition-all ${index === currentIndex ? 'scale-110 opacity-100 ring-2 ring-gray-400' : 'opacity-50 hover:opacity-85'}`}
+                    aria-label={`Go to image ${index + 1}`}
+                  >
+                    <CloudinaryImage src={img.src} alt={img.alt || `Thumbnail ${index + 1}`} width={80} height={60} className="h-16 w-20 object-cover" />
+                  </button>
+                ))}
+              </div>
+            </div>
+            {!thumbnailsVisible && (
+              <button
+                onClick={() => setThumbnailsVisible(true)}
+                aria-label="Show thumbnails"
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 cursor-pointer rounded-full bg-black/70 p-2 text-white backdrop-blur-sm transition-all hover:bg-black/90"
+              >
+                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                </svg>
+              </button>
+            )}
+          </>
+        )}
+
+        {/* Image Counter */}
+        {imageSeries.length > 1 && (
+          <div className={`absolute right-4 rounded-lg bg-white/10 px-4 py-2 text-sm text-white transition-all duration-300 ${thumbnailsVisible ? 'bottom-24' : 'bottom-4'}`}>
+            {currentIndex + 1} / {imageSeries.length}
+          </div>
+        )}
+
+        {/* Caption */}
+        {image.caption && <div className="absolute top-2 left-2 max-w-[90vw] rounded-lg bg-white/10 px-4 py-2 text-left text-sm text-white sm:max-w-[80vw]">{image.caption}</div>}
+      </animated.div>
+    </div>
   );
 }
 

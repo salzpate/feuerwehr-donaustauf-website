@@ -41,7 +41,7 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
   const imageSpring = useSpring({
     from: {
       opacity: direction ? 0 : 1,
-      transform: direction === 'left' ? 'translateX(-100%)' : direction === 'right' ? 'translateX(100%)' : 'translateX(0%)',
+      transform: direction === 'left' ? 'translateX(-100%)' : rightDirection,
     },
     to: {
       opacity: 1,

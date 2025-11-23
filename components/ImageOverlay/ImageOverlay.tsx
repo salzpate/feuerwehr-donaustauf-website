@@ -2,7 +2,6 @@
 
 import { ReactNode, useState, useEffect, useCallback, useMemo } from 'react';
 import { ImageData } from './types/imageOverlayTypes';
-import ImageOverlayViewer from './components/ImageOverlayViewer/ImageOverlayViewer';
 import { ImageOverlayContext, ImageOverlayContextType } from './context/ImageOverlayContext';
 import Lightbox from './components/Lightbox';
 

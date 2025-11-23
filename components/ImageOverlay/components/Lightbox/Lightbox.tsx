@@ -23,6 +23,7 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
   const [isZoomed, setIsZoomed] = useState(false);
   const [thumbnailsVisible, setThumbnailsVisible] = useState(true);
   const [direction, setDirection] = useState<'left' | 'right' | null>(null);
+  const [isTwoFingerTouch, setIsTwoFingerTouch] = useState(false);
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -107,16 +108,20 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (isZoomed) return;
+      if (isZoomed || isTwoFingerTouch) return;
       handleNext();
     },
     onSwipedRight: () => {
-      if (isZoomed) return;
+      if (isZoomed || isTwoFingerTouch) return;
       handlePrevious();
     },
     onTouchStartOrOnMouseDown: eventData => {
-      if (eventData.event && 'touches' in eventData.event && eventData.event.touches.length > 1) {
-        return false;
+      if (eventData.event && 'touches' in eventData.event) {
+        const touchCount = eventData.event.touches.length;
+        if (touchCount > 1) {
+          setIsTwoFingerTouch(true);
+          return false;
+        }
       }
     },
     trackMouse: true,
@@ -163,6 +168,28 @@ function Lightbox(props: Readonly<LightboxProps>): JSX.Element {
           // Ignore errors on exit
         });
       }
+    };
+  }, []);
+
+  // Two-finger touch detection
+  useEffect(() => {
+    const handleTouchEnd = (e: TouchEvent) => {
+      // Reset two-finger state when all fingers are lifted
+      if (e.touches.length === 0) {
+        setIsTwoFingerTouch(false);
+      }
+    };
+
+    const handleTouchCancel = () => {
+      setIsTwoFingerTouch(false);
+    };
+
+    window.addEventListener('touchend', handleTouchEnd);
+    window.addEventListener('touchcancel', handleTouchCancel);
+
+    return () => {
+      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('touchcancel', handleTouchCancel);
     };
   }, []);
 

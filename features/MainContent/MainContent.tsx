@@ -75,7 +75,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
         <BeitrittContent level="h3" showContact={false} />
       </div>
       <ContactContent level="h2" />
-      <FfPageSection headline="Aktuelle Informationen des Landesfeuerwehrverband Bayern e.V." id="lfvb-content" level="h2" className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8">
+      <FfPageSection headline="Aktuelle Informationen des Landesfeuerwehrverband Bayern e.V." id="lfvb-content" level="h2" className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8 dark:bg-gray-800">
         <div id="external-link" className="mx-auto w-3/4">
           <a href="https://team112.bayern/" target="_blank" rel="noreferrer">
             <img alt="Wir brauchen euch" src="https://feuerwehren.bayern/media/filer_public/07/d9/07d919da-d11f-49b7-a328-cc497fbd3671/bandentransparent_web.jpg" rel="nofollow noreferrer" />

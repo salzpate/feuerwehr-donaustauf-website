@@ -4,6 +4,7 @@ import FooterLink from '@/components/Footer/FooterLink';
 import FacebookSvgIcon from '@/components/SvgIcons/FacebookSvgIcon';
 import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 import InstagramSvgIcon from '@/components/SvgIcons/InstagramSvgIcon';
+import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { NavMenuItem } from '@/components/types/Menu/Menu';
 
 import FooterMainLinks from '../components/FooterMainLinks';
@@ -20,6 +21,9 @@ function Footer(props: Readonly<FooterProps>): JSX.Element {
     <footer className="w-full bg-gray-800 py-6 dark:bg-gray-900" role="contentinfo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FooterMainLinks menuItems={mainMenuItems} />
+        <div className="mb-4 flex justify-center sm:mb-0 md:justify-end">
+          <ThemeSwitcher />
+        </div>
         <div className="flex flex-col md:flex-row md:items-stretch md:justify-end">
           <div className="mb-2 grow text-center md:mb-0 md:text-left">
             <a

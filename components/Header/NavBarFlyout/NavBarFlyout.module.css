@@ -65,6 +65,22 @@
   }
 }
 
+:global(.light) .button .textWrapper::before {
+  background-color: var(--color-white);
+}
+
+:global(.dark) .button .textWrapper::before {
+  background-color: var(--color-gray-300);
+}
+
+:global(.dark) .button:hover .textWrapper::before {
+  background-color: var(--color-blue-400);
+}
+
+:global(.light) .button:hover .textWrapper::before {
+  background-color: var(--color-blue-600);
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;

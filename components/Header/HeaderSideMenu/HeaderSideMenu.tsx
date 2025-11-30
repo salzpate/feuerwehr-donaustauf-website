@@ -10,7 +10,6 @@ import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { cn } from '@/lib/cn';
 
-import styles from '../Header/Header.module.css';
 import NavButton from '../NavButton';
 import NavHeaderLink from '../NavHeaderLink';
 import NavLink from '../NavLink';
@@ -110,7 +109,7 @@ function HeaderSideMenu(props: Readonly<HeaderSideMenuProps>): JSX.Element {
           )}
 
           <Link href="/" className={cn('text-gray-900 dark:text-gray-200', { 'pl-4': !stacked })} aria-label="Zur Startseite">
-            <FfLogoSvgIcon className={styles.logo} aria-hidden="true" />
+            <FfLogoSvgIcon className="-mt-4 h-[38px] w-[107px] sm:h-10 sm:w-28" aria-hidden="true" />
           </Link>
           {!stacked && (
             <button

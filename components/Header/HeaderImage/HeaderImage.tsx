@@ -3,8 +3,6 @@ import { JSX, PropsWithChildren } from 'react';
 
 import { cn } from '@/lib/cn';
 
-import styles from './HeaderImage.module.css';
-
 interface HeaderImageProps {
   imageClass?: string;
 }
@@ -15,14 +13,14 @@ function HeaderImage(props: Readonly<PropsWithChildren<HeaderImageProps>>): JSX.
   if (children) {
     return (
       <>
-        <div className={cn(styles.image, 'bg-transparent bg-cover bg-scroll bg-center bg-no-repeat', imageClass)}>{children}</div>
+        <div className={cn('min-h-60 bg-transparent bg-cover bg-scroll bg-center bg-no-repeat sm:min-h-80 lg:min-h-[360px] dark:grayscale-60', imageClass)}>{children}</div>
         <div className="h-1 bg-secondary dark:bg-black" />
       </>
     );
   } else {
     return (
       <>
-        <div className={cn(styles.image, 'bg-transparent bg-cover bg-scroll bg-center bg-no-repeat', imageClass)}>
+        <div className={cn('min-h-60 bg-transparent bg-cover bg-scroll bg-center bg-no-repeat sm:min-h-80 lg:min-h-[360px] dark:grayscale-60', imageClass)}>
           <div className="flex flex-wrap">
             <section className="absolute w-full">
               <div className="relative mt-4 w-full sm:mt-4">

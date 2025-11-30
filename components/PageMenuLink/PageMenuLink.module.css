@@ -32,3 +32,19 @@
     box-shadow: inset 0 0 0 1000px rgba(255,255,255,.05);
   }
 }
+
+:global(.dark) .link {
+  background-color: var(--color-gray-900);
+}
+
+:global(.light) .link {
+  background-color: var(--color-gray-200);
+}
+
+:global(.dark) .link:hover {
+  box-shadow: inset 0 0 0 1000px rgba(255,255,255,.05);
+}
+
+:global(.light) .link:hover {
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}

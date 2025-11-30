@@ -9,7 +9,6 @@ import { cn } from '@/lib/cn';
 
 import HeaderBar from '../HeaderBar/HeaderBar';
 import HeaderSideMenu from '../HeaderSideMenu';
-import styles from './Header.module.css';
 
 interface HeaderProps extends ActiveMenuItem {
   navMenuItems: NavMenuItem[];
@@ -34,20 +33,20 @@ function Header(props: Readonly<HeaderProps>): JSX.Element {
 
   return (
     <>
-      <header className={cn('fixed z-10 w-full dark:bg-gray-900', styles.background)} role="banner">
+      <header className="fixed z-10 w-full bg-[url('/assets/images/header-bg.gif')] bg-center bg-repeat-x dark:bg-gray-900 dark:bg-[url('/assets/images/header-bg-dark.gif')]" role="banner">
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Hauptnavigation">
-          <div className={cn('flex h-14 items-center justify-between sm:h-16', styles.margin)}>
+          <div className="-mx-4 flex h-14 items-center justify-between sm:h-16">
             <div className="flex items-center">
               <div className="shrink-0 bg-secondary px-4 dark:bg-black">
                 <Link href="/" className="text-white dark:text-gray-200" aria-label="Zur Startseite">
-                  <FfLogoSvgIcon className={styles.logo} aria-hidden="true" />
+                  <FfLogoSvgIcon className="-mt-4 h-[38px] w-[107px] sm:h-10 sm:w-28" aria-hidden="true" />
                 </Link>
               </div>
             </div>
-            <div className="hidden md:flex">
+            <div className="hidden md:inline-flex md:items-center md:justify-center md:space-x-6">
               <HeaderBar navMenuItems={navMenuItems} activeMenu={activeMenu} />
             </div>
-            <div className="-mr-4 flex bg-secondary sm:mr-1 md:hidden dark:bg-black">
+            <div className="-mr-4 bg-secondary sm:mr-1 md:hidden dark:bg-black">
               <button
                 ref={menuButtonRef}
                 className="inline-flex items-center justify-center rounded-full p-2 text-white transition-all duration-300 ease-in-out hover:bg-blue-600 hover:opacity-75 dark:text-white/87 dark:hover:bg-blue-400"

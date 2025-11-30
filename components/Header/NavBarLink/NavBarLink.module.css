@@ -112,3 +112,53 @@
     background-color: var(--color-blue-400);
   }
 }
+
+:global(.dark) .link {
+  color: var(--color-gray-300);
+}
+
+:global(.light) .link {
+  color: var(--color-white);
+}
+
+:global(.dark).activated {
+  color: var(--color-gray-300);
+}
+
+:global(.light) .activated {
+  color: var(--color-white);
+}
+
+:global(.dark) .activated::before,
+:global(.dark) .link::before {
+  background-color: var(--color-gray-300);
+}
+
+:global(.light) .activated::before,
+:global(.light) .link::before {
+  background-color: var(--color-white);
+}
+
+:global(.dark) .activated:hover,
+:global(.dark) .activated:hover::before,
+:global(.dark) .link:hover::before,
+:global(.dark) .link:hover {
+  color: var(--color-blue-400);
+}
+
+:global(.light).activated:hover,
+:global(.light) .activated:hover::before,
+:global(.light) .link:hover::before,
+:global(.light) .link:hover {
+  color: var(--color-blue-600);
+}
+
+:global(.dark) .activated:hover::before,
+:global(.dark) .link:hover::before {
+  background-color: var(--color-blue-400);
+}
+
+:global(.light) .activated:hover::before,
+:global(.light) .link:hover::before {
+  background-color: var(--color-blue-600);
+}

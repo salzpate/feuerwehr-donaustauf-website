@@ -11,7 +11,7 @@ function FooterMainLinks(props: Readonly<FooterMainLinksProps>): JSX.Element {
   const { menuItems } = props;
 
   return (
-    <nav aria-label="Hauptnavigation Footer" className="mt-6 mb-6 grid grid-cols-1 gap-4 text-gray-400 sm:grid-cols-4">
+    <nav aria-label="Hauptnavigation Footer" className="mt-6 grid grid-cols-1 gap-4 text-gray-400 sm:grid-cols-4">
       {menuItems
         .filter(item => !item.hideFooter)
         .map(item => (

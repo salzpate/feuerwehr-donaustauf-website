@@ -24,6 +24,25 @@
   .link:hover {
     background-color: var(--color-gray-500);
     border-color: var(--color-gray-600);
-    text-decoration-line: none;
   }
+}
+
+:global(.dark) .link {
+  background-color: var(--color-black);
+  border-color: var(--color-gray-500);
+}
+
+:global(.light) .link {
+  background-color: var(--color-white);
+  border-color: var(--color-gray-200);
+}
+
+:global(.dark).link:hover {
+  background-color: var(--color-gray-500);
+  border-color: var(--color-gray-600);
+}
+
+:global(.light) .link:hover {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-300);
 }

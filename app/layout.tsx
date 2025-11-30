@@ -1,4 +1,3 @@
-import '@salzpate/react-ui/dist/style.css';
 import '@/styles/globals.css';
 import '@/styles/print.css';
 
@@ -10,6 +9,7 @@ import ImageOverlayProvider from '@/components/ImageOverlay';
 import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
 import SkipLink from '@/components/SkipLink';
 import SnackBarProvider from '@/components/SnackBar';
+import ThemeProvider from '@/components/ThemeProvider';
 import { MenuData } from '@/data/MenuData';
 import { SITE_DESC, SITE_KEYWORDS, SITE_TITLE } from '@/lib/constants';
 
@@ -45,20 +45,22 @@ function RootLayout({ children }: PropsWithChildren<object>): JSX.Element {
   const footerMenuItems = MenuData.footer;
 
   return (
-    <html lang="de">
+    <html lang="de" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#dc2626" />
       </head>
       <body>
-        <SkipLink />
-        <ScrollToTop />
-        <SnackBarProvider>
-          <ImageOverlayProvider>
-            {children}
-            <Footer text={footerText} menuItems={footerMenuItems} mainMenuItems={footerMainMenuItems} />
-          </ImageOverlayProvider>
-        </SnackBarProvider>
+        <ThemeProvider>
+          <SkipLink />
+          <ScrollToTop />
+          <SnackBarProvider>
+            <ImageOverlayProvider>
+              {children}
+              <Footer text={footerText} menuItems={footerMenuItems} mainMenuItems={footerMainMenuItems} />
+            </ImageOverlayProvider>
+          </SnackBarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

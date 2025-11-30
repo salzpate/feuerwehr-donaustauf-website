@@ -1,7 +1,8 @@
 'use client';
 
 import { ResponsiveBar } from '@nivo/bar';
-import { JSX, useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
+import { JSX } from 'react';
 
 import { OperationStatsBarChartDataType } from './types/operationBarChartTypes';
 
@@ -11,22 +12,7 @@ interface OperationStatsBarChartProps {
 
 function OperationStatsBarChart(props: Readonly<OperationStatsBarChartProps>): JSX.Element {
   const { data } = props;
-
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const darkModeQuery = globalThis.matchMedia('(prefers-color-scheme: dark)');
-
-    const updateDarkMode = (e: MediaQueryListEvent | MediaQueryList) => {
-      setIsDarkMode(e.matches);
-    };
-
-    updateDarkMode(darkModeQuery);
-
-    darkModeQuery.addEventListener('change', updateDarkMode);
-
-    return () => darkModeQuery.removeEventListener('change', updateDarkMode);
-  }, []);
+  const { resolvedTheme } = useTheme();
 
   if (!data) {
     return <></>;
@@ -43,7 +29,7 @@ function OperationStatsBarChart(props: Readonly<OperationStatsBarChartProps>): J
         axis: {
           ticks: {
             text: {
-              fill: isDarkMode ? 'rgb(209, 213, 220)' : 'rgb(51, 51, 51)',
+              fill: resolvedTheme === 'dark' ? 'rgb(209, 213, 220)' : 'rgb(51, 51, 51)',
             },
           },
         },

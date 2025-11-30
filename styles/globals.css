@@ -1,6 +1,9 @@
 /* stylelint-disable at-rule-no-unknown */
 
 @import "tailwindcss";
+@import '@salzpate/react-ui/styles';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary: #ffffff;
@@ -17,6 +20,31 @@
   /* Responsive Header-Höhen */
   --header-height-mobile: 3.5rem; /* 56px / 14 * 4 */
   --header-height-desktop: 4rem; /* 64px / 16 * 4 */
+}
+
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #f70000;
+  --color-header: #ffffff;
+  --color-link: #c00000;
+  --color-heading: #f70000;
+  --color-paragraph: #101828;
+  --header-height-mobile: 3.5rem;
+  --header-height-desktop: 4rem;
+}
+
+.dark {
+  --color-primary: #ffffff;
+  --color-secondary: #f70000;
+  --color-secondary-dark: #f70000;
+  --color-header: #ffffff;
+  --color-link: #ff4444;
+  --color-link-dark: #ff4444;
+  --color-link-dark-hover: #ff6666;
+  --color-heading: #ff4444;
+  --color-heading-dark: #ff4444;
+  --color-paragraph: #d1d5dc;
+  --color-paragraph-dark: #d1d5dc;
 }
 
 /* Verbessertes Scroll-Offset für Anker-Links - responsive */
@@ -142,4 +170,20 @@ body {
     filter: grayscale(0.6);
     will-change: filter;
   }
+}
+
+.dark body {
+  background-color: #000;
+}
+
+.dark .images-dark {
+  filter: grayscale(60%);
+}
+
+.light .body {
+  background-color: #fff;
+}
+
+.light .images-dark {
+  filter: none;
 }

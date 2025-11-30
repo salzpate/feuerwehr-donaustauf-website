@@ -1,7 +1,8 @@
 'use client';
 
 import { PieCustomLayerProps, ResponsivePie } from '@nivo/pie';
-import { JSX, useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
+import { JSX } from 'react';
 
 import { OPERATION_QUERYResult } from '@/types/sanityTypes';
 
@@ -15,21 +16,7 @@ interface OperationPieChartProps {
 
 function OperationLocationPieChart(props: Readonly<OperationPieChartProps>): JSX.Element {
   const { operations } = props;
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const darkModeQuery = globalThis.matchMedia('(prefers-color-scheme: dark)');
-
-    const updateDarkMode = (e: MediaQueryListEvent | MediaQueryList) => {
-      setIsDarkMode(e.matches);
-    };
-
-    updateDarkMode(darkModeQuery);
-
-    darkModeQuery.addEventListener('change', updateDarkMode);
-
-    return () => darkModeQuery.removeEventListener('change', updateDarkMode);
-  }, []);
+  const { resolvedTheme } = useTheme();
 
   const ffChartData =
     operations?.reduce<Array<OperationChartDataType>>((acc, op) => {
@@ -50,7 +37,7 @@ function OperationLocationPieChart(props: Readonly<OperationPieChartProps>): JSX
       return acc;
     }, []) ?? [];
 
-  const CenteredMetricWrapper = (props: PieCustomLayerProps<OperationChartDataType>): JSX.Element => <CenteredMetric {...props} text="Ort" isDarkMode={isDarkMode} />;
+  const CenteredMetricWrapper = (props: PieCustomLayerProps<OperationChartDataType>): JSX.Element => <CenteredMetric {...props} text="Ort" isDarkMode={resolvedTheme === 'dark'} />;
 
   return (
     <ResponsivePie

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 function FirstResponderLayout({ children }: LayoutProps<'/first-responder'>): JSX.Element {
   return (
     <HeaderMainLayout activeMenu="first-responder">
-      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762606183/fr_o3mmtg.jpg)]" />
+      <HeaderImage imageClass="bg-[url(https://res.cloudinary.com/dzirm6srd/image/upload/v1762606183/fr_bdisuz.jpg)]" />
       {children}
     </HeaderMainLayout>
   );

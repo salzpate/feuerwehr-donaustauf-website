@@ -10,8 +10,8 @@ function Jugend(): JSX.Element {
     <article>
       <FfPageSection headline="Jugendfeuerwehr" id="jugend" className="pb-6 sm:pb-8">
         <div>
-          Unsere Jugendgruppe nimmt Mädchen und Jungen zwischen 13 und 16 Jahren auf. Wenn Du Interesse hast, schau bei uns vorbei – wir freuen uns auf Dich! Die Jugendgruppe trifft sich alle zwei Wochen donnerstags um 18 Uhr im Gerätehaus.
-          Die Übungsabende verbinden feuerwehrtechnische Ausbildung mit gemeinsamer Freizeit und Teamaktivitäten. In der Regel dauern die Übungen 1,5 bis 2 Stunden – länger ist meist nicht nötig, denn Abwechslung und Motivation stehen im
+          Unsere Jugendgruppe nimmt Mädchen und Jungen ab 12 Jahren auf. Wenn Du Interesse hast, schau bei uns vorbei – wir freuen uns auf Dich! Die Jugendgruppe trifft sich alle zwei Wochen donnerstags um 18 Uhr im Gerätehaus. Die
+          Übungsabende verbinden feuerwehrtechnische Ausbildung mit gemeinsamer Freizeit und Teamaktivitäten. In der Regel dauern die Übungen 1,5 bis 2 Stunden – länger ist meist nicht nötig, denn Abwechslung und Motivation stehen im
           Vordergrund.
         </div>
         <div className="mt-2">
@@ -42,7 +42,7 @@ function Jugend(): JSX.Element {
         <div>Die Jugendarbeit und Ausbildung unserer Jugendgruppe liegt in den Händen der Jugendwarte. Weitere Ausbilder aus der aktiven Mannschaft unterstützen bei Bedarf.</div>
         <div className="my-6 grid auto-rows-fr grid-cols-1 gap-6 sm:my-8 sm:grid-cols-2">
           <ContactCard name="Stefanie Jobst" role="Jugendwartin" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
-          <ContactCard name="Michael Wagner" role="Jugendwart" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
+          <ContactCard name="Andreas Piwonka" role="Jugendwart" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
         </div>
       </FfPageSection>
     </article>

@@ -7,14 +7,14 @@ import FunctionCard from '@/components/FunctionCard';
 
 function Mannschaft(): JSX.Element {
   return (
-    <FfPageSection headline="Vorstandschaft" id="vorstandschaft">
+    <FfPageSection headline="Mannschaft" id="mannschaft">
       <FunctionCard role="Kommandant" name="Christopher Möck" leadership className="mb-4" />
       <FunctionCard role="Stellvertretender Kommandant" name="Patrick Schrödel" leadership className="mb-4" />
       <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <section className="flex flex-col gap-4" aria-labelledby="first-responder-heading">
           <FunctionCard role="First Responder" leadership />
           <FunctionCard role="Leiter First Responder" name="Christopher Möck" />
-          <FunctionCard role="Stellver. Leiter First Responder" name="Patrick Schrödel" />
+          <FunctionCard role="stellv. Leiter First Responder" name="Patrick Schrödel" />
           <FunctionCard role="MP Beauftragter" name="Patrick Schrödel" />
         </section>
         <section className="flex flex-col gap-4" aria-labelledby="loeschzug-heading">

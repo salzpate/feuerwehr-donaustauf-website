@@ -76,10 +76,10 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
         <SpendenContent level="h3" />
         <BeitrittContent level="h3" showContact={false} />
       </div>
-      <ContactContent level="h2" />
+      <ContactContent level="h2" showPhone={false} />
       <FfPageSection headline="Aktuelle Informationen des Landesfeuerwehrverband Bayern e.V." id="lfvb-content" level="h2" className="page-section main-content-index-image bg-gray-100 pb-6 sm:pb-8 dark:bg-gray-800">
         <div id="external-link" className="mx-auto w-3/4">
-          <a href="https://team112.bayern/" target="_blank" rel="noreferrer">
+          <a href="https://team112.bayern" target="_blank" rel="noreferrer">
             <img alt="Wir brauchen euch" src="https://feuerwehren.bayern/media/filer_public/07/d9/07d919da-d11f-49b7-a328-cc497fbd3671/bandentransparent_web.jpg" rel="nofollow noreferrer" />
           </a>
         </div>
@@ -89,7 +89,7 @@ function MainContent(props: Readonly<MainContentProps>): JSX.Element {
           Feuerwehr mitmachen, sich engagieren und eine Heimat in der Feuerwehrfamilie finden.
         </div>
         <div className="mt-4">
-          <ButtonLink href="/assets/Beitritt.pdf" target="_blank" className="flex w-75 items-center">
+          <ButtonLink href="https://team112.bayern" target="_blank" className="flex w-75 items-center">
             <span className="mr-2">
               <ArrowTopRightOnSquare />
             </span>

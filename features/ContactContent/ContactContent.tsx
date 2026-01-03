@@ -8,9 +8,10 @@ import FfLogoSvgIcon from '@/components/SvgIcons/FfLogoSvgIcon';
 
 interface ContactContentProps {
   level?: 'h1' | 'h2' | 'h3';
+  showPhone?: boolean;
 }
 
-function ContactContent({ level }: Readonly<ContactContentProps>): JSX.Element {
+function ContactContent({ level, showPhone = true }: Readonly<ContactContentProps>): JSX.Element {
   return (
     <FfPageSection headline="Kontakt" id="kontakt" level={level} className="page-section relative">
       <div>Hast du Fragen rund um die Feuerwehr Donaustauf? Wir versenden keine Ärmelabzeichen an Sammler.</div>
@@ -23,7 +24,7 @@ function ContactContent({ level }: Readonly<ContactContentProps>): JSX.Element {
           role="Federführender Kommandant"
           imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602470/moeck_rkchhz.jpg"
           email="kommandant@feuerwehr-donaustauf.de"
-          phone="+49 151 19146666"
+          phone={showPhone ? '+49 151 19146666' : undefined}
           street="Taxisstr. 2"
           town="93093 Donaustauf"
         />
@@ -32,7 +33,7 @@ function ContactContent({ level }: Readonly<ContactContentProps>): JSX.Element {
           role="Stellvertretender Kommandant"
           imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602471/schroedel_te1lze.jpg"
           email="stellv.kommandant@feuerwehr-donaustauf.de"
-          phone="+49 175 1657839"
+          phone={showPhone ? '+49 175 1657839' : undefined}
           street="Gregor-Mendel-Str. 5"
           town="93093 Donaustauf"
         />
@@ -41,7 +42,7 @@ function ContactContent({ level }: Readonly<ContactContentProps>): JSX.Element {
           role="Vorsitzender"
           imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
           email="vorsitzender@feuerwehr-donaustauf.de"
-          phone="+49 176 64211895"
+          phone={showPhone ? '+49 176 64211895' : undefined}
           street="Baronstr. 81"
           town="93093 Donaustauf"
         />
@@ -50,7 +51,7 @@ function ContactContent({ level }: Readonly<ContactContentProps>): JSX.Element {
           role="Stellvertretender Vorsitzender"
           imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
           email="vorsitzender@feuerwehr-donaustauf.de"
-          phone="+49 176 64211895"
+          phone={showPhone ? '+49 176 64211895' : undefined}
           street="Burgstr. 18"
           town="93093 Donaustauf"
         />
@@ -59,7 +60,7 @@ function ContactContent({ level }: Readonly<ContactContentProps>): JSX.Element {
           role="Jugendwartin"
           imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
           email="jugend@feuerwehr-donaustauf.de"
-          phone=""
+          phone={showPhone ? '' : undefined}
           street="Gregor-Mendel-Str. 5"
           town="93093 Donaustauf"
         />
@@ -68,7 +69,7 @@ function ContactContent({ level }: Readonly<ContactContentProps>): JSX.Element {
           role=""
           imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/feuerwehrgertehaus_h0irmq.jpg"
           email="feuerwehr@feuerwehr-donaustauf.de"
-          phone="+49 9403 8205"
+          phone={showPhone ? '+49 9403 8205' : undefined}
           street="Regensburger Str. 9"
           town="93093 Donaustauf"
         />

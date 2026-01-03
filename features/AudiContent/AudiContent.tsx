@@ -57,26 +57,28 @@ function AudiContent(): JSX.Element {
         </li>
       </ul>
       <ul className="mt-4 list-disc pl-8">
-        <li>Handwerkzeug</li>
-        <li>Feuerlöscher Pulver 12KG</li>
-        <li>6 Digitalfunkhandsprechfunkgeräte</li>
-        <li>Handmikrofon für Außendurchsagen</li>
-        <li>Handscheinwerfer in LED</li>
-        <li>4 Blitzleuchten (Syncroblitz)</li>
+        <li>First Responder Rucksäcke</li>
+        <li>Kindernotfalltasche</li>
+        <li>Ersatzsauerstoffflasche</li>
+        <li>230 Volt Einspeisung mit Heizung</li>
+        <li>Hänsch DBS 5000</li>
+        <li>LED Frontblitzer&nbsp;im Kühlergrill</li>
+        <li>LED Blitzer in der Kofferraumklappe Blau und Gelb</li>
+        <li>Fußtaster für Einsatzhorn</li>
+        <li>Freisprecheinrichtung für Digitalfunk</li>
+        <li>Rückfahrkamera</li>
+        <li>Luftfederung</li>
+        <li>Hochsichtbare Designbeklebung</li>
+        <li>Navigationssystem mit Routing durch ILS und Einsatzversand direkt auf das Display.&nbsp;</li>
+        <li>Eingaswarngerät CO</li>
+        <li>RLS 2000 mobiles Lichtsystem LED - Rosenbauer</li>
+        <li>Motorola HRT mit Ladeerhaltung Digitalfunk</li>
+        <li>Halligan Tool</li>
+        <li>Funk Rauchmelder mit SIM-Karte</li>
+        <li>Feuerlöscher ABF</li>
         <li>Bolzenschneider</li>
-        <li>10 Faltleitkegel</li>
-        <li>Brechstange</li>
-        <li>Türöffnungswerkzeug</li>
-        <li>Erste-Hilfe-Ausrüstung</li>
-        <li>Gasmessgerät</li>
-        <li>Ausrüstungsmodule zum Beispiel für Unwettereinsätze mit Motorsäge und Wassersauger, individuell beladbar</li>
-        <li>Zweite Sprechfunkstelle hinten im Fahrzeug</li>
-        <li>Umklappbarer Tisch</li>
-        <li>230 Volt Wechselrichter</li>
-        <li>Akkuladegerät für Akkuschrauber</li>
-        <li>Heckwarneinrichtung LED</li>
-        <li>Heckwarnbeklebung hochreflektierend</li>
-        <li>Neues Fahrzeugdesign in Donaustauf Optik</li>
+        <li>Handsäge</li>
+        <li>Infektionsschutzausrüstung</li>
       </ul>
     </FfPageSection>
   );

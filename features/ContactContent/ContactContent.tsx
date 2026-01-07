@@ -60,7 +60,7 @@ function ContactContent({ level, showPhone = true }: Readonly<ContactContentProp
           imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
           email="vorsitzender@feuerwehr-donaustauf.de"
           phone={showPhone ? '+49 1515 7590435' : undefined}
-          street=""
+          street="Baronstr. 1"
           town="93093 Donaustauf"
         />
         <ModernContactCard

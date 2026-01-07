@@ -55,12 +55,12 @@ function ContactContent({ level, showPhone = true }: Readonly<ContactContentProp
           town="93093 Donaustauf"
         />
         <ModernContactCard
-          name="Wolfgang Jaumann"
+          name="Maximilian Semmelmann"
           role="Stellvertretender Vorsitzender"
           imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
           email="vorsitzender@feuerwehr-donaustauf.de"
-          phone={showPhone ? '+49 176 64211895' : undefined}
-          street="Burgstr. 18"
+          phone={showPhone ? '+49 1515 7590435' : undefined}
+          street=""
           town="93093 Donaustauf"
         />
         <ModernContactCard

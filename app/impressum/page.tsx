@@ -23,7 +23,7 @@ function Impressum(): JSX.Element {
           <br />
           Vertreten durch: 1. Vorstand: Tobias Müller
           <br />
-          Vertretungsberechtigter Vorstand (§ 26 BGB): Wolfgang Jaumann
+          Vertretungsberechtigter Vorstand (§ 26 BGB): Maximilian Semmelmann
           <br />
           <br />
           <h2 className="text-xl uppercase sm:text-2xl lg:text-3xl dark:text-gray-200">Kontakt</h2>

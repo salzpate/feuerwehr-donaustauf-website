@@ -9,7 +9,7 @@ function Vorstandschaft(): JSX.Element {
   return (
     <FfPageSection headline="Vorstandschaft" id="vorstandschaft">
       <FunctionCard role="Vorsitzender" name="Tobias Müller" leadership className="mb-4" />
-      <FunctionCard role="Stellvertretender Vorsitzender" name="Wolfgang Jaumann" leadership className="mb-4" />
+      <FunctionCard role="Stellvertretender Vorsitzender" name="Maximilian Semmelmann" leadership className="mb-4" />
       <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <FunctionCard role="Schriftführer" name="Andreas Piwonka" />
         <FunctionCard role="Kassenwart" name="Martin Sendlbeck" />

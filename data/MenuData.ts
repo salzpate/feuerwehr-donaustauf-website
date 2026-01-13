@@ -144,9 +144,9 @@ export const MenuData: AppMenu = {
   ],
   footer: [
     {
-      children: 'Spenden',
-      href: '/spenden/',
-      activeMenuName: 'spenden',
+      children: 'Team Store',
+      href: 'https://werbung112.de/index.php/team-store/ff-donaustauf',
+      target: '_blank',
     },
     {
       children: 'Datenschutz',

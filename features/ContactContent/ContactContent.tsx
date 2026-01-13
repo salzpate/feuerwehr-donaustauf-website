@@ -14,15 +14,11 @@ interface ContactContentProps {
 function ContactContent({ level, showPhone = true }: Readonly<ContactContentProps>): JSX.Element {
   return (
     <FfPageSection headline="Kontakt" id="kontakt" level={level} className="page-section relative">
-      <div>
-        <b>Ohne Vorwahl. Aus jedem Netz. Europaweit.</b>
-      </div>
-      <div>
-        Europaweit können Sie über die einheitliche <b>Notrufnummer 112</b> rund um die Uhr Hilfe durch Feuerwehr und Rettungsdienst anfordern. In Bayern verbindet Sie der <b>Notruf 112</b> mit der örtlichen Integrierten Leitstelle – aus
-        allen Telefonnetzen vorwahl- und gebührenfrei.
-      </div>
-      <br />
-      <div>Hast du Fragen rund um die Feuerwehr Donaustauf? Wir versenden keine Ärmelabzeichen an Sammler.</div>
+      <div className="mb-2 font-bold">Wichtiger Hinweis:</div>
+      <div className="mb-2">Bitte nutzen Sie unsere Kontaktdaten nur für zeitunkritische und organisatorische Anfragen.</div>
+      <div className="mb-2">Bei einem Notfall rufen Sie unbedingt die 112 – rund um die Uhr und europaweit erreichbar.</div>
+      <div className="mb-2">NOTRUF 112 – für Feuerwehr und Rettungsdienst. Ohne Vorwahl. Aus jedem Netz. Europaweit und gebührenfrei.</div>
+      <div className="mb-2">Bitte beachten Sie bei der Kontaktaufnahme, dass wir keine Ärmelabzeichen versenden. Die Anfragen haben in letzter Zeit stark zugenommen.</div>
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-9">
         <FfLogoSvgIcon className="h-full w-full max-w-2xl" aria-hidden="true" />
       </div>

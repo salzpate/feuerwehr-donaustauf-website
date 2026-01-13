@@ -14,15 +14,20 @@ function SpendenContent({ level }: Readonly<SpendenContentProps>): JSX.Element {
   return (
     <FfPageSection headline="Spenden" level={level} id="spenden">
       <div className="page-section pb-8">
-        Die Ausbildung der Helferinnen und Helfer sowie die Anschaffung und Wartung der notwendigen Ausrüstung werden vollständig durch den Förderverein Freiwillige Feuerwehr Donaustauf e.V. finanziert. Um diese wichtige Aufgabe auch
-        künftig erfüllen zu können, ist der Verein weiterhin auf Spenden angewiesen.
+        <div className="font-bold">Unterstützen Sie unsere Feuerwehr – helfen Sie uns, zu helfen!</div>
+        <br />
+        Ob Feuerwehr, Kameradschaft oder unsere Jugendarbeit: Mit Ihrer Spende leisten Sie einen wertvollen Beitrag zur Sicherheit im Markt Donaustauf. Hier finden Sie unsere Kontodaten sowie einen direkten Link zu PayPal, um uns
+        unkompliziert zu unterstützen.
         <br />
         <br />
-        Die Marktgemeinde Donaustauf unterstützt diese Einrichtung in wertvoller Weise durch die Bereitstellung von Räumlichkeiten, Einsatzfahrzeugen und Verbrauchsmaterialien.
+        Unser Feuerwehrverein der Feuerwehr Markt Donaustauf hat die Aufgabe, die gemeindliche Pflichtaufgabe der Feuerwehr sowohl finanziell als auch personell zu fördern. Jede Unterstützung hilft, Ausrüstung zu beschaffen, Ausbildung zu
+        ermöglichen und den Nachwuchs für das Ehrenamt zu begeistern.
         <br />
         <br />
-        Mit einer Spende über PayPal oder auf das unten angegebene Konto können auch Sie einen Beitrag leisten und den First Responder unterstützen.
+        Ebenfalls können Sie unseren First Responder Dienst mit einer Spende unterstützen. Er wird ausschließlich durch Spendengelder sowie mit Unterstützung des Marktes Donaustauf betrieben.
         <br />
+        <br />
+        <div className="font-bold">Ihre Hilfe kommt an – direkt und vor Ort. Vielen Dank für Ihre Unterstützung!</div>
         <br />
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2">

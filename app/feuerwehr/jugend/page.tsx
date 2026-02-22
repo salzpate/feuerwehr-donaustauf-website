@@ -41,8 +41,8 @@ function Jugend(): JSX.Element {
       <FfPageSection headline="Jugendwarte" id="jugendwarte" level="h2" className="pb-6 sm:pb-8">
         <div>Die Jugendarbeit und Ausbildung unserer Jugendgruppe liegt in den Händen der Jugendwarte. Weitere Ausbilder aus der aktiven Mannschaft unterstützen bei Bedarf.</div>
         <div className="my-6 grid auto-rows-fr grid-cols-1 gap-6 sm:my-8 sm:grid-cols-2">
-          <ContactCard name="Stefanie Jobst" role="Jugendwartin" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
-          <ContactCard name="Andreas Piwonka" role="Jugendwart" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
+          <ContactCard name="Stefanie Jobst" role="Jugendwartin" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_fill,g_face,h_200,w_200,z_1.5/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
+          <ContactCard name="Andreas Piwonka" role="Jugendwart" imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_fill,g_face,h_200,w_200,z_1.5/v1762602468/foto_folgt_demnaechst_pxkcwp.png" email="jugend@feuerwehr-donaustauf.de" />
         </div>
       </FfPageSection>
     </article>

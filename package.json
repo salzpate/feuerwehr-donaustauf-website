@@ -22,7 +22,7 @@
     "@nivo/core": "^0.99.0",
     "@nivo/pie": "^0.99.0",
     "@react-spring/web": "^10.0.3",
-    "@salzpate/react-ui": "^1.4.11",
+    "@salzpate/react-ui": "^1.4.12",
     "@sanity/image-url": "^2.0.3",
     "axios": "^1.13.5",
     "clsx": "^2.1.1",
@@ -33,13 +33,13 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-swipeable": "^7.0.2",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@cloudinary-util/types": "^1.6.0",
-    "@eslint/js": "^9.39.2",
-    "@tailwindcss/postcss": "^4.1.18",
-    "@tailwindcss/vite": "^4.1.18",
+    "@eslint/js": "^9.39.3",
+    "@tailwindcss/postcss": "^4.2.0",
+    "@tailwindcss/vite": "^4.2.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
@@ -49,13 +49,13 @@
     "@vitest/coverage-v8": "^4.0.18",
     "@vitest/ui": "^4.0.18",
     "autoprefixer": "^10.4.24",
-    "eslint": "^9.39.2",
+    "eslint": "^9.39.3",
     "eslint-config-next": "^16.1.6",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "jsdom": "^28.0.0",
+    "jsdom": "^28.1.0",
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
@@ -63,13 +63,13 @@
     "stylelint-config-recommended": "^18.0.0",
     "stylelint-order": "^7.0.1",
     "stylelint-prettier": "^5.0.3",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^4.2.0",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
   },
   "optionalDependencies": {
-    "@tailwindcss/oxide-linux-x64-gnu": "^4.1.18",
+    "@tailwindcss/oxide-linux-x64-gnu": "^4.2.0",
     "lightningcss-linux-x64-gnu": "^1.31.1"
   }
 }

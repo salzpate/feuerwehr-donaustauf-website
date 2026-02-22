@@ -26,7 +26,7 @@ function ContactContent({ level, showPhone = true }: Readonly<ContactContentProp
         <ModernContactCard
           name="Christopher Möck"
           role="Federführender Kommandant"
-          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602470/moeck_jvxbce.jpg"
+          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_crop,g_face,h_400,w_400/v1762602470/moeck_jvxbce.jpg"
           email="kommandant@feuerwehr-donaustauf.de"
           phone={showPhone ? '+49 151 19146666' : undefined}
           street="Taxisstr. 2"
@@ -35,7 +35,7 @@ function ContactContent({ level, showPhone = true }: Readonly<ContactContentProp
         <ModernContactCard
           name="Patrick Schrödel"
           role="Stellvertretender Kommandant"
-          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602471/schroedel_szjmft.jpg"
+          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_crop,g_face,h_400,w_400/v1762602471/schroedel_pqm53d.jpg"
           email="stellv.kommandant@feuerwehr-donaustauf.de"
           phone={showPhone ? '+49 175 1657839' : undefined}
           street="Gregor-Mendel-Str. 5"
@@ -44,7 +44,7 @@ function ContactContent({ level, showPhone = true }: Readonly<ContactContentProp
         <ModernContactCard
           name="Tobias Müller"
           role="Vorsitzender"
-          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/mueller_ybcumm.jpg"
+          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_crop,g_face,h_600,w_600/v1762602468/mueller_ybcumm.jpg"
           email="vorsitzender@feuerwehr-donaustauf.de"
           phone={showPhone ? '+49 176 64211895' : undefined}
           street="Baronstr. 81"
@@ -53,7 +53,7 @@ function ContactContent({ level, showPhone = true }: Readonly<ContactContentProp
         <ModernContactCard
           name="Maximilian Semmelmann"
           role="Stellvertretender Vorsitzender"
-          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/semmelmann_ltmshm.jpg"
+          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_crop,g_face,h_400,w_400/v1762602468/semmelmann_ltmshm.jpg"
           email="vorsitzender@feuerwehr-donaustauf.de"
           phone={showPhone ? '+49 1515 7590435' : undefined}
           street="Baronstr. 1"
@@ -62,7 +62,7 @@ function ContactContent({ level, showPhone = true }: Readonly<ContactContentProp
         <ModernContactCard
           name="Stefanie Jobst"
           role="Jugendwartin"
-          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
+          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_400,w_400/v1762602468/foto_folgt_demnaechst_pxkcwp.png"
           email="jugend@feuerwehr-donaustauf.de"
           phone={showPhone ? '' : undefined}
           street="Gregor-Mendel-Str. 5"
@@ -71,7 +71,7 @@ function ContactContent({ level, showPhone = true }: Readonly<ContactContentProp
         <ModernContactCard
           name="Feuerwehrgerätehaus"
           role=""
-          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_200,w_200/v1762602468/feuerwehrgertehaus_h0irmq.jpg"
+          imageSrc="https://res.cloudinary.com/dzirm6srd/image/upload/c_thumb,h_400,w_400/v1762602468/feuerwehrgertehaus_h0irmq.jpg"
           email="feuerwehr@feuerwehr-donaustauf.de"
           phone={showPhone ? '+49 9403 8205' : undefined}
           street="Regensburger Str. 9"

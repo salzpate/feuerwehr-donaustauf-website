@@ -45,11 +45,13 @@ function OperationSidebar(props: Readonly<OperationSidebarProps>): JSX.Element {
             {showCategory && <div className="pt-2" />}
             <>
               <h3 className="mb-2 text-lg font-medium text-secondary uppercase sm:text-lg lg:text-xl dark:text-secondary-dark">JAHR</h3>
-              {years.map(opsYear => (
-                <OperationCatLink key={opsYear} href={path.join(`/${operationPath}`, opsYear.toString()) + '/'} active={year === opsYear}>
-                  {opsYear}
-                </OperationCatLink>
-              ))}
+              {[...years]
+                .sort((a, b) => b - a)
+                .map(opsYear => (
+                  <OperationCatLink key={opsYear} href={path.join(`/${operationPath}`, opsYear.toString()) + '/'} active={year === opsYear}>
+                    {opsYear}
+                  </OperationCatLink>
+                ))}
             </>
           </>
         )}

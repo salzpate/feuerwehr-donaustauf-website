@@ -183,3 +183,21 @@ NEWSLETTER=https://...
 - Trailing Slashes aktiviert
 - Source Maps in Production deaktiviert
 - Compression aktiviert
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## Next.js Bundled Documentation
+
+This project uses Next.js. Before writing any Next.js code, read the bundled documentation to ensure you use the correct, version-matched APIs and patterns.
+
+The documentation is located at: `node_modules/next/dist/docs/`
+
+Key sections:
+- `node_modules/next/dist/docs/01-app/` — App Router guides and API reference
+- `node_modules/next/dist/docs/02-pages/` — Pages Router guides and API reference
+- `node_modules/next/dist/docs/03-architecture/` — Next.js architecture
+- `node_modules/next/dist/docs/index.md` — Documentation index
+
+Always consult these docs for routing, data fetching, caching, and any other Next.js feature to avoid using outdated patterns from training data.
+
+<!-- END:nextjs-agent-rules -->

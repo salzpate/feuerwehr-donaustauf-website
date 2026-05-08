@@ -22,7 +22,7 @@
     "@nivo/core": "^0.99.0",
     "@nivo/pie": "^0.99.0",
     "@react-spring/web": "^10.0.3",
-    "@salzpate/react-ui": "^1.5.5",
+    "@salzpate/react-ui": "^1.5.6",
     "@sanity/image-url": "^2.1.1",
     "axios": "^1.16.0",
     "clsx": "^2.1.1",

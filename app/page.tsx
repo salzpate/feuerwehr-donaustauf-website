@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { PortableText, PortableTextComponents } from 'next-sanity';
 import { JSX } from 'react';
@@ -35,6 +36,19 @@ const portableTextComponents: PortableTextComponents = {
       );
     },
     code: ({ children }) => <code className="rounded bg-gray-100 px-1.5 py-0.5 font-mono text-sm text-red-600 dark:bg-gray-800 dark:text-red-400">{children}</code>,
+  },
+  types: {
+    imageUrl: ({ value }) => {
+      if (!value?.url) {
+        return null;
+      }
+
+      return (
+        <figure className="my-4">
+          <Image src={value.url} alt={value.alt ?? ''} width={1200} height={800} className="h-auto w-full max-w-full rounded-lg" sizes="(max-width: 768px) 100vw, 800px" style={{ width: '100%', height: 'auto' }} />
+        </figure>
+      );
+    },
   },
   block: {
     h1: ({ children }) => <h1 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">{children}</h1>,

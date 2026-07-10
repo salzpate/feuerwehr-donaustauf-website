@@ -51,7 +51,7 @@ function BeitrittContent({ level, showContact = true }: Readonly<BeitrittContent
           <h3 className="mb-4 text-lg tracking-tight text-secondary uppercase sm:text-xl lg:text-xl lg:font-medium dark:text-secondary-dark">Beitrittserklärung</h3>
           <div className="mb-4">Über den folgenden Link gelangen Sie direkt zu unserer Beitrittserklärung. Bitte senden Sie das ausgefüllte und unterschriebene Formular an unsere Adresse.</div>
           <div className="mt-4">
-            <ButtonLink href="/assets/Beitritt.pdf" target="_blank" className="flex w-75 items-center">
+            <ButtonLink href="/assets/Beitrittserklaerung_FF_Donaustauf.pdf" target="_blank" className="flex w-75 items-center">
               <span className="mr-2">
                 <ArrowDownTraySvgIcon />
               </span>
